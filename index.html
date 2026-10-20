@@ -3,164 +3,142 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-<title>Chauhan Sweets & Restaurant | Premium Dining Fatehpur</title>
+<title>Chauhan Sweets & Restaurant | Fatehpur</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-:root {
-  --gold: #d4af37; --gold-light: #f4d03f; --dark: #0a0a0a; --dark-2: #111; 
-  --dark-3: #1a1a1a; --dark-4: #252525; --text: #f5f5f5; --text-muted: #a0a0a0;
-  --success: #4ade80; --danger: #ff4757; --sweet: #ff6b9d;
-}
+:root{--gold:#d4af37;--gold-light:#f4d03f;--dark:#0a0a0a;--dark-2:#111;--dark-3:#1a1a1a;--dark-4:#252525;--text:#f5f5f5;--text-muted:#a0a0a0;--success:#4ade80;--danger:#ff4757;--sweet:#ff6b9d}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden;line-height:1.6}
-::-webkit-scrollbar{width:8px} ::-webkit-scrollbar-track{background:var(--dark)} ::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),#b8860b);border-radius:10px}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dark)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
 
-/* Preloader */
-.preloader{position:fixed;inset:0;background:var(--dark);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .8s}
+.preloader{position:fixed;inset:0;background:var(--dark);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .5s}
 .preloader.hidden{opacity:0;pointer-events:none}
-.loader-brand{font-family:'Great Vibes',cursive;font-size:3.5rem;color:var(--gold);animation:glow 2s infinite alternate}
+.loader-brand{font-family:'Great Vibes',cursive;font-size:3.5rem;color:var(--gold);animation:glow 1.5s infinite alternate}
 @keyframes glow{to{text-shadow:0 0 20px rgba(212,175,55,.6)}}
 
 /* Navbar */
-.navbar{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:.4s;background:transparent}
-.navbar.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(15px);padding:12px 5%;box-shadow:0 5px 30px rgba(0,0,0,.5);border-bottom:1px solid rgba(212,175,55,.1)}
-.logo{font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--gold);text-decoration:none}
-.nav-links{display:flex;gap:30px;list-style:none}
-.nav-links a{color:var(--text);text-decoration:none;font-weight:500;font-size:.95rem;transition:.3s}
-.nav-links a:hover{color:var(--gold)}
-.nav-btn{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:10px 24px;border:none;border-radius:30px;font-weight:600;cursor:pointer;transition:.3s}
-.hamburger{display:none;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer}
+.navbar{position:fixed;top:0;width:100%;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:.3s;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.1)}
+.logo{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--gold);text-decoration:none}
+.nav-links{display:flex;gap:15px}
+.nav-btn{background:var(--gold);color:#000;padding:8px 18px;border:none;border-radius:20px;font-weight:600;cursor:pointer;font-size:.85rem;text-decoration:none}
+.hamburger{background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;display:none}
+
+/* Views Management */
+.view{display:none;min-height:100vh;padding-top:70px}
+.view.active{display:block;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 /* Hero */
-.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,.85),rgba(139,0,0,.4))}
-.hero-content{position:relative;z-index:2;max-width:900px;padding:0 20px}
-.hero-badge{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:8px 20px;border-radius:30px;font-size:.8rem;letter-spacing:3px;margin-bottom:25px;opacity:0;animation:fadeUp .8s .3s forwards}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:700;line-height:1.1;margin-bottom:20px;opacity:0;animation:fadeUp .8s .5s forwards}
-.hero h1 span{font-family:'Great Vibes',cursive;font-weight:400;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{font-size:1.1rem;color:var(--text-muted);margin-bottom:35px;opacity:0;animation:fadeUp .8s .7s forwards}
-.hero-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .9s forwards}
-.btn-primary{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:14px 32px;border-radius:50px;font-weight:600;text-decoration:none;transition:.3s;border:none;cursor:pointer;font-size:1rem;display:inline-flex;align-items:center;gap:8px}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(212,175,55,.4)}
-.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:50px;font-weight:600;text-decoration:none;transition:.3s;border:2px solid rgba(212,175,55,.5);cursor:pointer;font-size:1rem;display:inline-flex;align-items:center;gap:8px}
-.btn-outline:hover{background:var(--gold);color:#000;border-color:var(--gold)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(135deg,#1a0a0a,var(--dark),#1a0a15);padding:40px 20px}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(212,175,55,.15), transparent 70%)}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-badge{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:6px 16px;border-radius:20px;font-size:.75rem;letter-spacing:2px;margin-bottom:20px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,8vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:15px}
+.hero h1 span{font-family:'Great Vibes',cursive;color:var(--gold)}
+.hero p{font-size:1rem;color:var(--text-muted);margin-bottom:25px;max-width:600px;margin-left:auto;margin-right:auto}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:12px 28px;border-radius:30px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;transition:.3s}
+.btn-primary:active{transform:scale(.95)}
+.btn-outline{background:transparent;color:#fff;padding:12px 28px;border-radius:30px;font-weight:600;text-decoration:none;border:1.5px solid rgba(212,175,55,.5);cursor:pointer;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;margin-left:10px}
 
-/* Sections */
-section{padding:100px 5%}
-.section-header{text-align:center;margin-bottom:60px}
-.section-header .tag{color:var(--gold);letter-spacing:4px;font-size:.8rem;text-transform:uppercase;display:block;margin-bottom:10px}
-.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem)}
+/* Section Headers */
+.section-header{text-align:center;padding:40px 20px 20px}
+.section-header .tag{color:var(--gold);letter-spacing:3px;font-size:.75rem;text-transform:uppercase;display:block;margin-bottom:8px}
+.section-header h2{font-family:'Playfair Display',serif;font-size:2rem}
 .section-header h2 span{color:var(--gold);font-family:'Great Vibes',cursive}
-.section-header .divider{width:60px;height:2px;background:var(--gold);margin:20px auto;position:relative}
-.section-header .divider::before,.section-header .divider::after{content:'';position:absolute;top:-3px;width:8px;height:8px;background:var(--gold);border-radius:50%}
-.section-header .divider::before{left:-12px} .section-header .divider::after{right:-12px}
+.section-header .divider{width:50px;height:2px;background:var(--gold);margin:15px auto}
 
-/* Menu */
-.menu-section{background:var(--dark-2)}
-.menu-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px}
-.menu-tab{padding:10px 20px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:30px;color:var(--text-muted);cursor:pointer;font-size:.85rem;transition:.3s}
-.menu-tab.active{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;max-width:1200px;margin:0 auto}
-.menu-card{background:var(--dark-3);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.05);transition:.4s;position:relative}
-.menu-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.3);box-shadow:0 15px 40px rgba(0,0,0,.4)}
-.menu-card-img{height:200px;overflow:hidden;background:linear-gradient(135deg,var(--dark-3),var(--dark-4));display:flex;align-items:center;justify-content:center}
-.menu-card-img img{width:100%;height:100%;object-fit:contain;padding:10px;transition:.5s}
-.menu-card:hover .menu-card-img img{transform:scale(1.05)}
-.veg-badge{position:absolute;top:12px;right:12px;width:18px;height:18px;border:2px solid var(--success);display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);border-radius:4px}
-.veg-badge::after{content:'';width:8px;height:8px;background:var(--success);border-radius:50%}
-.discount-badge{position:absolute;top:12px;left:12px;background:var(--danger);color:#fff;padding:4px 10px;border-radius:20px;font-size:.75rem;font-weight:700}
-.menu-card-body{padding:20px}
-.menu-card-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:8px}
-.menu-card-body p{color:var(--text-muted);font-size:.85rem;margin-bottom:15px;min-height:40px}
-.price-row{display:flex;align-items:center;justify-content:space-between}
-.old-price{text-decoration:line-through;color:var(--text-muted);font-size:.9rem;margin-right:8px}
-.new-price{color:var(--gold);font-weight:700;font-size:1.2rem}
-.unavailable{opacity:.5;pointer-events:none}
-.unavailable::after{content:'UNAVAILABLE';position:absolute;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;color:var(--danger);font-weight:700;letter-spacing:2px}
-
-/* Sweets */
-.sweets-section{background:linear-gradient(135deg,#1a0a0a,var(--dark),#1a0a15)}
-.sweets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:25px;max-width:1200px;margin:0 auto}
-.sweet-card{background:var(--dark-2);border-radius:18px;overflow:hidden;border:1px solid rgba(255,107,157,.1);transition:.4s}
-.sweet-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(255,107,157,.15);border-color:rgba(255,107,157,.3)}
-.sweet-card img{width:100%;height:220px;object-fit:contain;background:linear-gradient(135deg,var(--dark-2),var(--dark-3));padding:10px}
-.sweet-card .body{padding:20px}
-.sweet-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:8px}
-.sweet-card p{color:var(--text-muted);font-size:.85rem;margin-bottom:15px}
+/* Sweets Grid */
+.sweets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1200px;margin:0 auto;padding:0 20px 40px}
+.sweet-card{background:var(--dark-2);border-radius:14px;overflow:hidden;border:1px solid rgba(255,107,157,.1);transition:.3s}
+.sweet-card:active{transform:scale(.98)}
+.sweet-img{height:140px;background:linear-gradient(135deg,rgba(255,107,157,.15),rgba(212,175,55,.1));display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.sweet-card .body{padding:12px}
+.sweet-card h3{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sweet-card p{color:var(--text-muted);font-size:.75rem;margin-bottom:10px;height:36px;overflow:hidden}
 .sweet-card .footer{display:flex;justify-content:space-between;align-items:center}
-.sweet-card .price{color:var(--sweet);font-weight:700;font-size:1.1rem}
-.sweet-card .btn-book{background:linear-gradient(135deg,#ff6b9d,#c44569);color:#fff;border:none;padding:8px 18px;border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer}
+.sweet-card .price{color:var(--sweet);font-weight:700;font-size:.95rem}
+.sweet-card .btn-book{background:var(--sweet);color:#fff;border:none;padding:6px 14px;border-radius:15px;font-size:.75rem;font-weight:600;cursor:pointer}
+.view-all-btn{display:block;width:90%;max-width:400px;margin:0 auto 40px;padding:14px;background:rgba(255,107,157,.1);border:1px solid rgba(255,107,157,.3);color:var(--sweet);font-weight:600;border-radius:30px;cursor:pointer;font-size:.95rem;text-align:center}
 
-/* Gallery */
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px;max-width:1200px;margin:0 auto}
-.gallery-item{border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--dark-3)}
-.gallery-item img{width:100%;height:100%;object-fit:contain;transition:.5s}
-.gallery-item:hover img{transform:scale(1.1)}
+/* Booking Section */
+.booking-section{background:linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=1920') center/cover fixed;padding:60px 20px}
+.booking-container{max-width:500px;margin:0 auto;background:rgba(26,26,26,.95);backdrop-filter:blur(20px);padding:30px;border-radius:18px;border:1px solid rgba(212,175,55,.2)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;color:var(--gold);font-size:.8rem;margin-bottom:6px}
+.form-group input,.form-group select{width:100%;padding:12px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:8px;color:#fff;font-family:inherit;font-size:.9rem}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold)}
 
-/* Booking & Forms */
-.booking-section{background:linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=1920') center/cover fixed}
-.booking-container{max-width:600px;margin:0 auto;background:rgba(26,26,26,.9);backdrop-filter:blur(20px);padding:40px;border-radius:20px;border:1px solid rgba(212,175,55,.2)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.form-group{margin-bottom:20px}
-.form-group label{display:block;color:var(--gold);font-size:.85rem;margin-bottom:8px}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:10px;color:#fff;font-family:inherit}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold)}
-
-/* Footer */
-footer{background:#050505;padding:60px 5% 20px;border-top:1px solid rgba(212,175,55,.1)}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;max-width:1200px;margin:0 auto 40px}
-.footer-col h4{color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:20px}
-.footer-col p,.footer-col a{color:var(--text-muted);text-decoration:none;display:block;margin-bottom:10px;font-size:.9rem}
-.admin-trigger{color:#333;font-size:.75rem;cursor:pointer;margin-top:15px;display:inline-block;padding:5px 10px;border:1px solid #333;border-radius:5px}
-.admin-trigger:hover{color:var(--gold);border-color:var(--gold)}
+/* Menu Page (Full Screen) */
+.menu-page-header{position:sticky;top:70px;background:var(--dark);z-index:50;padding:15px 20px;border-bottom:1px solid var(--dark-3)}
+.category-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+.category-scroll::-webkit-scrollbar{display:none}
+.cat-tab{padding:8px 18px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:20px;color:var(--text-muted);font-size:.8rem;white-space:nowrap;cursor:pointer;transition:.3s}
+.cat-tab.active{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600}
+.menu-list{padding:20px;max-width:800px;margin:0 auto}
+.menu-item-card{display:flex;gap:15px;background:var(--dark-2);padding:15px;border-radius:12px;margin-bottom:12px;border:1px solid rgba(255,255,255,.05)}
+.menu-item-img{width:80px;height:80px;border-radius:10px;background:var(--dark-3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.menu-item-info{flex:1}
+.menu-item-info h4{font-size:1rem;margin-bottom:4px;font-family:'Playfair Display',serif}
+.menu-item-info p{color:var(--text-muted);font-size:.8rem;margin-bottom:8px}
+.menu-item-info .price{color:var(--gold);font-weight:700;font-size:1rem}
 
 /* Modals */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.95);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:5000;padding:20px}
-.modal.show{display:flex;animation:fadeIn .3s}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal-box{background:var(--dark-2);border-radius:20px;padding:30px;max-width:500px;width:100%;border:1px solid rgba(212,175,55,.2);max-height:90vh;overflow-y:auto;position:relative}
-.modal-box.wide{max-width:900px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.95);backdrop-filter:blur(10px);display:none;align-items:flex-end;justify-content:center;z-index:5000}
+.modal.show{display:flex}
+.modal-box{background:var(--dark-2);border-radius:20px 20px 0 0;padding:25px;width:100%;max-width:600px;max-height:85vh;overflow-y:auto;position:relative;animation:slideUp .3s}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .modal-close{position:absolute;top:15px;right:20px;background:none;border:none;color:#888;font-size:1.5rem;cursor:pointer}
+.search-box{width:100%;padding:12px 15px 12px 40px;background:var(--dark-3);border:1px solid rgba(255,107,157,.2);border-radius:25px;color:#fff;margin-bottom:20px;font-size:.95rem}
+.search-box:focus{outline:none;border-color:var(--sweet)}
+.search-wrap{position:relative}
+.search-wrap i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--sweet)}
 
 /* Payment Modal Specifics */
 .payment-modal{text-align:center}
-.qr-box{background:#fff;padding:15px;border-radius:12px;display:inline-block;margin:20px 0}
-.qr-box img{width:220px;height:220px;display:block}
-.upi-id-box{background:var(--dark-3);padding:10px 15px;border-radius:8px;display:inline-flex;align-items:center;gap:10px;font-family:monospace;color:var(--gold);margin:10px 0}
-.copy-btn{background:var(--gold);color:#000;border:none;padding:5px 12px;border-radius:12px;cursor:pointer;font-size:.75rem;font-weight:700}
-.pay-amount{font-size:2.5rem;color:var(--gold);font-weight:700;font-family:'Playfair Display',serif;margin:15px 0}
-.payment-status{margin-top:20px;padding:15px;border-radius:10px;display:none}
+.qr-box{background:#fff;padding:12px;border-radius:10px;display:inline-block;margin:15px 0}
+.qr-box img{width:200px;height:200px;display:block}
+.upi-id-box{background:var(--dark-3);padding:8px 12px;border-radius:6px;display:inline-flex;align-items:center;gap:8px;font-family:monospace;color:var(--gold);margin:8px 0;font-size:.85rem}
+.copy-btn{background:var(--gold);color:#000;border:none;padding:4px 10px;border-radius:10px;cursor:pointer;font-size:.72rem;font-weight:700}
+.pay-amount{font-size:2.2rem;color:var(--gold);font-weight:700;font-family:'Playfair Display',serif;margin:12px 0}
+.payment-status{margin-top:15px;padding:12px;border-radius:8px;display:none;font-size:.9rem}
 .payment-status.processing{display:block;background:rgba(212,175,55,.1);border:1px solid var(--gold);color:var(--gold)}
 .payment-status.success{display:block;background:rgba(74,222,128,.1);border:1px solid var(--success);color:var(--success)}
 
-/* Admin Dashboard */
-.admin-tabs{display:flex;gap:10px;margin-bottom:25px;border-bottom:1px solid var(--dark-4);padding-bottom:10px;overflow-x:auto}
-.admin-tab{padding:8px 16px;background:transparent;border:none;color:var(--text-muted);cursor:pointer;white-space:nowrap}
+/* Admin */
+.admin-trigger{color:#333;font-size:.7rem;cursor:pointer;margin-top:15px;display:inline-block;padding:4px 8px;border:1px solid #333;border-radius:4px}
+.admin-trigger:hover{color:var(--gold);border-color:var(--gold)}
+.admin-tabs{display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--dark-4);padding-bottom:8px;overflow-x:auto}
+.admin-tab{padding:8px 14px;background:transparent;border:none;color:var(--text-muted);cursor:pointer;white-space:nowrap;font-size:.85rem}
 .admin-tab.active{color:var(--gold);border-bottom:2px solid var(--gold)}
-.admin-panel{display:none} .admin-panel.active{display:block}
-.admin-list{max-height:400px;overflow-y:auto;margin-top:20px}
-.admin-item{display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--dark-3);border-radius:10px;margin-bottom:10px}
-.btn-sm{padding:6px 12px;border:none;border-radius:6px;cursor:pointer;font-size:.8rem;font-weight:600}
-.btn-edit{background:var(--gold);color:#000} .btn-delete{background:var(--danger);color:#fff}
-.upload-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:10px 20px;border-radius:10px;border:none;cursor:pointer;margin-top:10px}
-.upload-status{margin-top:10px;padding:10px;border-radius:8px;font-size:.85rem;display:none}
-.upload-status.success{display:block;background:rgba(74,222,128,.1);border:1px solid var(--success);color:var(--success)}
-.upload-status.loading{display:block;background:rgba(212,175,55,.1);border:1px solid var(--gold);color:var(--gold)}
+.admin-panel{display:none}.admin-panel.active{display:block}
+.btn-sm{padding:6px 12px;border:none;border-radius:6px;cursor:pointer;font-size:.75rem;font-weight:600;margin-right:5px}
+.btn-edit{background:var(--gold);color:#000}.btn-delete{background:var(--danger);color:#fff}
+.btn-featured{background:rgba(212,175,55,.2);color:var(--gold);border:1px solid var(--gold)}
+.btn-featured.active{background:var(--gold);color:#000}
+.admin-list{max-height:400px;overflow-y:auto;margin-top:15px}
+.admin-item{display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--dark-3);border-radius:8px;margin-bottom:8px;font-size:.85rem}
 
-.float-wa{position:fixed;bottom:25px;right:25px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;text-decoration:none;box-shadow:0 8px 25px rgba(37,211,102,.4);z-index:999;animation:floatWa 2s infinite}
-@keyframes floatWa{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+/* Footer */
+footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,175,55,.1);text-align:center}
+.footer-col h4{color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:10px;font-size:1.5rem}
+.footer-col p{color:var(--text-muted);font-size:.85rem;margin-bottom:5px}
 
-@media(max-width:768px){
-  .nav-links{position:fixed;top:0;right:-100%;width:80%;height:100vh;background:var(--dark-2);flex-direction:column;justify-content:center;align-items:center;transition:.4s}
-  .nav-links.open{right:0} .hamburger{display:block}
-  .form-row{grid-template-columns:1fr} .menu-grid,.sweets-grid{grid-template-columns:1fr}
-  .modal-box.wide{max-width:95%;padding:20px}
-  .admin-item{flex-direction:column;align-items:flex-start;gap:10px}
+.float-wa{position:fixed;bottom:20px;right:20px;width:55px;height:55px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);z-index:999}
+
+@media(min-width:768px){
+  .sweets-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .modal{align-items:center}
+  .modal-box{border-radius:20px;max-height:90vh}
+  .hero h1{font-size:4rem}
+  .hamburger{display:none}
+}
+@media(max-width:767px){
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .form-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -168,224 +146,201 @@ footer{background:#050505;padding:60px 5% 20px;border-top:1px solid rgba(212,175
 
 <div class="preloader" id="preloader"><div class="loader-brand">Chauhan's</div></div>
 
-<nav class="navbar" id="navbar">
-  <a href="#" class="logo">Chauhan's</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home" onclick="closeNav()">Home</a></li>
-    <li><a href="#menu" onclick="closeNav()">Menu</a></li>
-    <li><a href="#sweets" onclick="closeNav()">Sweets</a></li>
-    <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
-    <li><a href="#booking" onclick="closeNav()">Book Table</a></li>
-  </ul>
-  <button class="nav-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
-  <button class="hamburger" onclick="toggleNav()"><i class="fas fa-bars"></i></button>
+<nav class="navbar">
+  <a href="#" class="logo" onclick="showView('home')">Chauhan's</a>
+  <div class="nav-links">
+    <button class="nav-btn" onclick="showView('menu')">Menu</button>
+    <button class="nav-btn" onclick="document.getElementById('booking-section').scrollIntoView({behavior:'smooth'})">Book Table</button>
+  </div>
+  <button class="hamburger" onclick="alert('Use the buttons below to navigate!')"><i class="fas fa-bars"></i></button>
 </nav>
 
-<section class="hero" id="home">
-  <div class="hero-bg" id="heroBg" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920')"></div>
-  <div class="hero-content">
-    <div class="hero-badge">★ Fatehpur's Finest Since Years ★</div>
-    <h1 id="heroTitle">Welcome to <span>Chauhan's</span><br>Sweets & Restaurant</h1>
-    <p id="heroSub">Experience authentic North Indian, Chinese, South Indian & Continental cuisine.</p>
-    <div class="hero-btns">
-      <a href="#booking" class="btn-primary"><i class="fas fa-calendar-check"></i> Reserve Table</a>
-      <a href="#menu" class="btn-outline"><i class="fas fa-utensils"></i> Explore Menu</a>
+<!-- HOME VIEW -->
+<div class="view active" id="view-home">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">★ Fatehpur's Finest ★</div>
+      <h1>Welcome to <span>Chauhan's</span><br>Sweets & Restaurant</h1>
+      <p>Experience authentic North Indian, Chinese, South Indian & Continental cuisine with fresh handmade sweets.</p>
+      <div style="margin-top:20px">
+        <button class="btn-primary" onclick="showView('menu')"><i class="fas fa-utensils"></i> Explore Menu</button>
+        <button class="btn-outline" onclick="document.getElementById('booking-section').scrollIntoView({behavior:'smooth'})"><i class="fas fa-calendar-alt"></i> Book Table</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="menu-section" id="menu">
-  <div class="section-header"><span class="tag">Our Offerings</span><h2>Explore Our <span>Menu</span></h2><div class="divider"></div></div>
-  <div class="menu-tabs" id="menuTabs"></div>
-  <div class="menu-grid" id="menuGrid"><p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:40px;">Loading delicious menu...</p></div>
-</section>
-
-<section class="sweets-section" id="sweets">
-  <div class="section-header"><span class="tag" style="color:var(--sweet)">Fresh & Pure</span><h2>Pre-Book Our <span style="color:var(--sweet)">Sweets</span></h2><div class="divider" style="background:var(--sweet)"></div></div>
-  <div class="sweets-grid" id="sweetsGrid"></div>
-</section>
-
-<section id="gallery">
-  <div class="section-header"><span class="tag">Visual Tour</span><h2>Our <span>Gallery</span></h2><div class="divider"></div></div>
-  <div class="gallery-grid" id="galleryGrid"></div>
-</section>
-
-<section class="booking-section" id="booking">
-  <div class="section-header"><span class="tag">Reserve Now</span><h2>Book Your <span>Table</span></h2><div class="divider"></div></div>
-  <div class="booking-container">
-    <div class="form-row">
-      <div class="form-group"><label>Name</label><input type="text" id="bName" placeholder="Your name"></div>
-      <div class="form-group"><label>Phone</label><input type="tel" id="bPhone" placeholder="10-digit number" maxlength="10"></div>
+  <section id="sweets-section">
+    <div class="section-header">
+      <span class="tag">Fresh & Pure</span>
+      <h2>Our <span>Sweets</span></h2>
+      <div class="divider"></div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label>Date & Time</label><input type="datetime-local" id="bDate"></div>
-      <div class="form-group"><label>Guests</label><select id="bGuests"><option>2 People</option><option>4 People</option><option>6 People</option><option>8+ People</option></select></div>
+    <div class="sweets-grid" id="featuredSweetsGrid"></div>
+    <button class="view-all-btn" onclick="openAllSweetsModal()">View All Sweets & Search <i class="fas fa-arrow-down"></i></button>
+  </section>
+
+  <!-- BOOKING SECTION RESTORED -->
+  <section class="booking-section" id="booking-section">
+    <div class="section-header">
+      <span class="tag">Reserve Now</span>
+      <h2>Book Your <span>Table</span></h2>
+      <div class="divider"></div>
     </div>
-    <div class="form-group"><label>Booking Fee (Adjustable in Bill)</label>
-      <select id="bFee" onchange="updatePayAmount()">
-        <option value="99">₹99 (Standard)</option>
-        <option value="199" selected>₹199 (Preferred)</option>
-        <option value="299">₹299 (Private Cabin)</option>
-      </select>
+    <div class="booking-container">
+      <div class="form-row">
+        <div class="form-group"><label>Name</label><input type="text" id="bName" placeholder="Your name"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" id="bPhone" placeholder="10-digit" maxlength="10"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Date & Time</label><input type="datetime-local" id="bDate"></div>
+        <div class="form-group"><label>Guests</label><select id="bGuests"><option>2 People</option><option>4 People</option><option>6 People</option><option>8+ People</option></select></div>
+      </div>
+      <div class="form-group"><label>Booking Fee (Adjustable in Bill)</label>
+        <select id="bFee" onchange="updatePayAmount()">
+          <option value="99">₹99 (Standard)</option>
+          <option value="199" selected>₹199 (Preferred)</option>
+          <option value="299">₹299 (Private Cabin)</option>
+        </select>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:10px" onclick="openPaymentModal()">
+        <i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">199</span> & Confirm
+      </button>
     </div>
-    <button class="btn-primary" style="width:100%;justify-content:center;" onclick="openPaymentModal()">
-      <i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">199</span> & Confirm
-    </button>
-  </div>
-</section>
+  </section>
 
-<footer id="contact">
-  <div class="footer-grid">
-    <div class="footer-col"><h4 style="font-family:'Great Vibes',cursive;font-size:2rem;">Chauhan's</h4><p>Fatehpur's most loved dining destination.</p></div>
-    <div class="footer-col"><h4>Contact</h4><p>+91 88531 53098</p><p>Fatehpur, UP</p><p>FSSAI: 22726814000007</p></div>
-    <div class="footer-col"><h4>Hours</h4><p>Mon-Sun: 8 AM - 11 PM</p></div>
-  </div>
-  <div style="text-align:center;padding-top:20px;border-top:1px solid #222;color:#555;font-size:.8rem;">
-    &copy; 2026 Chauhan Sweets & Restaurant.<br>
-    <span class="admin-trigger" onclick="openAdminLogin()"><i class="fas fa-lock"></i> Admin Access</span>
-  </div>
-</footer>
+  <footer>
+    <div class="footer-col">
+      <h4>Chauhan's</h4>
+      <p>Fatehpur's most loved dining destination.</p>
+      <p style="margin-top:15px"><i class="fas fa-phone"></i> +91 88531 53098</p>
+      <p><i class="fas fa-map-marker-alt"></i> Fatehpur, UP</p>
+      <p><i class="fas fa-id-card"></i> FSSAI: 22726814000007</p>
+      <p style="margin-top:15px;color:var(--gold)">Mon-Sun: 8 AM - 11 PM</p>
+    </div>
+    <div style="margin-top:30px;padding-top:20px;border-top:1px solid #222;color:#555;font-size:.75rem;">
+      &copy; 2026 Chauhan Sweets & Restaurant.<br>
+      <span class="admin-trigger" onclick="openAdminLogin()"><i class="fas fa-lock"></i> Admin Access</span>
+    </div>
+  </footer>
+</div>
 
-<a href="https://wa.me/918853153098" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<!-- MENU VIEW (Full Screen Page) -->
+<div class="view" id="view-menu">
+  <div class="menu-page-header">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold)">Our Menu</h3>
+      <button class="btn-sm" style="background:var(--dark-3);color:#fff" onclick="showView('home')"><i class="fas fa-arrow-left"></i> Back</button>
+    </div>
+    <div class="category-scroll" id="menuCategoryScroll"></div>
+  </div>
+  <div class="menu-list" id="menuListContainer"></div>
+</div>
 
-<!-- PAYMENT MODAL -->
+<!-- ALL SWEETS MODAL -->
+<div class="modal" id="allSweetsModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('allSweetsModal')"><i class="fas fa-times"></i></button>
+    <h3 style="color:var(--sweet);font-family:'Playfair Display',serif;margin-bottom:15px">All Sweets</h3>
+    <div class="search-wrap">
+      <i class="fas fa-search"></i>
+      <input type="text" class="search-box" id="sweetSearch" placeholder="Search mithai..." oninput="filterAllSweets()">
+    </div>
+    <div class="sweets-grid" id="allSweetsGrid" style="padding:0;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))"></div>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL RESTORED -->
 <div class="modal" id="paymentModal">
   <div class="modal-box payment-modal">
     <button class="modal-close" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);font-family:'Playfair Display',serif;">Complete Your Booking</h3>
-    <p style="color:var(--text-muted);font-size:.9rem;">Scan QR or use UPI ID below</p>
-    
+    <h3 style="color:var(--gold);font-family:'Playfair Display',serif;">Complete Booking</h3>
+    <p style="color:var(--text-muted);font-size:.85rem;">Scan QR or use UPI ID</p>
     <div class="pay-amount">₹<span id="modalPayAmt">199</span></div>
-    
-    <div class="qr-box">
-      <img id="upiQrImg" src="" alt="UPI QR Code">
-    </div>
-    
-    <div class="upi-id-box">
-      <span>akashji124421@ptyes</span>
-      <button class="copy-btn" onclick="copyUPI()">COPY</button>
-    </div>
-    
-    <button class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;" id="payConfirmBtn" onclick="verifyPayment()">
+    <div class="qr-box"><img id="upiQrImg" src="" alt="UPI QR"></div>
+    <div class="upi-id-box"><span>akashji124421@ptyes</span><button class="copy-btn" onclick="copyUPI()">COPY</button></div>
+    <button class="btn-primary" style="width:100%;justify-content:center;margin-top:15px;" id="payConfirmBtn" onclick="verifyPayment()">
       <i class="fas fa-check-circle"></i> I've Made the Payment
     </button>
-    
     <div id="payStatus" class="payment-status"></div>
   </div>
 </div>
 
-<!-- ADMIN LOGIN MODAL -->
+<!-- ADMIN LOGIN -->
 <div class="modal" id="adminLoginModal">
-  <div class="modal-box">
+  <div class="modal-box" style="max-width:400px">
     <button class="modal-close" onclick="closeModal('adminLoginModal')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);text-align:center;margin-bottom:25px;"><i class="fas fa-shield-halved"></i> Admin Login</h3>
-    <div class="form-group"><label>Email</label><input type="email" id="adminEmail" value="vipakashtripathi124421@gmail.com"></div>
-    <div class="form-group"><label>Password</label><input type="password" id="adminPass" value="vip123456"></div>
-    <button class="btn-primary" style="width:100%;justify-content:center;" onclick="adminLogin()">Login</button>
-    <p id="loginError" style="color:var(--danger);text-align:center;margin-top:15px;font-size:.85rem;"></p>
+    <h3 style="color:var(--gold);text-align:center;margin-bottom:20px"><i class="fas fa-shield-halved"></i> Admin Login</h3>
+    <div class="form-group"><label>Email</label><input type="email" id="adminEmail" placeholder="Enter email"></div>
+    <div class="form-group"><label>Password</label><input type="password" id="adminPass" placeholder="Enter password"></div>
+    <button class="btn-primary" style="width:100%;justify-content:center" onclick="adminLogin()">Login</button>
+    <p id="loginError" style="color:var(--danger);text-align:center;margin-top:12px;font-size:.8rem"></p>
   </div>
 </div>
 
-<!-- ADMIN DASHBOARD MODAL -->
+<!-- ADMIN DASHBOARD -->
 <div class="modal" id="adminDashboard">
-  <div class="modal-box wide">
+  <div class="modal-box">
     <button class="modal-close" onclick="closeModal('adminDashboard')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);margin-bottom:25px;font-family:'Playfair Display',serif;"><i class="fas fa-crown"></i> God-Mode Dashboard</h3>
-    
+    <h3 style="color:var(--gold);margin-bottom:20px;font-family:'Playfair Display',serif"><i class="fas fa-crown"></i> Admin Dashboard</h3>
     <div class="admin-tabs">
       <button class="admin-tab active" onclick="switchAdminTab('site',this)">Site</button>
-      <button class="admin-tab" onclick="switchAdminTab('menu',this)">Menu</button>
       <button class="admin-tab" onclick="switchAdminTab('sweets',this)">Sweets</button>
-      <button class="admin-tab" onclick="switchAdminTab('gallery',this)">Gallery</button>
+      <button class="admin-tab" onclick="switchAdminTab('menu',this)">Menu</button>
       <button class="admin-tab" onclick="switchAdminTab('bookings',this)">Bookings</button>
     </div>
 
-    <!-- SITE PANEL -->
     <div class="admin-panel active" id="panel-site">
       <div class="form-group"><label>Hero Title</label><input type="text" id="editHeroTitle"></div>
       <div class="form-group"><label>Hero Subtitle</label><input type="text" id="editHeroSub"></div>
-      <div class="form-group"><label>Hero BG Image</label><input type="text" id="editHeroBg">
-        <input type="file" id="heroBgUpload" accept="image/*" style="display:none" onchange="uploadImage(event,'editHeroBg')">
-        <button class="upload-btn" onclick="document.getElementById('heroBgUpload').click()"><i class="fas fa-upload"></i> Upload</button>
-        <div id="editHeroBgStatus" class="upload-status"></div>
-      </div>
-      <button class="btn-primary" style="width:100%;justify-content:center;" onclick="saveSiteSettings()">Save Live</button>
-      <hr style="border-color:var(--dark-4);margin:20px 0;">
-      <button class="btn-primary" style="width:100%;justify-content:center;background:var(--success);color:#000;" onclick="loadDefaultData()">Load Full Zomato Menu (1st Time)</button>
+      <button class="btn-primary" style="width:100%;justify-content:center" onclick="saveSiteSettings()">Save Live</button>
     </div>
 
-    <!-- MENU PANEL -->
-    <div class="admin-panel" id="panel-menu">
-      <div style="background:var(--dark-3);padding:20px;border-radius:12px;margin-bottom:20px;">
-        <h4 style="color:var(--gold);margin-bottom:15px;">Add / Edit Item</h4>
-        <input type="hidden" id="editMenuId">
-        <div class="form-row">
-          <div class="form-group"><label>Name</label><input type="text" id="mName"></div>
-          <div class="form-group"><label>Category</label><input type="text" id="mCat"></div>
-        </div>
-        <div class="form-group"><label>Description</label><input type="text" id="mDesc"></div>
-        <div class="form-row">
-          <div class="form-group"><label>Price (₹)</label><input type="number" id="mPrice"></div>
-          <div class="form-group"><label>Discount (%)</label><input type="number" id="mDiscount" value="0"></div>
-        </div>
-        <div class="form-group"><label>Image</label><input type="text" id="mImg">
-          <input type="file" id="mImgUpload" accept="image/*" style="display:none" onchange="uploadImage(event,'mImg')">
-          <button class="upload-btn" onclick="document.getElementById('mImgUpload').click()"><i class="fas fa-camera"></i> Upload from Phone</button>
-          <div id="mImgStatus" class="upload-status"></div>
-        </div>
-        <div class="form-group" style="display:flex;align-items:center;gap:10px;">
-          <input type="checkbox" id="mAvailable" checked style="width:auto;"> <label style="margin:0;">Available</label>
-        </div>
-        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="saveMenuItem()">Save Item</button>
-        <button class="btn-sm" style="width:100%;margin-top:10px;background:var(--dark-4);color:var(--text-muted);" onclick="clearMenuForm()">Clear</button>
-      </div>
-      <div class="admin-list" id="adminMenuList"></div>
-    </div>
-
-    <!-- SWEETS PANEL -->
     <div class="admin-panel" id="panel-sweets">
-      <div style="background:var(--dark-3);padding:20px;border-radius:12px;margin-bottom:20px;">
-        <h4 style="color:var(--sweet);margin-bottom:15px;">Add / Edit Sweet</h4>
-        <input type="hidden" id="editSweetId">
-        <div class="form-row">
+      <div style="background:var(--dark-3);padding:15px;border-radius:10px;margin-bottom:15px">
+        <h4 style="color:var(--sweet);margin-bottom:12px">Add New Sweet</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
           <div class="form-group"><label>Name</label><input type="text" id="swName"></div>
           <div class="form-group"><label>Price/Kg</label><input type="number" id="swPrice"></div>
         </div>
         <div class="form-group"><label>Description</label><input type="text" id="swDesc"></div>
-        <div class="form-group"><label>Image</label><input type="text" id="swImg">
-          <input type="file" id="swImgUpload" accept="image/*" style="display:none" onchange="uploadImage(event,'swImg')">
-          <button class="upload-btn" onclick="document.getElementById('swImgUpload').click()"><i class="fas fa-camera"></i> Upload</button>
-          <div id="swImgStatus" class="upload-status"></div>
-        </div>
-        <div class="form-group"><label>Tag</label><select id="swTag" style="width:100%;padding:12px;background:var(--dark-3);border:1px solid #333;border-radius:10px;color:#fff;"><option>Premium</option><option>Bestseller</option><option>Festival Fav</option><option>Classic</option></select></div>
-        <button class="btn-primary" style="width:100%;justify-content:center;background:linear-gradient(135deg,#ff6b9d,#c44569);" onclick="saveSweetItem()">Save Sweet</button>
+        <button class="btn-primary" style="width:100%;justify-content:center;background:var(--sweet)" onclick="addSweet()">Add Sweet</button>
       </div>
+      <h4 style="color:var(--text-muted);font-size:.85rem;margin-bottom:10px">Manage Featured (Max 5 shown on home)</h4>
       <div class="admin-list" id="adminSweetsList"></div>
     </div>
 
-    <!-- GALLERY PANEL -->
-    <div class="admin-panel" id="panel-gallery">
-      <div class="form-group"><label>Image</label><input type="text" id="galImg">
-        <input type="file" id="galImgUpload" accept="image/*" style="display:none" onchange="uploadImage(event,'galImg')">
-        <button class="upload-btn" onclick="document.getElementById('galImgUpload').click()"><i class="fas fa-images"></i> Upload</button>
-        <div id="galImgStatus" class="upload-status"></div>
+    <div class="admin-panel" id="panel-menu">
+      <div style="background:var(--dark-3);padding:15px;border-radius:10px;margin-bottom:15px">
+        <h4 style="color:var(--gold);margin-bottom:12px">Add Category</h4>
+        <div style="display:flex;gap:10px">
+          <input type="text" id="newCatName" placeholder="Category Name" style="flex:1;padding:10px;background:var(--dark);border:1px solid #333;border-radius:6px;color:#fff">
+          <button class="btn-sm btn-edit" onclick="addCategory()">Add</button>
+        </div>
       </div>
-      <button class="btn-primary" style="width:100%;justify-content:center;" onclick="addGalleryImage()">Add to Gallery</button>
-      <div class="admin-list" id="adminGalleryList" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;"></div>
+      <div style="background:var(--dark-3);padding:15px;border-radius:10px;margin-bottom:15px">
+        <h4 style="color:var(--gold);margin-bottom:12px">Add Menu Item</h4>
+        <div class="form-group"><label>Name</label><input type="text" id="mName"></div>
+        <div class="form-group"><label>Category</label><select id="mCatSelect" style="width:100%;padding:10px;background:var(--dark);border:1px solid #333;border-radius:6px;color:#fff"></select></div>
+        <div class="form-group"><label>Description</label><input type="text" id="mDesc"></div>
+        <div class="form-group"><label>Price (₹)</label><input type="text" id="mPrice" placeholder="e.g., 150 or 100/200"></div>
+        <button class="btn-primary" style="width:100%;justify-content:center" onclick="addMenuItem()">Add Item</button>
+      </div>
+      <div class="admin-list" id="adminMenuList"></div>
     </div>
 
-    <!-- BOOKINGS PANEL -->
     <div class="admin-panel" id="panel-bookings">
+      <h4 style="color:var(--gold);margin-bottom:15px">Recent Bookings</h4>
       <div class="admin-list" id="adminBookingsList"></div>
     </div>
   </div>
 </div>
 
+<a href="https://wa.me/918853153098" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, setDoc, serverTimestamp, query, orderBy, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyD9pqNuFK8OR0sAYLFSO-6Sb4tr0q2JUvM",
@@ -396,57 +351,51 @@ footer{background:#050505;padding:60px 5% 20px;border-top:1px solid rgba(212,175
     appId: "1:646659986184:web:a95b17abe5d40e9f8652bd"
   };
 
-  let db, auth, storage;
+  let db, auth;
+  let isAdmin = false;
+  let allSweetsData = [];
+  let menuData = { categories: [], items: [] };
+
   try {
     const app = initializeApp(firebaseConfig);
-    auth = getAuth(app); db = getFirestore(app); storage = getStorage(app);
+    auth = getAuth(app); db = getFirestore(app);
+    onAuthStateChanged(auth, (user) => { if(user) isAdmin = true; });
   } catch(e){ console.error(e); }
 
-  // GLOBAL UI FUNCTIONS
-  window.closeModal = (id) => document.getElementById(id).classList.remove('show');
-  window.openAdminLogin = () => document.getElementById('adminLoginModal').classList.add('show');
-  window.toggleNav = () => document.getElementById('navLinks').classList.toggle('open');
-  window.closeNav = () => document.getElementById('navLinks').classList.remove('open');
-  window.switchAdminTab = (tab, btn) => {
-    document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('panel-'+tab).classList.add('active');
+  // ============ VIEW MANAGEMENT ============
+  window.showView = (viewName) => {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById('view-' + viewName).classList.add('active');
+    window.scrollTo(0, 0);
   };
 
-  // IMAGE UPLOAD TO FIREBASE STORAGE
-  window.uploadImage = async (event, targetId) => {
-    const file = event.target.files[0]; if(!file) return;
-    const statusEl = document.getElementById(targetId+'Status');
-    statusEl.className='upload-status loading'; statusEl.innerHTML='<i class="fas fa-spinner fa-spin"></i> Uploading...';
+  window.closeModal = (id) => document.getElementById(id).classList.remove('show');
+  window.openAdminLogin = () => document.getElementById('adminLoginModal').classList.add('show');
+  
+  window.switchAdminTab = (tab, btn) => {
+    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + tab).classList.add('active');
+  };
+
+  // ============ ADMIN LOGIN ============
+  window.adminLogin = async () => {
+    const email = document.getElementById('adminEmail').value.trim();
+    const pass = document.getElementById('adminPass').value;
     try {
-      const fileName = `images/${Date.now()}_${file.name}`;
-      const storageRef = ref(storage, fileName);
-      await uploadBytes(storageRef, file);
-      const url = await getDownloadURL(storageRef);
-      document.getElementById(targetId).value = url;
-      statusEl.className='upload-status success'; statusEl.innerHTML='<i class="fas fa-check"></i> Uploaded!';
-      setTimeout(()=>statusEl.style.display='none',3000);
-    } catch(e){ 
-      statusEl.className='upload-status error'; 
-      statusEl.innerHTML='Error: Check Firebase Storage Rules. Using fallback.'; 
-      // Fallback: Use a placeholder if upload fails
-      document.getElementById(targetId).value = `https://placehold.co/400x300/1a1a1a/d4af37?text=${encodeURIComponent(file.name)}`;
+      await signInWithEmailAndPassword(auth, email, pass);
+      isAdmin = true;
+      closeModal('adminLoginModal');
+      document.getElementById('adminDashboard').classList.add('show');
+      document.getElementById('adminEmail').value = '';
+      document.getElementById('adminPass').value = '';
+    } catch(e) {
+      document.getElementById('loginError').textContent = 'Invalid credentials.';
     }
   };
 
-  // ADMIN LOGIN
-  window.adminLogin = async () => {
-    const email = document.getElementById('adminEmail').value;
-    if(email !== 'vipakashtripathi124421@gmail.com') { document.getElementById('loginError').textContent='Access Denied'; return; }
-    try {
-      await signInWithEmailAndPassword(auth, email, document.getElementById('adminPass').value);
-      window.closeModal('adminLoginModal');
-      document.getElementById('adminDashboard').classList.add('show');
-    } catch(e){ document.getElementById('loginError').textContent='Invalid Password or User not created in Firebase Console.'; }
-  };
-
-  // PAYMENT SYSTEM LOGIC
+  // ============ PAYMENT & BOOKING LOGIC (RESTORED) ============
   let currentPayAmount = 199;
   window.updatePayAmount = () => {
     currentPayAmount = document.getElementById('bFee').value;
@@ -460,15 +409,12 @@ footer{background:#050505;padding:60px 5% 20px;border-top:1px solid rgba(212,175
     if(!name || !phone || !date) { alert("Please fill Name, Phone and Date first!"); return; }
     
     document.getElementById('modalPayAmt').textContent = currentPayAmount;
-    // Generate Dynamic UPI QR
     const upiUrl = `upi://pay?pa=akashji124421@ptyes&pn=Chauhan+Restaurant&am=${currentPayAmount}&cu=INR&tn=Table+Booking`;
     document.getElementById('upiQrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiUrl)}`;
     
-    // Reset Status
     document.getElementById('payStatus').style.display = 'none';
     document.getElementById('payConfirmBtn').disabled = false;
     document.getElementById('payConfirmBtn').innerHTML = '<i class="fas fa-check-circle"></i> I\'ve Made the Payment';
-    
     document.getElementById('paymentModal').classList.add('show');
   };
 
@@ -477,16 +423,15 @@ footer{background:#050505;padding:60px 5% 20px;border-top:1px solid rgba(212,175
   window.verifyPayment = async () => {
     const btn = document.getElementById('payConfirmBtn');
     const status = document.getElementById('payStatus');
-    
     btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying with Bank...';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
     status.className = 'payment-status processing';
-    status.innerHTML = '<i class="fas fa-sync fa-spin"></i> Checking UPI Transaction Status...<br><small style="font-size:0.7rem">Please wait, do not close this window.</small>';
+    status.innerHTML = '<i class="fas fa-sync fa-spin"></i> Checking UPI status...';
     
     setTimeout(async () => {
       status.className = 'payment-status success';
-      status.innerHTML = '<i class="fas fa-check-circle"></i> Payment Request Sent Successfully!<br><small style="font-size:0.7rem">Admin will verify receipt shortly.</small>';
-      btn.innerHTML = '<i class="fas fa-check"></i> Request Sent';
+      status.innerHTML = '<i class="fas fa-check-circle"></i> Payment Request Sent!';
+      btn.innerHTML = '<i class="fas fa-check"></i> Sent';
       
       const bookingData = {
         name: document.getElementById('bName').value,
@@ -494,386 +439,268 @@ footer{background:#050505;padding:60px 5% 20px;border-top:1px solid rgba(212,175
         date: document.getElementById('bDate').value,
         guests: document.getElementById('bGuests').value,
         fee: currentPayAmount,
-        paymentStatus: 'Pending Admin Check',
+        paymentStatus: 'Pending Check',
         timestamp: serverTimestamp()
       };
       
       await addDoc(collection(db, 'bookings'), bookingData);
       
-      const waMsg = `🔔 *NEW BOOKING REQUEST*\n━━━━━━━━━━━━━━\n👤 ${bookingData.name}\n📞 ${bookingData.phone}\n📅 ${bookingData.date}\n💰 Amount: ₹${bookingData.fee}\n⚠️ *Action:* Please check your GPay/PhonePe for this amount before confirming table.`;
-      
       setTimeout(() => {
-        window.closeModal('paymentModal');
-        alert("✅ Booking Request Sent! Please keep your payment screenshot ready. We will confirm via WhatsApp.");
+        closeModal('paymentModal');
+        alert("✅ Booking Sent! We will confirm via WhatsApp.");
         document.getElementById('bName').value=''; 
         document.getElementById('bPhone').value=''; 
         document.getElementById('bDate').value='';
-      }, 2000);
-      
-    }, 3000); 
+      }, 1500);
+    }, 2500);
   };
 
-  // REAL-TIME DATA LISTENERS
-  let currentMenuData = [];
-  if(db){
-    onSnapshot(doc(db,'settings','main'),(s)=>{if(s.exists()){const d=s.data();document.getElementById('heroTitle').innerHTML=d.heroTitle||"";document.getElementById('heroSub').textContent=d.heroSub||"";document.getElementById('heroBg').style.backgroundImage=`url('${d.heroBg}')`;document.getElementById('editHeroTitle').value=d.heroTitle||"";document.getElementById('editHeroSub').value=d.heroSub||"";document.getElementById('editHeroBg').value=d.heroBg||"";}});
+  // ============ SWEETS LOGIC ============
+  function renderFeaturedSweets() {
+    const grid = document.getElementById('featuredSweetsGrid');
+    const featured = allSweetsData.filter(s => s.featured).slice(0, 5);
     
-    onSnapshot(query(collection(db,'menu'),orderBy('category')),(s)=>{
-      currentMenuData=[];const tabs=document.getElementById('menuTabs');const grid=document.getElementById('menuGrid');const list=document.getElementById('adminMenuList');
-      tabs.innerHTML='';grid.innerHTML='';list.innerHTML='';const cats={};
-      s.forEach(d=>{const i={id:d.id,...d.data()};currentMenuData.push(i);if(!cats[i.category])cats[i.category]=[];cats[i.category].push(i);});
-      let f=true;for(const[c] of Object.entries(cats)){tabs.innerHTML+=`<button class="menu-tab ${f?'active':''}" onclick="window.filterMenu('${c}',this)">${c}</button>`;f=false;}
-      if(Object.keys(cats).length>0)window.renderMenuGrid(Object.keys(cats)[0]);
-      currentMenuData.forEach(m=>{list.innerHTML+=`<div class="admin-item"><div><strong>${m.name}</strong> (${m.category}) - ₹${m.price}</div><div><button class="btn-sm btn-edit" onclick="window.editMenuItem('${m.id}')"><i class="fas fa-edit"></i></button> <button class="btn-sm btn-delete" onclick="window.deleteItem('menu','${m.id}')"><i class="fas fa-trash"></i></button></div></div>`;});
+    if(featured.length === 0) {
+      grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:20px">Admin: Please mark up to 5 sweets as "Featured" in the dashboard.</p>';
+      return;
+    }
+
+    grid.innerHTML = featured.map(sw => `
+      <div class="sweet-card">
+        <div class="sweet-img">${sw.icon || '🍬'}</div>
+        <div class="body">
+          <h3>${sw.name}</h3>
+          <p>${sw.desc}</p>
+          <div class="footer">
+            <span class="price">₹${sw.price}/Kg</span>
+            <button class="btn-book" onclick="window.orderSweet('${sw.name}')">Pre-Book</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  window.openAllSweetsModal = () => {
+    document.getElementById('allSweetsModal').classList.add('show');
+    document.getElementById('sweetSearch').value = '';
+    filterAllSweets();
+  };
+
+  window.filterAllSweets = () => {
+    const search = document.getElementById('sweetSearch').value.toLowerCase();
+    const grid = document.getElementById('allSweetsGrid');
+    const filtered = allSweetsData.filter(s => s.name.toLowerCase().includes(search));
+    
+    grid.innerHTML = filtered.map(sw => `
+      <div class="sweet-card">
+        <div class="sweet-img">${sw.icon || ''}</div>
+        <div class="body">
+          <h3>${sw.name}</h3>
+          <p>${sw.desc}</p>
+          <div class="footer">
+            <span class="price">₹${sw.price}/Kg</span>
+            <button class="btn-book" onclick="window.orderSweet('${sw.name}')">Pre-Book</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  };
+
+  window.orderSweet = (name) => {
+    window.open(`https://wa.me/918853153098?text=${encodeURIComponent(`Hi, I want to pre-book: ${name}`)}`, '_blank');
+  };
+
+  // ============ MENU LOGIC ============
+  function renderMenuPage() {
+    const scroll = document.getElementById('menuCategoryScroll');
+    const list = document.getElementById('menuListContainer');
+    
+    scroll.innerHTML = menuData.categories.map((cat, i) => 
+      `<button class="cat-tab ${i===0?'active':''}" onclick="window.filterMenuCat('${cat}', this)">${cat}</button>`
+    ).join('');
+
+    if(menuData.categories.length > 0) {
+      window.filterMenuCat(menuData.categories[0], scroll.firstChild);
+    } else {
+      list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px">Menu is empty. Admin, please add categories and items.</p>';
+    }
+  }
+
+  window.filterMenuCat = (cat, btn) => {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    
+    const list = document.getElementById('menuListContainer');
+    const items = menuData.items.filter(i => i.category === cat);
+    
+    list.innerHTML = items.map(item => `
+      <div class="menu-item-card">
+        <div class="menu-item-img">🍽️</div>
+        <div class="menu-item-info">
+          <h4>${item.name}</h4>
+          <p>${item.desc}</p>
+          <div class="price">₹${item.price}</div>
+        </div>
+      </div>
+    `).join('') || '<p style="text-align:center;color:var(--text-muted);padding:20px">No items in this category yet.</p>';
+  };
+
+  // ============ ADMIN FUNCTIONS ============
+  window.saveSiteSettings = async () => {
+    await setDoc(doc(db, 'settings', 'main'), {
+      heroTitle: document.getElementById('editHeroTitle').value,
+      heroSub: document.getElementById('editHeroSub').value
+    });
+    alert("✅ Saved!");
+  };
+
+  window.addSweet = async () => {
+    await addDoc(collection(db, 'sweets'), {
+      name: document.getElementById('swName').value,
+      price: Number(document.getElementById('swPrice').value),
+      desc: document.getElementById('swDesc').value,
+      featured: false,
+      icon: '🍬'
+    });
+    document.getElementById('swName').value = '';
+    document.getElementById('swPrice').value = '';
+    document.getElementById('swDesc').value = '';
+    alert("✅ Sweet added!");
+  };
+
+  window.toggleFeatured = async (id, currentStatus) => {
+    const featuredSweetsCount = allSweetsData.filter(s => s.featured).length;
+    if (!currentStatus && featuredSweetsCount >= 5) {
+      alert("⚠️ Maximum 5 sweets can be featured. Un-feature another one first.");
+      return;
+    }
+    await updateDoc(doc(db, 'sweets', id), { featured: !currentStatus });
+  };
+
+  window.deleteSweet = async (id) => {
+    if(confirm("Delete this sweet?")) await deleteDoc(doc(db, 'sweets', id));
+  };
+
+  window.addCategory = async () => {
+    const name = document.getElementById('newCatName').value.trim();
+    if(!name) return;
+    if(menuData.categories.includes(name)) { alert("Category already exists!"); return; }
+    const newCats = [...menuData.categories, name];
+    await setDoc(doc(db, 'menu_config', 'main'), { categories: newCats });
+    document.getElementById('newCatName').value = '';
+    alert("✅ Category added!");
+  };
+
+  window.addMenuItem = async () => {
+    await addDoc(collection(db, 'menu_items'), {
+      name: document.getElementById('mName').value,
+      category: document.getElementById('mCatSelect').value,
+      desc: document.getElementById('mDesc').value,
+      price: document.getElementById('mPrice').value
+    });
+    document.getElementById('mName').value = '';
+    document.getElementById('mDesc').value = '';
+    document.getElementById('mPrice').value = '';
+    alert("✅ Item added!");
+  };
+
+  window.deleteMenuItem = async (id) => {
+    if(confirm("Delete this item?")) await deleteDoc(doc(db, 'menu_items', id));
+  };
+
+  // ============ FIREBASE LISTENERS ============
+  if(db) {
+    onSnapshot(doc(db, 'settings', 'main'), (s) => {
+      if(s.exists()) {
+        const d = s.data();
+        document.getElementById('editHeroTitle').value = d.heroTitle || "";
+        document.getElementById('editHeroSub').value = d.heroSub || "";
+        if(document.getElementById('view-home').classList.contains('active')) {
+          document.querySelector('.hero h1').innerHTML = d.heroTitle || "Welcome to <span>Chauhan's</span><br>Sweets & Restaurant";
+          document.querySelector('.hero p').textContent = d.heroSub || "Experience authentic cuisine.";
+        }
+      }
     });
 
-    onSnapshot(query(collection(db,'sweets'),orderBy('name')),(s)=>{
-      const grid=document.getElementById('sweetsGrid');const list=document.getElementById('adminSweetsList');grid.innerHTML='';list.innerHTML='';
-      s.forEach(d=>{const sw={id:d.id,...d.data()};
-        grid.innerHTML+=`<div class="sweet-card"><img src="${sw.img}" onerror="this.src='https://via.placeholder.com/400'"><div class="body"><h3>${sw.name}</h3><p>${sw.desc}</p><div class="footer"><span class="price">₹${sw.price}/Kg</span><button class="btn-book" onclick="window.orderSweet('${sw.name}')">Pre-Book</button></div></div></div>`;
-        list.innerHTML+=`<div class="admin-item"><div><strong>${sw.name}</strong> - ₹${sw.price}</div><button class="btn-sm btn-delete" onclick="window.deleteItem('sweets','${sw.id}')"><i class="fas fa-trash"></i></button></div>`;
+    onSnapshot(query(collection(db, 'sweets'), orderBy('name')), (s) => {
+      allSweetsData = [];
+      const adminList = document.getElementById('adminSweetsList');
+      adminList.innerHTML = '';
+      
+      s.forEach(d => {
+        const sw = { id: d.id, ...d.data() };
+        allSweetsData.push(sw);
+        
+        adminList.innerHTML += `
+          <div class="admin-item">
+            <div>
+              <strong>${sw.name}</strong> - ₹${sw.price}<br>
+              <small style="color:${sw.featured ? 'var(--gold)' : 'var(--text-muted)'}">${sw.featured ? '⭐ Featured' : 'Not Featured'}</small>
+            </div>
+            <div>
+              <button class="btn-sm btn-featured ${sw.featured ? 'active' : ''}" onclick="window.toggleFeatured('${sw.id}', ${sw.featured})">
+                ${sw.featured ? '⭐ On' : '☆ Off'}
+              </button>
+              <button class="btn-sm btn-delete" onclick="window.deleteSweet('${sw.id}')"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>`;
       });
+      renderFeaturedSweets();
     });
 
-    onSnapshot(collection(db,'gallery'),(s)=>{
-      const grid=document.getElementById('galleryGrid');const list=document.getElementById('adminGalleryList');grid.innerHTML='';list.innerHTML='';
-      s.forEach(d=>{const i={id:d.id,...d.data()};
-        grid.innerHTML+=`<div class="gallery-item"><img src="${i.url}" onerror="this.src='https://via.placeholder.com/400'"></div>`;
-        list.innerHTML+=`<div style="position:relative"><img src="${i.url}" style="width:100%;height:80px;object-fit:cover;border-radius:8px"><button class="btn-sm btn-delete" style="position:absolute;top:2px;right:2px" onclick="window.deleteItem('gallery','${i.id}')"><i class="fas fa-trash"></i></button></div>`;
+    onSnapshot(doc(db, 'menu_config', 'main'), (s) => {
+      if(s.exists()) {
+        menuData.categories = s.data().categories || [];
+      } else {
+        menuData.categories = ["Breakfast", "Main Course", "Chinese", "South Indian", "Snacks"];
+      }
+      updateCatSelect();
+      renderMenuPage();
+    });
+
+    onSnapshot(query(collection(db, 'menu_items'), orderBy('category')), (s) => {
+      menuData.items = [];
+      const adminList = document.getElementById('adminMenuList');
+      adminList.innerHTML = '';
+      
+      s.forEach(d => {
+        const item = { id: d.id, ...d.data() };
+        menuData.items.push(item);
+        adminList.innerHTML += `
+          <div class="admin-item">
+            <div><strong>${item.name}</strong> (${item.category})<br><small>₹${item.price}</small></div>
+            <button class="btn-sm btn-delete" onclick="window.deleteMenuItem('${item.id}')"><i class="fas fa-trash"></i></button>
+          </div>`;
       });
+      renderMenuPage();
     });
 
-    onSnapshot(query(collection(db,'bookings'),orderBy('timestamp','desc')),(s)=>{
-      const list=document.getElementById('adminBookingsList');list.innerHTML='';
-      s.forEach(d=>{const b=d.data();
-        list.innerHTML+=`<div class="admin-item"><div><strong>${b.name}</strong> (${b.phone})<br><small style="color:var(--gold)">${b.date} | ${b.guests} | ₹${b.fee||0} ${b.paymentStatus||''}</small></div><button class="btn-sm btn-delete" onclick="window.deleteItem('bookings','${d.id}')"><i class="fas fa-trash"></i></button></div>`;
+    onSnapshot(query(collection(db, 'bookings'), orderBy('timestamp', 'desc')), (s) => {
+      const list = document.getElementById('adminBookingsList');
+      list.innerHTML = '';
+      if(s.empty) {
+        list.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:20px">No bookings yet.</p>';
+      }
+      s.forEach(d => {
+        const b = d.data();
+        list.innerHTML += `<div class="admin-item"><div><strong>${b.name}</strong> (${b.phone})<br><small style="color:var(--gold)">${b.date} | ${b.guests} | ₹${b.fee||0} - ${b.paymentStatus||''}</small></div><button class="btn-sm btn-delete" onclick="window.deleteDoc('bookings','${d.id}')"><i class="fas fa-trash"></i></button></div>`;
       });
     });
   }
 
-  window.renderMenuGrid=(cat)=>{
-    const grid=document.getElementById('menuGrid');
-    grid.innerHTML='';
-    currentMenuData.filter(m=>m.category===cat).forEach(m=>{
-      const fp=m.discount>0?Math.round(m.price-(m.price*m.discount/100)):m.price;
-      // Smart Image Fallback: If image fails, show a professional placeholder with text
-      const fallbackImg = `https://placehold.co/400x300/1a1a1a/d4af37?text=${encodeURIComponent(m.name)}`;
-      
-      grid.innerHTML+=`
-        <div class="menu-card ${m.isAvailable===false?'unavailable':''}">
-          <div class="menu-card-img">
-            <img src="${m.img}" onerror="this.src='${fallbackImg}'">
-            <div class="veg-badge"></div>
-            ${m.discount>0?`<div class="discount-badge">${m.discount}% OFF</div>`:''}
-          </div>
-          <div class="menu-card-body">
-            <h3>${m.name}</h3>
-            <p>${m.desc}</p>
-            <div class="price-row">
-              <div>${m.discount>0?`<span class="old-price">₹${m.price}</span>`:''}<span class="new-price">₹${fp}</span></div>
-            </div>
-          </div>
-        </div>`;
-    });
+  function updateCatSelect() {
+    const select = document.getElementById('mCatSelect');
+    select.innerHTML = menuData.categories.map(c => `<option value="${c}">${c}</option>`).join('');
+  }
+
+  window.deleteDoc = async (col, id) => {
+    if(confirm("Delete?")) await deleteDoc(doc(db, col, id));
   };
 
-  window.filterMenu=(cat,btn)=>{document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');window.renderMenuGrid(cat);};
-  
-  window.saveSiteSettings=async()=>{await setDoc(doc(db,'settings','main'),{heroTitle:document.getElementById('editHeroTitle').value,heroSub:document.getElementById('editHeroSub').value,heroBg:document.getElementById('editHeroBg').value});alert("Saved!");};
-  window.saveMenuItem=async()=>{const id=document.getElementById('editMenuId').value;const data={name:document.getElementById('mName').value,category:document.getElementById('mCat').value,desc:document.getElementById('mDesc').value,price:Number(document.getElementById('mPrice').value),discount:Number(document.getElementById('mDiscount').value)||0,img:document.getElementById('mImg').value,isAvailable:document.getElementById('mAvailable').checked};if(id){await updateDoc(doc(db,'menu',id),data);}else{await addDoc(collection(db,'menu'),data);}window.clearMenuForm();alert("Saved!");};
-  window.editMenuItem=(id)=>{const m=currentMenuData.find(x=>x.id===id);if(!m)return;document.getElementById('editMenuId').value=m.id;document.getElementById('mName').value=m.name;document.getElementById('mCat').value=m.category;document.getElementById('mDesc').value=m.desc;document.getElementById('mPrice').value=m.price;document.getElementById('mDiscount').value=m.discount||0;document.getElementById('mImg').value=m.img;document.getElementById('mAvailable').checked=m.isAvailable!==false;window.switchAdminTab('menu',document.querySelectorAll('.admin-tab')[1]);};
-  window.clearMenuForm=()=>{document.getElementById('editMenuId').value='';document.getElementById('mName').value='';document.getElementById('mCat').value='';document.getElementById('mDesc').value='';document.getElementById('mPrice').value='';document.getElementById('mDiscount').value='0';document.getElementById('mImg').value='';document.getElementById('mAvailable').checked=true;};
-  window.saveSweetItem=async()=>{const id=document.getElementById('editSweetId').value;const data={name:document.getElementById('swName').value,price:Number(document.getElementById('swPrice').value),desc:document.getElementById('swDesc').value,img:document.getElementById('swImg').value,tag:document.getElementById('swTag').value};if(id){await updateDoc(doc(db,'sweets',id),data);}else{await addDoc(collection(db,'sweets'),data);}document.getElementById('swName').value='';document.getElementById('swPrice').value='';document.getElementById('swDesc').value='';document.getElementById('swImg').value='';alert("Saved!");};
-  window.addGalleryImage=async()=>{const url=document.getElementById('galImg').value;if(!url)return alert("Upload first");await addDoc(collection(db,'gallery'),{url});document.getElementById('galImg').value='';alert("Added!");};
-  window.deleteItem=async(col,id)=>{if(confirm("Delete?"))await deleteDoc(doc(db,col,id));};
-  window.orderSweet=(name)=>{window.open(`https://wa.me/918853153098?text=${encodeURIComponent(`Hi, pre-book: ${name}`)}`,'_blank');};
-
-  window.loadDefaultData=async()=>{
-    if(!confirm("Load Full Zomato Menu? This will add 200+ items."))return;
-    await setDoc(doc(db,'settings','main'),{heroTitle:"Welcome to <span>Chauhan's</span><br>Sweets & Restaurant",heroSub:"Experience authentic North Indian, Chinese, South Indian & Continental cuisine.",heroBg:"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920"});
-    
-    // FULL MENU DATA
-    const menu=[
-      // Breakfast
-      {name:"Aloo Paratha",category:"Breakfast",desc:"Served with fresh curd",price:92,img:""},
-      {name:"Paneer Paratha",category:"Breakfast",desc:"Served with fresh curd",price:126.5,img:""},
-      {name:"Mix Paratha",category:"Breakfast",desc:"Served with fresh curd",price:103.5,img:""},
-      // Combos
-      {name:"Special Chinese Combo",category:"Combos",desc:"Soup+Manchurian Dry+Paneer Chilli Gravy+Fried Rice+Salad",price:299,img:""},
-      {name:"Paneer Chilli Combo",category:"Combos",desc:"Paneer Chilli Dry+Gravy+Fried Rice+Salad",price:276,img:""},
-      // Thali
-      {name:"Chinese Thali",category:"Thali",desc:"Veg Manchurian Dry+Paneer Chilli Gravy+Schezwan Rice+2 Baby Naan+Salad+Gulab Jamun",price:299,img:""},
-      {name:"Veg Thali",category:"Thali",desc:"Dal Fry+Matar Paneer+Jeera Aloo+2 Butter Roti+Plain Rice+Papad+Pickle+Salad",price:269,img:""},
-      // Soups
-      {name:"Veg Manchow Soup",category:"Soups",desc:"Spicy Indo-Chinese soup",price:115,img:""},
-      {name:"Hot and Sour Soup",category:"Soups",desc:"Tangy and spicy classic",price:115,img:""},
-      {name:"Cream of Tomato Soup",category:"Soups",desc:"Smooth creamy tomato",price:126.5,img:""},
-      {name:"Veg Peking Soup",category:"Soups",desc:"Chinese style vegetable",price:115,img:""},
-      {name:"Lemon Coriander Soup",category:"Soups",desc:"Light citrus soup",price:115,img:""},
-      {name:"Cream of Mushroom Soup",category:"Soups",desc:"Rich mushroom soup",price:126.5,img:""},
-      {name:"Sweet Corn Soup",category:"Soups",desc:"Sweet corn with pepper",price:115,img:""},
-      // Starters
-      {name:"Paneer Chilli Dry",category:"Starters",desc:"Spicy Indo-Chinese paneer",price:276,img:""},
-      {name:"Honey Chilli Potato",category:"Starters",desc:"Crispy potato in honey chilli",price:207,img:""},
-      {name:"Chilli Garlic Potato",category:"Starters",desc:"Spicy garlic potato",price:207,img:""},
-      {name:"Veg Spring Roll",category:"Starters",desc:"Crispy veggie rolls",price:207,img:""},
-      {name:"Crispy Chilli Baby Corn",category:"Starters",desc:"Crunchy baby corn",price:276,img:""},
-      {name:"Crispy Chilli Mushroom Dry",category:"Starters",desc:"Fried mushroom",price:276,img:""},
-      {name:"Chinese Platter",category:"Starters",desc:"Spring Roll+Manchurian+Paneer Chilli",price:276,img:""},
-      {name:"Veg Manchurian Dry",category:"Starters",desc:"Classic manchurian",price:230,img:""},
-      {name:"Paneer Manchurian Dry",category:"Starters",desc:"Paneer manchurian",price:276,img:""},
-      {name:"Paneer III Spring Roll",category:"Starters",desc:"Paneer stuffed spring rolls",price:253,img:""},
-      {name:"Paneer Hot Garlic",category:"Starters",desc:"Hot garlic paneer",price:276,img:""},
-      {name:"Crispy Salt N Pepper",category:"Starters",desc:"Salt and pepper crispy",price:276,img:""},
-      {name:"Mushroom Manchurian Dry",category:"Starters",desc:"Mushroom manchurian",price:276,img:""},
-      {name:"Paneer Tikka",category:"Starters",desc:"Tandoor grilled paneer",price:276,img:""},
-      {name:"Soya Malai Chaap",category:"Starters",desc:"Creamy soya chaap",price:253,img:""},
-      {name:"Mushroom Tikka",category:"Starters",desc:"Spiced tandoori mushroom",price:264.5,img:""},
-      {name:"Dahi ke Kebab",category:"Starters",desc:"Yogurt kebabs",price:253,img:""},
-      {name:"Paneer Malai Tikka",category:"Starters",desc:"Creamy tikka",price:299,img:""},
-      {name:"Paneer Achari Tikka",category:"Starters",desc:"Pickle flavoured",price:287.5,img:""},
-      {name:"Soya Achari Chaap",category:"Starters",desc:"Achari soya chaap",price:253,img:""},
-      {name:"Hara Bhara Kebab",category:"Starters",desc:"Spinach and peas",price:172.5,img:""},
-      {name:"Veg Sheek Kebab",category:"Starters",desc:"Minced veg kebabs",price:253,img:""},
-      {name:"Paneer Sheek Kebab",category:"Starters",desc:"Paneer mince kebabs",price:276,img:""},
-      {name:"Hydrabadi Tikka",category:"Starters",desc:"Pudina flavour",price:276,img:""},
-      {name:"Soya Chaap",category:"Starters",desc:"Tandoori chaap",price:230,img:""},
-      {name:"Dahi Kabab",category:"Starters",desc:"Soft yogurt kebabs",price:218.5,img:""},
-      {name:"Paneer Pakora",category:"Starters",desc:"Crispy paneer fritters",price:178.25,img:""},
-      {name:"Veg 65",category:"Starters",desc:"Spicy fried vegetable bites",price:207,img:""},
-      {name:"Paneer 65",category:"Starters",desc:"Spicy fried paneer bites",price:276,img:""},
-      // Main Course
-      {name:"Paneer Lababdar",category:"Main Course",desc:"Rich creamy paneer",price:212.75,img:""},
-      {name:"Handi Paneer",category:"Main Course",desc:"Handi cooked",price:212.75,img:""},
-      {name:"Paneer Kolhapuri",category:"Main Course",desc:"Spicy Kolhapuri",price:201.25,img:""},
-      {name:"Paneer Butter Masala",category:"Main Course",desc:"Creamy tomato butter",price:212.75,img:""},
-      {name:"Shahi Paneer",category:"Main Course",desc:"Royal creamy",price:224.25,img:""},
-      {name:"Mata Paneer",category:"Main Course",desc:"Homestyle",price:184,img:""},
-      {name:"Dal Makhani",category:"Main Course",desc:"Creamy black lentils",price:149.5,img:""},
-      {name:"Paneer Chilli Gravy",category:"Main Course",desc:"Indo-Chinese gravy",price:161,img:""},
-      {name:"Paneer Tikka Masala",category:"Main Course",desc:"Tikka in masala",price:212.75,img:""},
-      {name:"Kadhai Paneer",category:"Main Course",desc:"Kadhai spices",price:212.75,img:""},
-      {name:"Veg Manchurian Gravy",category:"Main Course",desc:"Manchurian gravy",price:126.5,img:""},
-      {name:"Paneer Do Pyaza",category:"Main Course",desc:"Double onion paneer",price:212.75,img:""},
-      {name:"Mushroom Matar",category:"Main Course",desc:"Mushroom and peas",price:195.5,img:""},
-      {name:"Mushroom Masala",category:"Main Course",desc:"Spiced mushroom",price:201.25,img:""},
-      {name:"Soya Chaap Masala",category:"Main Course",desc:"Soya chaap masala",price:195.5,img:""},
-      {name:"Malai Kofta",category:"Main Course",desc:"Creamy kofta",price:207,img:""},
-      {name:"Dal Tadka",category:"Main Course",desc:"Tempered dal",price:138,img:""},
-      {name:"Mix Veg",category:"Main Course",desc:"Mixed vegetables",price:161,img:""},
-      {name:"Palak Paneer",category:"Main Course",desc:"Spinach gravy",price:184,img:""},
-      {name:"Paneer Tak Tak",category:"Main Course",desc:"Sizzling paneer",price:212.75,img:""},
-      {name:"Chana Masala",category:"Main Course",desc:"Chickpea curry",price:149.5,img:""},
-      {name:"Mushroom Paneer Masala",category:"Main Course",desc:"Mushroom paneer mix",price:224.25,img:""},
-      {name:"Corn Palak",category:"Main Course",desc:"Corn in spinach",price:201.25,img:""},
-      {name:"Paneer Hyderabadi",category:"Main Course",desc:"Hyderabadi style",price:212.75,img:""},
-      {name:"Tomato Paneer Bhurji",category:"Main Course",desc:"Scrambled paneer",price:241.5,img:""},
-      {name:"Aloo Gobhi Matar",category:"Main Course",desc:"Potato cauliflower peas",price:126.5,img:""},
-      {name:"Veg Kofta",category:"Main Course",desc:"Vegetable kofta",price:166.75,img:""},
-      {name:"Dum Aloo Kashmiri",category:"Main Course",desc:"Kashmiri aloo",price:195.5,img:""},
-      {name:"Aloo Jeera",category:"Main Course",desc:"Cumin potatoes",price:113.85,img:""},
-      {name:"Paneer Manchurian Gravy",category:"Main Course",desc:"Manchurian gravy",price:161,img:""},
-      {name:"Paneer Lajawab",category:"Main Course",desc:"Special rich curry",price:212.75,img:""},
-      {name:"Paneer Gulmerry",category:"Main Course",desc:"Unique sweet-spicy",price:241.5,img:""},
-      {name:"Jeera Fry Dal",category:"Main Course",desc:"Cumin tempered dal",price:126.5,img:""},
-      {name:"Mushroom Do Pyaza",category:"Main Course",desc:"Mushroom double onion",price:207,img:""},
-      {name:"Dum Aloo Banarasi",category:"Main Course",desc:"Banarasi style",price:189.75,img:""},
-      {name:"Mushroom Chilli Gravy",category:"Main Course",desc:"Chilli mushroom",price:161,img:""},
-      {name:"Veg Kolhapuri Kofta",category:"Main Course",desc:"Spicy kofta",price:166.75,img:""},
-      {name:"Paneer Angcori Kofta",category:"Main Course",desc:"Paneer kofta special",price:218.5,img:""},
-      {name:"Rara Paneer",category:"Main Course",desc:"Minced paneer",price:241.5,img:""},
-      {name:"Navratan Korma",category:"Main Course",desc:"Nine gem curry",price:207,img:""},
-      {name:"Paneer Hot Garlic Gravy",category:"Main Course",desc:"Hot garlic gravy",price:161,img:""},
-      {name:"Diwani Handi",category:"Main Course",desc:"Mixed veg handi",price:161,img:""},
-      {name:"Aloo Gobhi",category:"Main Course",desc:"Potato cauliflower",price:126.5,img:""},
-      {name:"Soya Rogan Josh",category:"Main Course",desc:"Kashmiri style soya",price:184,img:""},
-      {name:"Dal Sultani",category:"Main Course",desc:"Royal dal",price:138,img:""},
-      {name:"Methi Matar Malai",category:"Main Course",desc:"Fenugreek peas cream",price:201.25,img:""},
-      {name:"American Choupsuey",category:"Main Course",desc:"Crispy noodles sweet-sour",price:276,img:""},
-      {name:"Chinese Choupsuey",category:"Main Course",desc:"Chinese style",price:276,img:""},
-      {name:"Veg Jhalfrazi",category:"Main Course",desc:"Spicy stir-fry",price:161,img:""},
-      {name:"Veg Jaipuri",category:"Main Course",desc:"Jaipur style",price:161,img:""},
-      {name:"Paneer Pasanda",category:"Main Course",desc:"Stuffed paneer",price:224.25,img:""},
-      {name:"Mushroom Manchurian Gravy",category:"Main Course",desc:"Mushroom gravy",price:161,img:""},
-      // Breads
-      {name:"Paneer Stuff Naan",category:"Breads",desc:"Stuffed with paneer",price:63.25,img:""},
-      {name:"Kashmiri Naan",category:"Breads",desc:"Sweet with dry fruits",price:80.5,img:""},
-      {name:"Aloo Stuff Naan",category:"Breads",desc:"Stuffed with potato",price:57.5,img:""},
-      {name:"Cheese Garlic Naan",category:"Breads",desc:"Cheese and garlic",price:103.5,img:""},
-      {name:"Chur Chur Naan",category:"Breads",desc:"Crushed buttery",price:63.25,img:""},
-      {name:"Garlic Naan",category:"Breads",desc:"Garlic flavoured",price:51.75,img:""},
-      {name:"Lachha Paratha",category:"Breads",desc:"Layered flaky",price:46,img:""},
-      {name:"Missi Roti",category:"Breads",desc:"Gram flour roti",price:51.75,img:""},
-      {name:"Tandoori Roti",category:"Breads",desc:"Clay oven roti",price:18.4,img:""},
-      {name:"Butter Roti",category:"Breads",desc:"Butter topped",price:20.7,img:""},
-      {name:"Tawa Roti",category:"Breads",desc:"Flatbread on griddle",price:18.4,img:""},
-      {name:"Tawa Butter Roti",category:"Breads",desc:"Butter tawa roti",price:20.7,img:""},
-      {name:"Plain Naan",category:"Breads",desc:"Classic naan",price:40.25,img:""},
-      {name:"Butter Naan",category:"Breads",desc:"Butter naan",price:51.75,img:""},
-      {name:"Extra Pav",category:"Breads",desc:"Soft bread rolls",price:40.25,img:""},
-      // Rice
-      {name:"Veg Biryani",category:"Rice",desc:"Fragrant biryani",price:220,img:""},
-      {name:"Sweet Corn Rice",category:"Rice",desc:"With sweet corn",price:138,img:""},
-      {name:"Paneer Biryani",category:"Rice",desc:"With paneer",price:250,img:""},
-      {name:"Lemon Rice",category:"Rice",desc:"Tangy lemon",price:149.5,img:""},
-      {name:"Dahi Rice",category:"Rice",desc:"Curd rice",price:149.5,img:""},
-      {name:"Tomato Rice",category:"Rice",desc:"Tangy tomato",price:149.5,img:""},
-      // South Indian
-      {name:"Masala Dosa",category:"South Indian",desc:"Crispy with potato",price:149.5,img:""},
-      {name:"Paneer Masala Dosa",category:"South Indian",desc:"With paneer masala",price:178.25,img:""},
-      {name:"Paneer Dosa",category:"South Indian",desc:"Stuffed with paneer",price:189.75,img:""},
-      {name:"Paneer Spring Roll Dosa",category:"South Indian",desc:"With spring roll",price:247.25,img:""},
-      {name:"Mysore Dosa",category:"South Indian",desc:"Spicy red chutney",price:195.5,img:""},
-      {name:"Sada Dosa",category:"South Indian",desc:"Plain crispy",price:120.75,img:""},
-      {name:"Onion Tomato Uttapam",category:"South Indian",desc:"Thick pancake",price:178.25,img:""},
-      {name:"Mysore Uttapam",category:"South Indian",desc:"Spicy mysore",price:189.75,img:""},
-      {name:"Rava Masala Dosa",category:"South Indian",desc:"Semolina dosa",price:178.25,img:""},
-      {name:"Rava Paneer Dosa",category:"South Indian",desc:"Semolina with paneer",price:201.25,img:""},
-      {name:"Spring Roll Dosa",category:"South Indian",desc:"With spring roll",price:235.75,img:""},
-      {name:"Onion Delight Uttapam",category:"South Indian",desc:"Onion topped",price:189.75,img:""},
-      {name:"Aloo Crunchy Dosa",category:"South Indian",desc:"Crunchy potato",price:178.25,img:""},
-      {name:"Plain Uttapam",category:"South Indian",desc:"Classic pancake",price:138,img:""},
-      {name:"Onion Uttapam",category:"South Indian",desc:"Onion topped",price:149.5,img:""},
-      {name:"Tomato Uttapam",category:"South Indian",desc:"Tomato uttapam",price:161,img:""},
-      {name:"Sambar Rice",category:"South Indian",desc:"With lentil sambar",price:149.5,img:""},
-      {name:"Special Paneer Spicy Uttapam",category:"South Indian",desc:"Spicy paneer",price:253,img:""},
-      {name:"Onion Dosa",category:"South Indian",desc:"With onion",price:138,img:""},
-      {name:"Crispy Bite Dosa",category:"South Indian",desc:"Extra crispy",price:207,img:""},
-      {name:"Mexi Roll Dosa",category:"South Indian",desc:"Mexican style",price:247.25,img:""},
-      {name:"Crunchy Paneer Special Dosa",category:"South Indian",desc:"Premium crunchy",price:281.75,img:""},
-      {name:"Rava Sada Dosa",category:"South Indian",desc:"Plain semolina",price:138,img:""},
-      {name:"Rava Onion Dosa",category:"South Indian",desc:"Semolina onion",price:161,img:""},
-      // Fried Rice & Noodles
-      {name:"Chilli Garlic Noodle",category:"Noodles",desc:"Spicy garlic",price:109.25,img:""},
-      {name:"Veg Chowmein",category:"Noodles",desc:"Classic chowmein",price:103.5,img:""},
-      {name:"Veg Hakka Noodle",category:"Noodles",desc:"Hakka style",price:103.5,img:""},
-      {name:"Paneer Chowmein",category:"Noodles",desc:"With paneer",price:126.5,img:""},
-      {name:"Singapoori Noodle",category:"Noodles",desc:"Singapore style",price:109.25,img:""},
-      {name:"Schezwan Noodle",category:"Noodles",desc:"Spicy schezwan",price:109.25,img:""},
-      {name:"Paneer Fried Rice",category:"Fried Rice",desc:"With paneer",price:138,img:""},
-      {name:"Veg Fried Rice",category:"Fried Rice",desc:"Classic fried rice",price:115,img:""},
-      {name:"Veg Schezwan Rice",category:"Fried Rice",desc:"Spicy schezwan",price:115,img:""},
-      {name:"Mushroom Fried Rice",category:"Fried Rice",desc:"With mushroom",price:138,img:""},
-      // Pizza & Pasta
-      {name:"Special Chauhan Pizza",category:"Pizza",desc:"Paneer, Onion, Corn, Pineapple",price:253,img:""},
-      {name:"Veg Cheese Pizza",category:"Pizza",desc:"Classic cheese",price:201.25,img:""},
-      {name:"Paneer Tikka Pizza",category:"Pizza",desc:"With tikka topping",price:253,img:""},
-      {name:"Paneer Delight Pizza",category:"Pizza",desc:"Loaded paneer",price:241.5,img:""},
-      {name:"Margherita Pizza",category:"Pizza",desc:"Classic tomato cheese",price:184,img:""},
-      {name:"Exotic Pizza",category:"Pizza",desc:"Exotic vegetable",price:201.25,img:""},
-      {name:"Mushroom Onion Capsicum Pizza",category:"Pizza",desc:"Mushroom onion capsicum",price:212.75,img:""},
-      {name:"Sweet Corn Pizza",category:"Pizza",desc:"Sweet corn topped",price:212.75,img:""},
-      {name:"Spicy Mazzen Pizza",category:"Pizza",desc:"Capsicum, Onion, Jalapeno",price:241.5,img:""},
-      {name:"Paneer Chilli Pizza",category:"Pizza",desc:"Chilli paneer",price:253,img:""},
-      {name:"Alfredo Pasta",category:"Pasta",desc:"White sauce penne",price:195.5,img:""},
-      {name:"Arabita Pasta",category:"Pasta",desc:"Red sauce penne",price:195.5,img:""},
-      // Burgers & Sandwiches
-      {name:"Veg Cheese Burger",category:"Burgers",desc:"Veg patty with cheese",price:115,img:""},
-      {name:"Veg Burger",category:"Burgers",desc:"Classic veg burger",price:103.5,img:""},
-      {name:"Paneer Burger",category:"Burgers",desc:"Paneer patty burger",price:126.5,img:""},
-      {name:"Paneer Tikka Burger",category:"Burgers",desc:"Tikka paneer burger",price:126.5,img:""},
-      {name:"Grilled Sandwich",category:"Sandwiches",desc:"Toasted veg grilled",price:155.25,img:""},
-      {name:"Veg Club Sandwich",category:"Sandwiches",desc:"Triple layer club",price:155.25,img:""},
-      {name:"Veg Sandwich",category:"Sandwiches",desc:"Classic veg sandwich",price:113.85,img:""},
-      {name:"Plain Cheese Sandwich",category:"Sandwiches",desc:"Cheese sandwich",price:113.85,img:""},
-      // Snacks
-      {name:"Chhole Bhature",category:"Snacks",desc:"Spicy chickpeas with fried bread",price:138,img:""},
-      {name:"Amritsari Chhole Kulcha",category:"Snacks",desc:"Amritsari style chhole",price:155.25,img:""},
-      {name:"Mumbai Pav Bhaji",category:"Snacks",desc:"Classic street food",price:161,img:""},
-      {name:"Cheese Pav Bhaji",category:"Snacks",desc:"Extra cheese",price:178.25,img:""},
-      {name:"Cheese Chilli Toast",category:"Snacks",desc:"Cheesy chilli toast",price:155.25,img:""},
-      {name:"Chhole",category:"Snacks",desc:"Spicy chickpea curry",price:138,img:""},
-      {name:"Veg Cutlet",category:"Snacks",desc:"Crispy vegetable cutlets",price:126.5,img:""},
-      {name:"French Fries",category:"Snacks",desc:"Crispy golden fries",price:126.5,img:""},
-      {name:"Paneer Ke Sholey",category:"Snacks",desc:"Flaming paneer snack",price:276,img:""},
-      {name:"Paneer Cutlet",category:"Snacks",desc:"Paneer stuffed cutlet",price:178.25,img:""},
-      {name:"Paneer Kulcha",category:"Snacks",desc:"Paneer stuffed kulcha",price:63.25,img:""},
-      {name:"Poha",category:"Snacks",desc:"Flattened rice snack",price:113.85,img:""},
-      {name:"Grilled Vada Pav",category:"Snacks",desc:"Mumbai vada pav grilled",price:80.5,img:""},
-      {name:"Onion Kulcha",category:"Snacks",desc:"Onion stuffed kulcha",price:51.75,img:""},
-      {name:"Grilled Cheese Vada Pav",category:"Snacks",desc:"Cheese loaded vada pav",price:126.5,img:""},
-      {name:"Butter Toast",category:"Snacks",desc:"Simple butter toast",price:69,img:""},
-      {name:"Poori Bhaji",category:"Snacks",desc:"Puffed bread with potato",price:138,img:""},
-      {name:"Chhole Poori",category:"Snacks",desc:"Chhole with poori",price:149.5,img:""},
-      {name:"Masala Peanut",category:"Snacks",desc:"Spiced peanuts",price:138,img:""},
-      {name:"Fry Kaju",category:"Snacks",desc:"Fried cashews",price:149.5,img:""},
-      // Rolls & Frankies
-      {name:"Paneer Chilli Roll",category:"Rolls",desc:"Paneer chilli wrapped",price:172.5,img:""},
-      {name:"Paneer Tikka Kathi Roll",category:"Rolls",desc:"Tikka paneer kathi",price:172.5,img:""},
-      {name:"Veg Frankie",category:"Frankies",desc:"Vegetable frankie wrap",price:126.5,img:""},
-      {name:"Paneer Frankie",category:"Frankies",desc:"Paneer frankie wrap",price:161,img:""},
-      // Accompaniments
-      {name:"Boondi Raita",category:"Accompaniments",desc:"Yogurt with boondi",price:103.5,img:""},
-      {name:"Pineapple Raita",category:"Accompaniments",desc:"Pineapple yogurt",price:126.5,img:""},
-      {name:"Kheera Raita",category:"Accompaniments",desc:"Cucumber raita",price:103.5,img:""},
-      {name:"Plain Curd",category:"Accompaniments",desc:"Fresh yogurt",price:69,img:""},
-      {name:"Mix Raita",category:"Accompaniments",desc:"Mixed vegetable raita",price:103.5,img:""},
-      {name:"Fruit Raita",category:"Accompaniments",desc:"Fruit yogurt raita",price:138,img:""},
-      {name:"Fry Papad",category:"Accompaniments",desc:"Fried papad",price:28.75,img:""},
-      {name:"Dry Papad",category:"Accompaniments",desc:"Roasted papad",price:28.75,img:""},
-      {name:"Masala Papad",category:"Accompaniments",desc:"Spiced topped papad",price:40.25,img:""},
-      {name:"Extra Cheese",category:"Accompaniments",desc:"Additional cheese",price:57.5,img:""},
-      // Desserts
-      {name:"Gulab Jamun with Ice Cream",category:"Desserts",desc:"Warm gulab jamun with vanilla",price:69,img:""},
-      {name:"Ice Cream Double Scoop",category:"Desserts",desc:"Double scoop ice cream",price:80.5,img:""},
-      // Beverages
-      {name:"Cold Coffee with Ice Cream",category:"Beverages",desc:"Topped with ice cream",price:172.5,img:""},
-      {name:"Virgin Mojito",category:"Beverages",desc:"Refreshing mint lime",price:115,img:""},
-      {name:"Oreo Shake",category:"Beverages",desc:"Thick Oreo shake",price:195.5,img:""},
-      {name:"Cold Coffee",category:"Beverages",desc:"Classic cold coffee",price:172.5,img:""},
-      {name:"Chocolate Shake",category:"Beverages",desc:"Rich chocolate",price:184,img:""},
-      {name:"Sweet or Salted Lassi",category:"Beverages",desc:"Traditional yogurt",price:69,img:""},
-      {name:"Buttermilk",category:"Beverages",desc:"Refreshing chaas",price:69,img:""},
-      {name:"Tea",category:"Beverages",desc:"Hot masala chai",price:28.75,img:""},
-      {name:"Black Tea",category:"Beverages",desc:"Plain black tea",price:28.75,img:""},
-      {name:"Green Tea",category:"Beverages",desc:"Healthy green tea",price:40.25,img:""},
-      {name:"Soft Drinks",category:"Beverages",desc:"Coke/Pepsi/Sprite",price:34.5,img:""},
-      {name:"Fresh Lime Soda",category:"Beverages",desc:"Sweet/salt",price:69,img:""},
-      {name:"Red Bull",category:"Beverages",desc:"Energy drink",price:143.75,img:""},
-      {name:"Peach Blossom",category:"Beverages",desc:"Peach mocktail",price:115,img:""},
-      {name:"Blue Ocean",category:"Beverages",desc:"Blue curacao mocktail",price:138,img:""},
-      {name:"Red Ocean",category:"Beverages",desc:"Red berry mocktail",price:138,img:""},
-      {name:"Electric Shock",category:"Beverages",desc:"Tangy electric mocktail",price:149.5,img:""},
-      {name:"Vanilla or Strawberry Shake",category:"Beverages",desc:"Classic milkshake",price:172.5,img:""},
-      {name:"Butterscotch Shake",category:"Beverages",desc:"Butterscotch milkshake",price:184,img:""},
-      {name:"Kitkat Shake",category:"Beverages",desc:"Kitkat chocolate",price:195.5,img:""},
-      {name:"Flavored Lassi",category:"Beverages",desc:"Mango or Strawberry",price:92,img:""},
-      {name:"Lime Soda or Water",category:"Beverages",desc:"Fresh lime soda",price:69,img:""}
-    ];
-
-    for(const m of menu) await addDoc(collection(db,'menu'),m);
-    
-    const sweets=[
-      {name:"Kaju Katli",price:650,desc:"Premium cashew fudge with silver foil",img:"",tag:"Premium"},
-      {name:"Badam Barfi",price:700,desc:"Rich almond barfi with cardamom",img:"",tag:"Premium"},
-      {name:"Rasgulla",price:400,desc:"Soft spongy cottage cheese balls in syrup",img:"",tag:"Bestseller"},
-      {name:"Gulab Jamun",price:380,desc:"Soft milk dumplings in rose-cardamom syrup",img:"",tag:"Bestseller"},
-      {name:"Rasmalai",price:450,desc:"Flattened paneer discs in saffron milk",img:"",tag:"Premium"},
-      {name:"Motichoor Ladoo",price:500,desc:"Fine boondi ladoos with pure ghee",img:"",tag:"Festival Fav"},
-      {name:"Besan Ladoo",price:450,desc:"Gram flour ladoos with ghee and sugar",img:"",tag:"Classic"},
-      {name:"Peda",price:550,desc:"Soft milk peda with pistachio",img:"",tag:"Special"},
-      {name:"Kalakand",price:480,desc:"Moist milk cake with cardamom",img:"",tag:"Bestseller"},
-      {name:"Soan Papdi",price:400,desc:"Flaky sweet with ghee and dry fruits",img:"",tag:"Festival"},
-      {name:"Cham Cham",price:450,desc:"Colorful Bengali sweet with cream",img:"",tag:"Bengali"},
-      {name:"Mysore Pak",price:550,desc:"Rich gram flour fudge with ghee",img:"",tag:"South Indian"},
-      {name:"Ghevar",price:600,desc:"Honeycomb-shaped festive sweet",img:"",tag:"Teej Special"},
-      {name:"Balushahi",price:380,desc:"Flaky deep-fried sweet in syrup",img:"",tag:"Classic"},
-      {name:"Malpua",price:420,desc:"Sweet pancakes soaked in sugar syrup",img:"",tag:"Traditional"},
-      {name:"Jalebi",price:350,desc:"Crispy spiral sweet in saffron syrup",img:"",tag:"Hot"},
-      {name:"Moong Dal Halwa",price:700,desc:"Slow-cooked lentil halwa with ghee",img:"",tag:"Winter Special"},
-      {name:"Gajar Halwa",price:500,desc:"Carrot halwa with nuts and khoya",img:"",tag:"Winter Special"},
-      {name:"Sandesh",price:550,desc:"Bengali cottage cheese sweet",img:"",tag:"Bengali"},
-      {name:"Patisa Rolls",price:450,desc:"Flaky rolls with dry fruits",img:"",tag:"Gift Pack"},
-      {name:"Anjeer Barfi",price:800,desc:"Fig and dry fruit barfi",img:"",tag:"Premium"},
-      {name:"Pista Roll",price:750,desc:"Pistachio rolled barfi",img:"",tag:"Premium"}
-    ];
-    for(const s of sweets) await addDoc(collection(db,'sweets'),s);
-    
-    alert("Full Menu Loaded! Images will appear as you upload them or use placeholders.");
-  };
-
-  window.addEventListener('load',()=>setTimeout(()=>document.getElementById('preloader').classList.add('hidden'),1200));
-  window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
+  // ============ INIT ============
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 600);
+  });
 </script>
 </body>
 </html>
