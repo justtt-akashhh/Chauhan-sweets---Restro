@@ -7,138 +7,172 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-:root{--gold:#d4af37;--gold-light:#f4d03f;--dark:#0a0a0a;--dark-2:#111;--dark-3:#1a1a1a;--dark-4:#252525;--text:#f5f5f5;--text-muted:#a0a0a0;--success:#4ade80;--danger:#ff4757;--sweet:#ff6b9d}
+:root{
+  --gold:#d4af37;--gold-light:#f4d03f;--gold-dim:rgba(212,175,55,0.15);
+  --dark:#050505;--dark-2:#0f0f0f;--dark-3:#1a1a1a;--dark-4:#252525;
+  --text:#f5f5f5;--text-muted:#a0a0a0;--success:#4ade80;--danger:#ff4757;--sweet:#ff6b9d;
+}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden;line-height:1.6}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--dark)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--dark)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
 
-.preloader{position:fixed;inset:0;background:var(--dark);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .5s}
+/* Preloader */
+.preloader{position:fixed;inset:0;background:var(--dark);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .6s}
 .preloader.hidden{opacity:0;pointer-events:none}
-.loader-brand{font-family:'Great Vibes',cursive;font-size:3.5rem;color:var(--gold);animation:glow 1.5s infinite alternate}
-@keyframes glow{to{text-shadow:0 0 20px rgba(212,175,55,.6)}}
+.loader-brand{font-family:'Great Vibes',cursive;font-size:4rem;color:var(--gold);animation:glow 1.5s infinite alternate}
+@keyframes glow{to{text-shadow:0 0 30px rgba(212,175,55,.8), 0 0 60px rgba(212,175,55,.4)}}
 
 /* Navbar */
-.navbar{position:fixed;top:0;width:100%;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:.3s;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.1)}
-.logo{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--gold);text-decoration:none}
+.navbar{position:fixed;top:0;width:100%;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:.4s;background:rgba(5,5,5,.85);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(212,175,55,.15)}
+.logo{font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--gold);text-decoration:none;transition:.3s}
+.logo:hover{text-shadow:0 0 15px rgba(212,175,55,.5)}
 .nav-links{display:flex;gap:15px}
-.nav-btn{background:var(--gold);color:#000;padding:8px 18px;border:none;border-radius:20px;font-weight:600;cursor:pointer;font-size:.85rem;text-decoration:none}
+.nav-btn{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:8px 20px;border:none;border-radius:20px;font-weight:600;cursor:pointer;font-size:.85rem;text-decoration:none;transition:.3s}
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(212,175,55,.4)}
 .hamburger{background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;display:none}
 
 /* Views Management */
 .view{display:none;min-height:100vh;padding-top:70px}
-.view.active{display:block;animation:fadeIn .3s}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.view.active{display:block;animation:fadeIn .5s ease-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 
-/* Hero */
-.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(135deg,#1a0a0a,var(--dark),#1a0a15);padding:40px 20px}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(212,175,55,.15), transparent 70%)}
-.hero-content{position:relative;z-index:2;max-width:900px}
-.hero-badge{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:6px 16px;border-radius:20px;font-size:.75rem;letter-spacing:2px;margin-bottom:20px}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,8vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:15px}
-.hero h1 span{font-family:'Great Vibes',cursive;color:var(--gold)}
-.hero p{font-size:1rem;color:var(--text-muted);margin-bottom:25px;max-width:600px;margin-left:auto;margin-right:auto}
-.btn-primary{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:12px 28px;border-radius:30px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;transition:.3s}
-.btn-primary:active{transform:scale(.95)}
-.btn-outline{background:transparent;color:#fff;padding:12px 28px;border-radius:30px;font-weight:600;text-decoration:none;border:1.5px solid rgba(212,175,55,.5);cursor:pointer;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;margin-left:10px}
+/* Hero Section - UPGRADED WITH AESTHETIC BACKGROUND */
+.hero{
+  min-height:95vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
+  /* YAHAN APNI CHAUHAN SWEETS KI HERO PHOTO KA LINK DALEIN (abhi ek premium placeholder hai) */
+  background:linear-gradient(to bottom, rgba(5,5,5,0.7), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80') center/cover no-repeat fixed;
+  padding:40px 20px;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%, rgba(212,175,55,.2), transparent 60%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:900px;padding:40px;background:rgba(15,15,15,0.6);backdrop-filter:blur(12px);border:1px solid rgba(212,175,55,.2);border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.hero-badge{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:8px 20px;border-radius:30px;font-size:.8rem;letter-spacing:3px;margin-bottom:25px;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,8vw,4rem);font-weight:700;line-height:1.1;margin-bottom:20px}
+.hero h1 span{font-family:'Great Vibes',cursive;color:var(--gold);font-size:1.2em}
+.hero p{font-size:1.05rem;color:var(--text-muted);margin-bottom:30px;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.8}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:14px 32px;border-radius:30px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-size:1rem;display:inline-flex;align-items:center;gap:8px;transition:.3s;box-shadow:0 4px 15px rgba(212,175,55,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(212,175,55,.5)}
+.btn-primary:active{transform:scale(.96)}
+.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:30px;font-weight:600;text-decoration:none;border:1.5px solid rgba(212,175,55,.5);cursor:pointer;font-size:1rem;display:inline-flex;align-items:center;gap:8px;margin-left:10px;transition:.3s}
+.btn-outline:hover{background:rgba(212,175,55,.1);border-color:var(--gold)}
 
 /* Section Headers */
-.section-header{text-align:center;padding:40px 20px 20px}
-.section-header .tag{color:var(--gold);letter-spacing:3px;font-size:.75rem;text-transform:uppercase;display:block;margin-bottom:8px}
-.section-header h2{font-family:'Playfair Display',serif;font-size:2rem}
-.section-header h2 span{color:var(--gold);font-family:'Great Vibes',cursive}
-.section-header .divider{width:50px;height:2px;background:var(--gold);margin:15px auto}
+.section-header{text-align:center;padding:60px 20px 30px}
+.section-header .tag{color:var(--gold);letter-spacing:4px;font-size:.75rem;text-transform:uppercase;display:block;margin-bottom:10px;font-weight:600}
+.section-header h2{font-family:'Playfair Display',serif;font-size:2.5rem}
+.section-header h2 span{color:var(--gold);font-family:'Great Vibes',cursive;font-size:1.3em}
+.section-header .divider{width:60px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto;border-radius:2px}
 
-/* Sweets Grid */
-.sweets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;max-width:1200px;margin:0 auto;padding:0 20px 40px}
-.sweet-card{background:var(--dark-2);border-radius:14px;overflow:hidden;border:1px solid rgba(255,107,157,.1);transition:.3s}
-.sweet-card:active{transform:scale(.98)}
-.sweet-img{height:140px;background:linear-gradient(135deg,rgba(255,107,157,.15),rgba(212,175,55,.1));display:flex;align-items:center;justify-content:center;font-size:2.5rem}
-.sweet-card .body{padding:12px}
-.sweet-card h3{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sweet-card p{color:var(--text-muted);font-size:.75rem;margin-bottom:10px;height:36px;overflow:hidden}
+/* Sweets Grid - UPGRADED CARDS */
+.sweets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;max-width:1200px;margin:0 auto;padding:0 20px 50px}
+.sweet-card{background:var(--dark-2);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.05);transition:.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
+.sweet-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.3);box-shadow:0 15px 30px rgba(0,0,0,.4)}
+.sweet-img{
+  height:160px;background:linear-gradient(135deg,rgba(255,107,157,.1),rgba(212,175,55,.1));
+  display:flex;align-items:center;justify-content:center;font-size:3rem;
+  background-size:cover;background-position:center;position:relative;
+}
+.sweet-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, var(--dark-2), transparent)}
+.sweet-card .body{padding:16px;position:relative}
+.sweet-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:6px;color:var(--text)}
+.sweet-card p{color:var(--text-muted);font-size:.8rem;margin-bottom:12px;height:40px;overflow:hidden;line-height:1.5}
 .sweet-card .footer{display:flex;justify-content:space-between;align-items:center}
-.sweet-card .price{color:var(--sweet);font-weight:700;font-size:.95rem}
-.sweet-card .btn-book{background:var(--sweet);color:#fff;border:none;padding:6px 14px;border-radius:15px;font-size:.75rem;font-weight:600;cursor:pointer}
-.view-all-btn{display:block;width:90%;max-width:400px;margin:0 auto 40px;padding:14px;background:rgba(255,107,157,.1);border:1px solid rgba(255,107,157,.3);color:var(--sweet);font-weight:600;border-radius:30px;cursor:pointer;font-size:.95rem;text-align:center}
+.sweet-card .price{color:var(--gold);font-weight:700;font-size:1rem}
+.sweet-card .btn-book{background:var(--sweet);color:#fff;border:none;padding:8px 16px;border-radius:20px;font-size:.8rem;font-weight:600;cursor:pointer;transition:.3s}
+.sweet-card .btn-book:hover{background:#ff4785;transform:scale(1.05)}
+.view-all-btn{display:block;width:90%;max-width:400px;margin:0 auto 60px;padding:16px;background:linear-gradient(135deg,rgba(255,107,157,.1),rgba(212,175,55,.1));border:1px solid rgba(255,107,157,.3);color:var(--sweet);font-weight:600;border-radius:30px;cursor:pointer;font-size:1rem;text-align:center;transition:.3s}
+.view-all-btn:hover{background:rgba(255,107,157,.2);transform:translateY(-2px)}
 
-/* Booking Section */
-.booking-section{background:linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=1920') center/cover fixed;padding:60px 20px}
-.booking-container{max-width:500px;margin:0 auto;background:rgba(26,26,26,.95);backdrop-filter:blur(20px);padding:30px;border-radius:18px;border:1px solid rgba(212,175,55,.2)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-group{margin-bottom:15px}
-.form-group label{display:block;color:var(--gold);font-size:.8rem;margin-bottom:6px}
-.form-group input,.form-group select{width:100%;padding:12px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:8px;color:#fff;font-family:inherit;font-size:.9rem}
-.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold)}
+/* Booking Section - UPGRADED */
+.booking-section{
+  background:linear-gradient(rgba(5,5,5,0.85),rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=1920&q=80') center/cover fixed;
+  padding:80px 20px;position:relative;
+}
+.booking-container{max-width:550px;margin:0 auto;background:rgba(15,15,15,0.8);backdrop-filter:blur(20px);padding:35px;border-radius:24px;border:1px solid rgba(212,175,55,.2);box-shadow:0 25px 50px rgba(0,0,0,.5)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;color:var(--gold);font-size:.8rem;margin-bottom:8px;font-weight:500;letter-spacing:0.5px}
+.form-group input,.form-group select{width:100%;padding:14px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:10px;color:#fff;font-family:inherit;font-size:.95rem;transition:.3s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 15px rgba(212,175,55,.15)}
 
-/* Menu Page (Full Screen) */
-.menu-page-header{position:sticky;top:70px;background:var(--dark);z-index:50;padding:15px 20px;border-bottom:1px solid var(--dark-3)}
-.category-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+/* Menu Page */
+.menu-page-header{position:sticky;top:70px;background:rgba(5,5,5,0.95);backdrop-filter:blur(10px);z-index:50;padding:20px;border-bottom:1px solid var(--dark-3)}
+.category-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;-webkit-overflow-scrolling:touch}
 .category-scroll::-webkit-scrollbar{display:none}
-.cat-tab{padding:8px 18px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:20px;color:var(--text-muted);font-size:.8rem;white-space:nowrap;cursor:pointer;transition:.3s}
-.cat-tab.active{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600}
-.menu-list{padding:20px;max-width:800px;margin:0 auto}
-.menu-item-card{display:flex;gap:15px;background:var(--dark-2);padding:15px;border-radius:12px;margin-bottom:12px;border:1px solid rgba(255,255,255,.05)}
-.menu-item-img{width:80px;height:80px;border-radius:10px;background:var(--dark-3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.cat-tab{padding:10px 22px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:25px;color:var(--text-muted);font-size:.85rem;white-space:nowrap;cursor:pointer;transition:.3s}
+.cat-tab.active{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600;box-shadow:0 4px 15px rgba(212,175,55,.3)}
+.menu-list{padding:25px;max-width:800px;margin:0 auto}
+.menu-item-card{display:flex;gap:18px;background:var(--dark-2);padding:18px;border-radius:16px;margin-bottom:15px;border:1px solid rgba(255,255,255,.05);transition:.3s}
+.menu-item-card:hover{border-color:rgba(212,175,55,.2);transform:translateX(5px)}
+.menu-item-img{width:85px;height:85px;border-radius:12px;background:var(--dark-3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;overflow:hidden;background-size:cover;background-position:center}
 .menu-item-info{flex:1}
-.menu-item-info h4{font-size:1rem;margin-bottom:4px;font-family:'Playfair Display',serif}
-.menu-item-info p{color:var(--text-muted);font-size:.8rem;margin-bottom:8px}
-.menu-item-info .price{color:var(--gold);font-weight:700;font-size:1rem}
+.menu-item-info h4{font-size:1.05rem;margin-bottom:6px;font-family:'Playfair Display',serif;color:var(--text)}
+.menu-item-info p{color:var(--text-muted);font-size:.85rem;margin-bottom:10px;line-height:1.5}
+.menu-item-info .price{color:var(--gold);font-weight:700;font-size:1.1rem}
 
 /* Modals */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.95);backdrop-filter:blur(10px);display:none;align-items:flex-end;justify-content:center;z-index:5000}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center;z-index:5000}
 .modal.show{display:flex}
-.modal-box{background:var(--dark-2);border-radius:20px 20px 0 0;padding:25px;width:100%;max-width:600px;max-height:85vh;overflow-y:auto;position:relative;animation:slideUp .3s}
-@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.modal-close{position:absolute;top:15px;right:20px;background:none;border:none;color:#888;font-size:1.5rem;cursor:pointer}
-.search-box{width:100%;padding:12px 15px 12px 40px;background:var(--dark-3);border:1px solid rgba(255,107,157,.2);border-radius:25px;color:#fff;margin-bottom:20px;font-size:.95rem}
-.search-box:focus{outline:none;border-color:var(--sweet)}
+.modal-box{background:var(--dark-2);border-radius:24px 24px 0 0;padding:30px;width:100%;max-width:600px;max-height:85vh;overflow-y:auto;position:relative;animation:slideUp .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);border-top:1px solid rgba(212,175,55,.2)}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.05);border:none;color:#888;width:36px;height:36px;border-radius:50%;font-size:1.2rem;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--danger);color:#fff}
+.search-box{width:100%;padding:14px 15px 14px 45px;background:var(--dark-3);border:1px solid rgba(255,107,157,.2);border-radius:30px;color:#fff;margin-bottom:25px;font-size:1rem;transition:.3s}
+.search-box:focus{outline:none;border-color:var(--sweet);box-shadow:0 0 15px rgba(255,107,157,.15)}
 .search-wrap{position:relative}
-.search-wrap i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--sweet)}
+.search-wrap i{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--sweet);font-size:1.1rem}
 
-/* Payment Modal Specifics */
+/* Payment Modal */
 .payment-modal{text-align:center}
-.qr-box{background:#fff;padding:12px;border-radius:10px;display:inline-block;margin:15px 0}
+.qr-box{background:#fff;padding:15px;border-radius:16px;display:inline-block;margin:20px 0;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .qr-box img{width:200px;height:200px;display:block}
-.upi-id-box{background:var(--dark-3);padding:8px 12px;border-radius:6px;display:inline-flex;align-items:center;gap:8px;font-family:monospace;color:var(--gold);margin:8px 0;font-size:.85rem}
-.copy-btn{background:var(--gold);color:#000;border:none;padding:4px 10px;border-radius:10px;cursor:pointer;font-size:.72rem;font-weight:700}
-.pay-amount{font-size:2.2rem;color:var(--gold);font-weight:700;font-family:'Playfair Display',serif;margin:12px 0}
-.payment-status{margin-top:15px;padding:12px;border-radius:8px;display:none;font-size:.9rem}
+.upi-id-box{background:var(--dark-3);padding:12px 16px;border-radius:12px;display:inline-flex;align-items:center;gap:10px;font-family:monospace;color:var(--gold);margin:15px 0;font-size:.95rem;border:1px dashed rgba(212,175,55,.3)}
+.copy-btn{background:var(--gold);color:#000;border:none;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:700;transition:.3s}
+.copy-btn:hover{background:var(--gold-light)}
+.pay-amount{font-size:2.5rem;color:var(--gold);font-weight:700;font-family:'Playfair Display',serif;margin:15px 0}
+.payment-status{margin-top:20px;padding:15px;border-radius:12px;display:none;font-size:.95rem;font-weight:500}
 .payment-status.processing{display:block;background:rgba(212,175,55,.1);border:1px solid var(--gold);color:var(--gold)}
 .payment-status.success{display:block;background:rgba(74,222,128,.1);border:1px solid var(--success);color:var(--success)}
 
 /* Admin */
-.admin-trigger{color:#333;font-size:.7rem;cursor:pointer;margin-top:15px;display:inline-block;padding:4px 8px;border:1px solid #333;border-radius:4px}
-.admin-trigger:hover{color:var(--gold);border-color:var(--gold)}
-.admin-tabs{display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--dark-4);padding-bottom:8px;overflow-x:auto}
-.admin-tab{padding:8px 14px;background:transparent;border:none;color:var(--text-muted);cursor:pointer;white-space:nowrap;font-size:.85rem}
-.admin-tab.active{color:var(--gold);border-bottom:2px solid var(--gold)}
-.admin-panel{display:none}.admin-panel.active{display:block}
-.btn-sm{padding:6px 12px;border:none;border-radius:6px;cursor:pointer;font-size:.75rem;font-weight:600;margin-right:5px}
+.admin-trigger{color:#444;font-size:.75rem;cursor:pointer;margin-top:20px;display:inline-block;padding:6px 12px;border:1px solid #333;border-radius:6px;transition:.3s}
+.admin-trigger:hover{color:var(--gold);border-color:var(--gold);background:rgba(212,175,55,.05)}
+.admin-tabs{display:flex;gap:10px;margin-bottom:25px;border-bottom:1px solid var(--dark-4);padding-bottom:10px;overflow-x:auto}
+.admin-tab{padding:10px 18px;background:transparent;border:none;color:var(--text-muted);cursor:pointer;white-space:nowrap;font-size:.9rem;border-radius:8px 8px 0 0;transition:.3s}
+.admin-tab.active{color:var(--gold);background:rgba(212,175,55,.1);font-weight:600}
+.admin-panel{display:none}.admin-panel.active{display:block;animation:fadeIn .3s}
+.btn-sm{padding:8px 14px;border:none;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;margin-right:8px;transition:.3s}
+.btn-sm:hover{transform:translateY(-2px)}
 .btn-edit{background:var(--gold);color:#000}.btn-delete{background:var(--danger);color:#fff}
-.btn-featured{background:rgba(212,175,55,.2);color:var(--gold);border:1px solid var(--gold)}
-.btn-featured.active{background:var(--gold);color:#000}
-.admin-list{max-height:400px;overflow-y:auto;margin-top:15px}
-.admin-item{display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--dark-3);border-radius:8px;margin-bottom:8px;font-size:.85rem}
+.btn-featured{background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.3)}
+.btn-featured.active{background:var(--gold);color:#000;border-color:var(--gold)}
+.admin-list{max-height:400px;overflow-y:auto;margin-top:20px;padding-right:5px}
+.admin-item{display:flex;justify-content:space-between;align-items:center;padding:15px;background:var(--dark-3);border-radius:12px;margin-bottom:10px;font-size:.9rem;border:1px solid rgba(255,255,255,.03)}
 
 /* Footer */
-footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,175,55,.1);text-align:center}
-.footer-col h4{color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:10px;font-size:1.5rem}
-.footer-col p{color:var(--text-muted);font-size:.85rem;margin-bottom:5px}
+footer{background:#020202;padding:60px 20px 30px;border-top:1px solid rgba(212,175,55,.1);text-align:center;position:relative}
+footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.footer-col h4{color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:15px;font-size:1.8rem}
+.footer-col p{color:var(--text-muted);font-size:.9rem;margin-bottom:8px}
+.footer-col i{color:var(--gold);width:25px}
 
-.float-wa{position:fixed;bottom:20px;right:20px;width:55px;height:55px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);z-index:999}
+.float-wa{position:fixed;bottom:25px;right:25px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;text-decoration:none;box-shadow:0 8px 25px rgba(37,211,102,.4);z-index:999;transition:.3s}
+.float-wa:hover{transform:scale(1.1) translateY(-5px);box-shadow:0 12px 30px rgba(37,211,102,.6)}
 
 @media(min-width:768px){
-  .sweets-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .sweets-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
   .modal{align-items:center}
-  .modal-box{border-radius:20px;max-height:90vh}
-  .hero h1{font-size:4rem}
+  .modal-box{border-radius:24px;max-height:90vh}
+  .hero h1{font-size:4.5rem}
   .hamburger{display:none}
 }
 @media(max-width:767px){
   .nav-links{display:none}
   .hamburger{display:block}
   .form-row{grid-template-columns:1fr}
+  .hero-content{padding:25px}
+  .btn-outline{margin-left:0;margin-top:15px;width:100%;justify-content:center}
+  .btn-primary{width:100%;justify-content:center}
 }
 </style>
 </head>
@@ -159,10 +193,10 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
 <div class="view active" id="view-home">
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">★ Fatehpur's Finest ★</div>
+      <div class="hero-badge">★ Fatehpur's Finest Since Years ★</div>
       <h1>Welcome to <span>Chauhan's</span><br>Sweets & Restaurant</h1>
-      <p>Experience authentic North Indian, Chinese, South Indian & Continental cuisine with fresh handmade sweets.</p>
-      <div style="margin-top:20px">
+      <p>Experience authentic North Indian, Chinese, South Indian & Continental cuisine with fresh, handmade, pure desi ghee sweets.</p>
+      <div style="margin-top:25px;display:flex;flex-wrap:wrap;justify-content:center;gap:15px">
         <button class="btn-primary" onclick="showView('menu')"><i class="fas fa-utensils"></i> Explore Menu</button>
         <button class="btn-outline" onclick="document.getElementById('booking-section').scrollIntoView({behavior:'smooth'})"><i class="fas fa-calendar-alt"></i> Book Table</button>
       </div>
@@ -171,39 +205,39 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
 
   <section id="sweets-section">
     <div class="section-header">
-      <span class="tag">Fresh & Pure</span>
-      <h2>Our <span>Sweets</span></h2>
+      <span class="tag">Fresh & Pure Desi Ghee</span>
+      <h2>Our Premium <span>Sweets</span></h2>
       <div class="divider"></div>
     </div>
     <div class="sweets-grid" id="featuredSweetsGrid"></div>
     <button class="view-all-btn" onclick="openAllSweetsModal()">View All Sweets & Search <i class="fas fa-arrow-down"></i></button>
   </section>
 
-  <!-- BOOKING SECTION RESTORED -->
+  <!-- BOOKING SECTION -->
   <section class="booking-section" id="booking-section">
     <div class="section-header">
-      <span class="tag">Reserve Now</span>
+      <span class="tag">Reserve Your Spot</span>
       <h2>Book Your <span>Table</span></h2>
       <div class="divider"></div>
     </div>
     <div class="booking-container">
       <div class="form-row">
-        <div class="form-group"><label>Name</label><input type="text" id="bName" placeholder="Your name"></div>
-        <div class="form-group"><label>Phone</label><input type="tel" id="bPhone" placeholder="10-digit" maxlength="10"></div>
+        <div class="form-group"><label>Full Name</label><input type="text" id="bName" placeholder="Your name"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" id="bPhone" placeholder="10-digit" maxlength="10"></div>
       </div>
       <div class="form-row">
         <div class="form-group"><label>Date & Time</label><input type="datetime-local" id="bDate"></div>
-        <div class="form-group"><label>Guests</label><select id="bGuests"><option>2 People</option><option>4 People</option><option>6 People</option><option>8+ People</option></select></div>
+        <div class="form-group"><label>Number of Guests</label><select id="bGuests"><option>2 People</option><option>4 People</option><option>6 People</option><option>8+ People</option></select></div>
       </div>
-      <div class="form-group"><label>Booking Fee (Adjustable in Bill)</label>
+      <div class="form-group"><label>Booking Fee (Adjustable in Final Bill)</label>
         <select id="bFee" onchange="updatePayAmount()">
-          <option value="99">₹99 (Standard)</option>
-          <option value="199" selected>₹199 (Preferred)</option>
-          <option value="299">₹299 (Private Cabin)</option>
+          <option value="99">₹99 (Standard Seating)</option>
+          <option value="199" selected>₹199 (Preferred Seating)</option>
+          <option value="299">₹299 (Private Cabin/Family)</option>
         </select>
       </div>
-      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:10px" onclick="openPaymentModal()">
-        <i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">199</span> & Confirm
+      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:15px;padding:16px" onclick="openPaymentModal()">
+        <i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">199</span> & Confirm Booking
       </button>
     </div>
   </section>
@@ -211,25 +245,25 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
   <footer>
     <div class="footer-col">
       <h4>Chauhan's</h4>
-      <p>Fatehpur's most loved dining destination.</p>
-      <p style="margin-top:15px"><i class="fas fa-phone"></i> +91 88531 53098</p>
-      <p><i class="fas fa-map-marker-alt"></i> Fatehpur, UP</p>
+      <p>Fatehpur's most loved dining & sweets destination.</p>
+      <p style="margin-top:20px"><i class="fas fa-phone"></i> +91 88531 53098</p>
+      <p><i class="fas fa-map-marker-alt"></i> Bullet Chauraha / Baqar Ganj, Fatehpur, UP</p>
       <p><i class="fas fa-id-card"></i> FSSAI: 22726814000007</p>
-      <p style="margin-top:15px;color:var(--gold)">Mon-Sun: 8 AM - 11 PM</p>
+      <p style="margin-top:20px;color:var(--gold);font-weight:600"><i class="fas fa-clock"></i> Mon-Sun: 8:00 AM - 11:00 PM</p>
     </div>
-    <div style="margin-top:30px;padding-top:20px;border-top:1px solid #222;color:#555;font-size:.75rem;">
-      &copy; 2026 Chauhan Sweets & Restaurant.<br>
+    <div style="margin-top:40px;padding-top:25px;border-top:1px solid #1a1a1a;color:#555;font-size:.8rem;">
+      &copy; 2026 Chauhan Sweets & Restaurant. All Rights Reserved.<br>
       <span class="admin-trigger" onclick="openAdminLogin()"><i class="fas fa-lock"></i> Admin Access</span>
     </div>
   </footer>
 </div>
 
-<!-- MENU VIEW (Full Screen Page) -->
+<!-- MENU VIEW -->
 <div class="view" id="view-menu">
   <div class="menu-page-header">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
-      <h3 style="font-family:'Playfair Display',serif;color:var(--gold)">Our Menu</h3>
-      <button class="btn-sm" style="background:var(--dark-3);color:#fff" onclick="showView('home')"><i class="fas fa-arrow-left"></i> Back</button>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.5rem">Our Menu</h3>
+      <button class="btn-sm" style="background:var(--dark-3);color:#fff;border:1px solid rgba(255,255,255,.1)" onclick="showView('home')"><i class="fas fa-arrow-left"></i> Back</button>
     </div>
     <div class="category-scroll" id="menuCategoryScroll"></div>
   </div>
@@ -240,25 +274,25 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
 <div class="modal" id="allSweetsModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('allSweetsModal')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--sweet);font-family:'Playfair Display',serif;margin-bottom:15px">All Sweets</h3>
+    <h3 style="color:var(--sweet);font-family:'Playfair Display',serif;margin-bottom:20px;font-size:1.5rem">All Sweets</h3>
     <div class="search-wrap">
       <i class="fas fa-search"></i>
-      <input type="text" class="search-box" id="sweetSearch" placeholder="Search mithai..." oninput="filterAllSweets()">
+      <input type="text" class="search-box" id="sweetSearch" placeholder="Search your favorite mithai..." oninput="filterAllSweets()">
     </div>
-    <div class="sweets-grid" id="allSweetsGrid" style="padding:0;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))"></div>
+    <div class="sweets-grid" id="allSweetsGrid" style="padding:0;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))"></div>
   </div>
 </div>
 
-<!-- PAYMENT MODAL RESTORED -->
+<!-- PAYMENT MODAL -->
 <div class="modal" id="paymentModal">
   <div class="modal-box payment-modal">
     <button class="modal-close" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);font-family:'Playfair Display',serif;">Complete Booking</h3>
-    <p style="color:var(--text-muted);font-size:.85rem;">Scan QR or use UPI ID</p>
+    <h3 style="color:var(--gold);font-family:'Playfair Display',serif;font-size:1.5rem">Complete Booking</h3>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-top:5px">Scan QR or use UPI ID to pay</p>
     <div class="pay-amount">₹<span id="modalPayAmt">199</span></div>
     <div class="qr-box"><img id="upiQrImg" src="" alt="UPI QR"></div>
     <div class="upi-id-box"><span>akashji124421@ptyes</span><button class="copy-btn" onclick="copyUPI()">COPY</button></div>
-    <button class="btn-primary" style="width:100%;justify-content:center;margin-top:15px;" id="payConfirmBtn" onclick="verifyPayment()">
+    <button class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;padding:16px" id="payConfirmBtn" onclick="verifyPayment()">
       <i class="fas fa-check-circle"></i> I've Made the Payment
     </button>
     <div id="payStatus" class="payment-status"></div>
@@ -269,11 +303,11 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
 <div class="modal" id="adminLoginModal">
   <div class="modal-box" style="max-width:400px">
     <button class="modal-close" onclick="closeModal('adminLoginModal')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);text-align:center;margin-bottom:20px"><i class="fas fa-shield-halved"></i> Admin Login</h3>
+    <h3 style="color:var(--gold);text-align:center;margin-bottom:25px;font-family:'Playfair Display',serif;font-size:1.5rem"><i class="fas fa-shield-halved"></i> Admin Login</h3>
     <div class="form-group"><label>Email</label><input type="email" id="adminEmail" placeholder="Enter email"></div>
     <div class="form-group"><label>Password</label><input type="password" id="adminPass" placeholder="Enter password"></div>
-    <button class="btn-primary" style="width:100%;justify-content:center" onclick="adminLogin()">Login</button>
-    <p id="loginError" style="color:var(--danger);text-align:center;margin-top:12px;font-size:.8rem"></p>
+    <button class="btn-primary" style="width:100%;justify-content:center;padding:14px" onclick="adminLogin()">Login</button>
+    <p id="loginError" style="color:var(--danger);text-align:center;margin-top:15px;font-size:.85rem"></p>
   </div>
 </div>
 
@@ -281,7 +315,7 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
 <div class="modal" id="adminDashboard">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('adminDashboard')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);margin-bottom:20px;font-family:'Playfair Display',serif"><i class="fas fa-crown"></i> Admin Dashboard</h3>
+    <h3 style="color:var(--gold);margin-bottom:25px;font-family:'Playfair Display',serif;font-size:1.5rem"><i class="fas fa-crown"></i> Admin Dashboard</h3>
     <div class="admin-tabs">
       <button class="admin-tab active" onclick="switchAdminTab('site',this)">Site</button>
       <button class="admin-tab" onclick="switchAdminTab('sweets',this)">Sweets</button>
@@ -292,44 +326,44 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
     <div class="admin-panel active" id="panel-site">
       <div class="form-group"><label>Hero Title</label><input type="text" id="editHeroTitle"></div>
       <div class="form-group"><label>Hero Subtitle</label><input type="text" id="editHeroSub"></div>
-      <button class="btn-primary" style="width:100%;justify-content:center" onclick="saveSiteSettings()">Save Live</button>
+      <button class="btn-primary" style="width:100%;justify-content:center;padding:14px" onclick="saveSiteSettings()">Save Live</button>
     </div>
 
     <div class="admin-panel" id="panel-sweets">
-      <div style="background:var(--dark-3);padding:15px;border-radius:10px;margin-bottom:15px">
-        <h4 style="color:var(--sweet);margin-bottom:12px">Add New Sweet</h4>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:var(--dark-3);padding:20px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(255,255,255,.05)">
+        <h4 style="color:var(--sweet);margin-bottom:15px">Add New Sweet</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div class="form-group"><label>Name</label><input type="text" id="swName"></div>
           <div class="form-group"><label>Price/Kg</label><input type="number" id="swPrice"></div>
         </div>
         <div class="form-group"><label>Description</label><input type="text" id="swDesc"></div>
-        <button class="btn-primary" style="width:100%;justify-content:center;background:var(--sweet)" onclick="addSweet()">Add Sweet</button>
+        <button class="btn-primary" style="width:100%;justify-content:center;background:var(--sweet);padding:12px" onclick="addSweet()">Add Sweet</button>
       </div>
-      <h4 style="color:var(--text-muted);font-size:.85rem;margin-bottom:10px">Manage Featured (Max 5 shown on home)</h4>
+      <h4 style="color:var(--text-muted);font-size:.9rem;margin-bottom:15px">Manage Featured (Max 5 shown on home)</h4>
       <div class="admin-list" id="adminSweetsList"></div>
     </div>
 
     <div class="admin-panel" id="panel-menu">
-      <div style="background:var(--dark-3);padding:15px;border-radius:10px;margin-bottom:15px">
-        <h4 style="color:var(--gold);margin-bottom:12px">Add Category</h4>
+      <div style="background:var(--dark-3);padding:20px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(255,255,255,.05)">
+        <h4 style="color:var(--gold);margin-bottom:15px">Add Category</h4>
         <div style="display:flex;gap:10px">
-          <input type="text" id="newCatName" placeholder="Category Name" style="flex:1;padding:10px;background:var(--dark);border:1px solid #333;border-radius:6px;color:#fff">
+          <input type="text" id="newCatName" placeholder="Category Name" style="flex:1;padding:12px;background:var(--dark);border:1px solid #333;border-radius:8px;color:#fff">
           <button class="btn-sm btn-edit" onclick="addCategory()">Add</button>
         </div>
       </div>
-      <div style="background:var(--dark-3);padding:15px;border-radius:10px;margin-bottom:15px">
-        <h4 style="color:var(--gold);margin-bottom:12px">Add Menu Item</h4>
+      <div style="background:var(--dark-3);padding:20px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(255,255,255,.05)">
+        <h4 style="color:var(--gold);margin-bottom:15px">Add Menu Item</h4>
         <div class="form-group"><label>Name</label><input type="text" id="mName"></div>
-        <div class="form-group"><label>Category</label><select id="mCatSelect" style="width:100%;padding:10px;background:var(--dark);border:1px solid #333;border-radius:6px;color:#fff"></select></div>
+        <div class="form-group"><label>Category</label><select id="mCatSelect" style="width:100%;padding:12px;background:var(--dark);border:1px solid #333;border-radius:8px;color:#fff"></select></div>
         <div class="form-group"><label>Description</label><input type="text" id="mDesc"></div>
         <div class="form-group"><label>Price (₹)</label><input type="text" id="mPrice" placeholder="e.g., 150 or 100/200"></div>
-        <button class="btn-primary" style="width:100%;justify-content:center" onclick="addMenuItem()">Add Item</button>
+        <button class="btn-primary" style="width:100%;justify-content:center;padding:12px" onclick="addMenuItem()">Add Item</button>
       </div>
       <div class="admin-list" id="adminMenuList"></div>
     </div>
 
     <div class="admin-panel" id="panel-bookings">
-      <h4 style="color:var(--gold);margin-bottom:15px">Recent Bookings</h4>
+      <h4 style="color:var(--gold);margin-bottom:20px">Recent Bookings</h4>
       <div class="admin-list" id="adminBookingsList"></div>
     </div>
   </div>
@@ -395,7 +429,7 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
     }
   };
 
-  // ============ PAYMENT & BOOKING LOGIC (RESTORED) ============
+  // ============ PAYMENT & BOOKING LOGIC ============
   let currentPayAmount = 199;
   window.updatePayAmount = () => {
     currentPayAmount = document.getElementById('bFee').value;
@@ -461,13 +495,15 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
     const featured = allSweetsData.filter(s => s.featured).slice(0, 5);
     
     if(featured.length === 0) {
-      grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:20px">Admin: Please mark up to 5 sweets as "Featured" in the dashboard.</p>';
+      grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:30px;background:var(--dark-2);border-radius:16px;border:1px dashed rgba(212,175,55,.2)">Admin: Please mark up to 5 sweets as "Featured" in the dashboard.</p>';
       return;
     }
 
     grid.innerHTML = featured.map(sw => `
       <div class="sweet-card">
-        <div class="sweet-img">${sw.icon || '🍬'}</div>
+        <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">
+          ${!sw.imageUrl ? (sw.icon || '🍬') : ''}
+        </div>
         <div class="body">
           <h3>${sw.name}</h3>
           <p>${sw.desc}</p>
@@ -493,7 +529,9 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
     
     grid.innerHTML = filtered.map(sw => `
       <div class="sweet-card">
-        <div class="sweet-img">${sw.icon || ''}</div>
+        <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">
+          ${!sw.imageUrl ? (sw.icon || '') : ''}
+        </div>
         <div class="body">
           <h3>${sw.name}</h3>
           <p>${sw.desc}</p>
@@ -522,7 +560,7 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
     if(menuData.categories.length > 0) {
       window.filterMenuCat(menuData.categories[0], scroll.firstChild);
     } else {
-      list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px">Menu is empty. Admin, please add categories and items.</p>';
+      list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;background:var(--dark-2);border-radius:16px">Menu is empty. Admin, please add categories and items.</p>';
     }
   }
 
@@ -535,14 +573,14 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
     
     list.innerHTML = items.map(item => `
       <div class="menu-item-card">
-        <div class="menu-item-img">🍽️</div>
+        <div class="menu-item-img" style="background-image:url('${item.imageUrl || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&q=80'}')"></div>
         <div class="menu-item-info">
           <h4>${item.name}</h4>
           <p>${item.desc}</p>
           <div class="price">₹${item.price}</div>
         </div>
       </div>
-    `).join('') || '<p style="text-align:center;color:var(--text-muted);padding:20px">No items in this category yet.</p>';
+    `).join('') || '<p style="text-align:center;color:var(--text-muted);padding:30px;background:var(--dark-2);border-radius:16px">No items in this category yet.</p>';
   };
 
   // ============ ADMIN FUNCTIONS ============
@@ -560,7 +598,8 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
       price: Number(document.getElementById('swPrice').value),
       desc: document.getElementById('swDesc').value,
       featured: false,
-      icon: '🍬'
+      icon: '🍬',
+      imageUrl: '' /* Admin can add image URL later */
     });
     document.getElementById('swName').value = '';
     document.getElementById('swPrice').value = '';
@@ -596,7 +635,8 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
       name: document.getElementById('mName').value,
       category: document.getElementById('mCatSelect').value,
       desc: document.getElementById('mDesc').value,
-      price: document.getElementById('mPrice').value
+      price: document.getElementById('mPrice').value,
+      imageUrl: '' /* Admin can add image URL later */
     });
     document.getElementById('mName').value = '';
     document.getElementById('mDesc').value = '';
@@ -617,7 +657,7 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
         document.getElementById('editHeroSub').value = d.heroSub || "";
         if(document.getElementById('view-home').classList.contains('active')) {
           document.querySelector('.hero h1').innerHTML = d.heroTitle || "Welcome to <span>Chauhan's</span><br>Sweets & Restaurant";
-          document.querySelector('.hero p').textContent = d.heroSub || "Experience authentic cuisine.";
+          document.querySelector('.hero p').textContent = d.heroSub || "Experience authentic North Indian, Chinese, South Indian & Continental cuisine with fresh, handmade, pure desi ghee sweets.";
         }
       }
     });
@@ -699,7 +739,7 @@ footer{background:#050505;padding:40px 20px 20px;border-top:1px solid rgba(212,1
 
   // ============ INIT ============
   window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 600);
+    setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 800);
   });
 </script>
 </body>
