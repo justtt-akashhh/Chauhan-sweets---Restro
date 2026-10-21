@@ -11,7 +11,7 @@
   --gold:#d4af37;--gold-light:#f4d03f;--gold-dim:rgba(212,175,55,0.15);
   --dark:#050505;--dark-2:#0f0f0f;--dark-3:#1a1a1a;--dark-4:#252525;
   --text:#f5f5f5;--text-muted:#a0a0a0;--success:#4ade80;--danger:#ff4757;--sweet:#ff6b9d;
-  --warning:#fbbf24;--info:#3b82f6;
+  --warning:#fbbf24;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;font-size:16px}
@@ -22,31 +22,26 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .preloader.hidden{opacity:0;pointer-events:none}
 .loader-brand{font-family:'Great Vibes',cursive;font-size:3rem;color:var(--gold);animation:glow 1.5s infinite alternate}
 @keyframes glow{to{text-shadow:0 0 30px rgba(212,175,55,.8), 0 0 60px rgba(212,175,55,.4)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
 
 .navbar{position:fixed;top:0;width:100%;padding:12px 4%;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:.4s;background:rgba(5,5,5,.92);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(212,175,55,.15)}
-.logo{font-family:'Great Vibes',cursive;font-size:1.8rem;color:var(--gold);text-decoration:none;transition:.3s}
-.logo:hover{text-shadow:0 0 15px rgba(212,175,55,.5)}
+.logo{font-family:'Great Vibes',cursive;font-size:1.8rem;color:var(--gold);text-decoration:none}
 .nav-links{display:flex;gap:10px}
 .nav-btn{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:8px 16px;border:none;border-radius:20px;font-weight:600;cursor:pointer;font-size:.8rem;text-decoration:none;transition:.3s;min-height:36px}
 .nav-btn:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(212,175,55,.4)}
-
 .hamburger{background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;display:none;position:relative;z-index:1001}
 .mobile-menu{position:fixed;top:60px;right:4%;background:rgba(15,15,15,0.98);backdrop-filter:blur(20px);border:1px solid rgba(212,175,55,.2);border-radius:12px;padding:10px;min-width:200px;display:none;z-index:1000;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:slideDown .3s}
 .mobile-menu.show{display:block}
-@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 .mobile-menu-item{display:flex;align-items:center;gap:10px;padding:12px 15px;color:var(--text);text-decoration:none;border-radius:8px;transition:.3s;cursor:pointer;border:none;background:none;width:100%;text-align:left;font-size:.9rem;font-family:inherit}
 .mobile-menu-item:hover{background:rgba(212,175,55,.1);color:var(--gold)}
 .mobile-menu-item i{color:var(--gold);width:20px}
 
 .view{display:none;min-height:100vh;padding-top:60px}
 .view.active{display:block;animation:fadeIn .5s ease-out}
-@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 
-.hero{
-  min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
-  background-size:cover !important;background-position:center !important;background-attachment:fixed !important;
-  padding:30px 15px;
-}
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background-size:cover !important;background-position:center !important;background-attachment:fixed !important;padding:30px 15px}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(5,5,5,0.65), rgba(5,5,5,0.92));pointer-events:none}
 .hero-content{position:relative;z-index:2;max-width:900px;padding:30px 20px;background:rgba(15,15,15,0.7);backdrop-filter:blur(12px);border:1px solid rgba(212,175,55,.2);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
 .hero-badge{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:6px 16px;border-radius:30px;font-size:.7rem;letter-spacing:2px;margin-bottom:20px;text-transform:uppercase}
@@ -66,11 +61,7 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .section-header h2 span{color:var(--gold);font-family:'Great Vibes',cursive;font-size:1.3em}
 .section-header .divider{width:50px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:15px auto;border-radius:2px}
 
-.sweets-section{
-  position:relative;
-  background:linear-gradient(rgba(5,5,5,0.88),rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1605197584247-aa39c2b249e5?w=1920&q=80') center/cover fixed;
-  padding-bottom:40px;
-}
+.sweets-section{position:relative;background:linear-gradient(rgba(5,5,5,0.88),rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1605197584247-aa39c2b249e5?w=1920&q=80') center/cover fixed;padding-bottom:40px}
 .sweets-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%, rgba(255,107,157,.08), transparent 60%);pointer-events:none}
 .sweets-section .section-header{position:relative;z-index:2}
 .sweets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:15px;max-width:1200px;margin:0 auto;padding:0 15px 40px;position:relative;z-index:2}
@@ -84,14 +75,11 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .sweet-card .footer{display:flex;justify-content:space-between;align-items:center}
 .sweet-card .price{color:var(--gold);font-weight:700;font-size:.95rem}
 .sweet-card .btn-book{background:var(--sweet);color:#fff;border:none;padding:8px 14px;border-radius:18px;font-size:.75rem;font-weight:600;cursor:pointer;transition:.3s;min-height:36px}
-.sweet-card .btn-book:hover{background:#ff4785;transform:scale(1.05)}
 .view-all-btn{display:block;width:92%;max-width:400px;margin:0 auto 50px;padding:14px;background:linear-gradient(135deg,rgba(255,107,157,.1),rgba(212,175,55,.1));border:1px solid rgba(255,107,157,.3);color:var(--sweet);font-weight:600;border-radius:30px;cursor:pointer;font-size:.95rem;text-align:center;transition:.3s;min-height:48px}
-.view-all-btn:hover{background:rgba(255,107,157,.2);transform:translateY(-2px)}
 
 .gallery-section{background:var(--dark-2);padding-bottom:50px}
 .gallery-tabs{display:flex;justify-content:center;gap:10px;margin-bottom:25px;flex-wrap:wrap;padding:0 15px}
 .gallery-tab{padding:10px 20px;background:var(--dark-3);border:1px solid rgba(212,175,55,0.2);border-radius:25px;color:var(--text-muted);cursor:pointer;transition:.3s;font-weight:500;font-size:.85rem;min-height:40px}
-.gallery-tab:hover{border-color:var(--gold);color:var(--gold)}
 .gallery-tab.active{background:var(--gold);color:#000;border-color:var(--gold);box-shadow:0 4px 15px rgba(212,175,55,.3)}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;max-width:1200px;margin:0 auto;padding:0 15px}
 .gallery-item{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1/1;border:1px solid rgba(255,255,255,.05);cursor:pointer;background:var(--dark-3)}
@@ -116,13 +104,31 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .form-group input,.form-group select{width:100%;padding:13px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:10px;color:#fff;font-family:inherit;font-size:.9rem;transition:.3s;min-height:46px}
 .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 15px rgba(212,175,55,.15)}
 
-.slot-suggestions{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.2);border-radius:10px;padding:12px;margin:12px 0;display:none}
-.slot-suggestions.show{display:block;animation:fadeIn .4s}
-.slot-suggestions h4{color:var(--info);font-size:.85rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.slot-suggestions ul{list-style:none;padding:0}
-.slot-suggestions li{padding:8px 12px;background:rgba(59,130,246,.08);border-radius:6px;margin-bottom:5px;font-size:.8rem;color:var(--text);cursor:pointer;transition:.2s;display:flex;justify-content:space-between;align-items:center}
-.slot-suggestions li:hover{background:rgba(59,130,246,.15)}
-.slot-suggestions li .chairs-badge{background:rgba(74,222,128,.2);color:var(--success);padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:600}
+.field-invalid{border-color:var(--danger)!important;background:rgba(255,71,87,.06)!important}
+.booking-field-error{display:block;color:var(--danger);font-size:.72rem;margin-top:5px;animation:fadeIn .25s}
+.form-error-banner{display:none;background:rgba(255,71,87,.08);border:1px solid rgba(255,71,87,.35);border-left:3px solid var(--danger);border-radius:10px;padding:13px 15px;margin-bottom:18px}
+.form-error-banner.show{display:block;animation:slideDown .3s}
+.form-error-banner .err-head{display:flex;align-items:center;gap:8px;color:var(--danger);font-weight:600;font-size:.88rem;margin-bottom:8px}
+.form-error-banner ul{list-style:none;padding:0;margin:0}
+.form-error-banner li{color:#ffb3ba;font-size:.78rem;padding:3px 0;display:flex;gap:7px;align-items:flex-start}
+.form-error-banner li i{margin-top:4px;font-size:.6rem}
+
+.slot-warning{display:none;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);border-radius:10px;padding:12px;margin:12px 0;color:var(--warning);font-size:.82rem;line-height:1.6}
+.slot-warning.show{display:block;animation:fadeIn .3s}
+.slot-suggestions{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.25);border-radius:12px;padding:14px;margin:14px 0;display:none}
+.slot-suggestions.show{display:block;animation:slideDown .3s}
+.slot-suggestions h4{color:var(--success);font-size:.82rem;margin-bottom:11px;display:flex;align-items:center;gap:7px;font-weight:600}
+.suggestion-list{display:flex;flex-wrap:wrap;gap:8px}
+.suggestion-chip{display:flex;align-items:center;gap:7px;padding:9px 12px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);border-radius:9px;color:var(--text);font-size:.78rem;cursor:pointer;transition:.25s;font-family:inherit;min-height:40px}
+.suggestion-chip:hover{background:rgba(74,222,128,.22);transform:translateY(-2px)}
+.suggestion-chip span{color:var(--success);font-size:.7rem;font-weight:600}
+.suggestion-chip.next-day{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.1)}
+
+.app-toast{position:fixed;left:50%;bottom:95px;transform:translate(-50%,25px);opacity:0;background:#161616;border:1px solid rgba(212,175,55,.3);border-radius:12px;padding:13px 18px;display:flex;align-items:center;gap:10px;z-index:99999;max-width:90%;width:max-content;font-size:.83rem;box-shadow:0 12px 35px rgba(0,0,0,.6);pointer-events:none;transition:.3s}
+.app-toast.show{opacity:1;transform:translate(-50%,0)}
+.app-toast.success{border-color:rgba(74,222,128,.5)} .app-toast.success i{color:var(--success)}
+.app-toast.error{border-color:rgba(255,71,87,.5)} .app-toast.error i{color:var(--danger)}
+.app-toast.info i{color:var(--gold)}
 
 .fee-calculator{background:var(--dark-3);border-radius:10px;padding:14px;margin:15px 0;border:1px solid rgba(212,175,55,.2);display:none}
 .fee-calculator.show{display:block;animation:fadeIn .4s}
@@ -164,7 +170,6 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center;z-index:5000}
 .modal.show{display:flex}
 .modal-box{background:var(--dark-2);border-radius:20px 20px 0 0;padding:25px 20px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;position:relative;animation:slideUp .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);border-top:1px solid rgba(212,175,55,.2)}
-@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
 .modal-close{position:absolute;top:15px;right:15px;background:rgba(255,255,255,.05);border:none;color:#888;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;z-index:10}
 .modal-close:hover{background:var(--danger);color:#fff}
 .search-box{width:100%;padding:13px 15px 13px 42px;background:var(--dark-3);border:1px solid rgba(255,107,157,.2);border-radius:30px;color:#fff;margin-bottom:20px;font-size:.9rem;transition:.3s;min-height:46px}
@@ -177,28 +182,13 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .qr-box img{width:180px;height:180px;display:block}
 .upi-id-box{background:var(--dark-3);padding:11px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;font-family:monospace;color:var(--gold);margin:12px 0;font-size:.85rem;border:1px dashed rgba(212,175,55,.3)}
 .copy-btn{background:var(--gold);color:#000;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.75rem;font-weight:700;transition:.3s;min-height:32px}
-.copy-btn:hover{background:var(--gold-light)}
 .pay-amount{font-size:2.2rem;color:var(--gold);font-weight:700;font-family:'Playfair Display',serif;margin:12px 0}
 .payment-status{margin-top:18px;padding:14px;border-radius:10px;display:none;font-size:.9rem;font-weight:500}
 .payment-status.processing{display:block;background:rgba(212,175,55,.1);border:1px solid var(--gold);color:var(--gold)}
 .payment-status.success{display:block;background:rgba(74,222,128,.1);border:1px solid var(--success);color:var(--success)}
 
-/* CUSTOM ALERT MODAL */
-.custom-alert{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px}
-.custom-alert.show{display:flex;animation:fadeIn .3s}
-.custom-alert-box{background:var(--dark-2);border:1px solid rgba(212,175,55,.3);border-radius:20px;padding:30px 25px;max-width:400px;width:100%;text-align:center;animation:slideUp .4s}
-.custom-alert-icon{font-size:3rem;margin-bottom:15px}
-.custom-alert-icon.warning{color:var(--warning)}
-.custom-alert-icon.error{color:var(--danger)}
-.custom-alert-icon.success{color:var(--success)}
-.custom-alert-icon.info{color:var(--info)}
-.custom-alert-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);margin-bottom:10px}
-.custom-alert-message{color:var(--text-muted);font-size:.9rem;line-height:1.6;margin-bottom:20px}
-.custom-alert-btn{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:12px 30px;border:none;border-radius:25px;font-weight:600;cursor:pointer;font-size:.95rem;min-width:120px;transition:.3s}
-.custom-alert-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(212,175,55,.4)}
-
 .admin-trigger{color:#444;font-size:.7rem;cursor:pointer;margin-top:18px;display:inline-block;padding:6px 10px;border:1px solid #333;border-radius:6px;transition:.3s}
-.admin-trigger:hover{color:var(--gold);border-color:var(--gold);background:rgba(212,175,55,.05)}
+.admin-trigger:hover{color:var(--gold);border-color:var(--gold)}
 .admin-tabs{display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--dark-4);padding-bottom:8px;overflow-x:auto}
 .admin-tab{padding:9px 14px;background:transparent;border:none;color:var(--text-muted);cursor:pointer;white-space:nowrap;font-size:.8rem;border-radius:8px 8px 0 0;transition:.3s;min-height:38px}
 .admin-tab.active{color:var(--gold);background:rgba(212,175,55,.1);font-weight:600}
@@ -208,8 +198,9 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .btn-edit{background:var(--gold);color:#000}
 .btn-delete{background:var(--danger);color:#fff}
 .btn-approve{background:var(--success);color:#000}
-.btn-arrived{background:var(--info);color:#fff}
 .btn-noshow{background:var(--warning);color:#000}
+.btn-arrive{background:var(--success);color:#000}
+.btn-arrive:disabled{background:var(--dark-4);color:#666;cursor:not-allowed;transform:none}
 .btn-featured{background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.3)}
 .btn-featured.active{background:var(--gold);color:#000;border-color:var(--gold)}
 .btn-reset{background:var(--warning);color:#000}
@@ -218,17 +209,34 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .admin-item:hover{border-color:rgba(212,175,55,.15)}
 
 .booking-date-group{margin-bottom:25px}
-.booking-date-header{background:linear-gradient(135deg,rgba(212,175,55,.1),rgba(212,175,55,.05));border:1px solid rgba(212,175,55,.2);border-radius:12px;padding:12px 15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.booking-date-header{background:linear-gradient(135deg,rgba(212,175,55,.1),rgba(212,175,55,.05));border:1px solid rgba(212,175,55,.2);border-radius:12px;padding:12px 15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .booking-date-header h4{color:var(--gold);font-size:1rem;font-family:'Playfair Display',serif}
 .booking-date-header .date-stats{display:flex;gap:10px;font-size:.75rem}
 .booking-date-header .stat{padding:4px 10px;border-radius:12px;font-weight:600}
 .booking-date-header .stat.booked{background:rgba(255,71,87,.15);color:var(--danger)}
 .booking-date-header .stat.available{background:rgba(74,222,128,.15);color:var(--success)}
-
 .slot-group{background:var(--dark-3);border-radius:10px;padding:12px;margin-bottom:10px;border:1px solid rgba(255,255,255,.05)}
 .slot-group-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.05)}
 .slot-group-header h5{color:var(--gold);font-size:.9rem}
 .slot-group-header .slot-capacity{font-size:.75rem;color:var(--text-muted)}
+
+.live-strip{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.live-stat{flex:1;min-width:90px;background:var(--dark-3);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:11px;text-align:center}
+.live-stat b{display:block;font-size:1.35rem;font-family:'Playfair Display',serif;color:var(--gold)}
+.live-stat small{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.admin-filter-row{display:flex;gap:8px;align-items:center;margin-bottom:15px;flex-wrap:wrap}
+.admin-filter-row input{flex:1;min-width:140px;padding:10px;background:var(--dark-3);border:1px solid rgba(212,175,55,.2);border-radius:8px;color:#fff;font-family:inherit;font-size:.8rem}
+
+.timer-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:8px;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.3);color:var(--gold);font-family:monospace;font-size:.9rem;font-weight:700}
+.timer-pill.urgent{background:rgba(255,71,87,.12);border-color:rgba(255,71,87,.4);color:var(--danger)}
+.booking-status-badge{display:inline-block;padding:3px 9px;border-radius:10px;font-size:.65rem;font-weight:700;text-transform:uppercase;margin-left:6px}
+.booking-status-badge.pending{background:rgba(251,191,36,.2);color:var(--warning)}
+.booking-status-badge.confirmed{background:rgba(74,222,128,.2);color:var(--success)}
+.booking-status-badge.arrived{background:rgba(212,175,55,.2);color:var(--gold)}
+.booking-status-badge.cancelled{background:rgba(255,71,87,.2);color:var(--danger)}
+.seated-tag{display:inline-flex;align-items:center;gap:5px;color:var(--gold);font-size:.7rem;margin-top:4px}
+.booking-row{align-items:flex-start}
+.booking-row .row-actions{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 
 .file-upload-wrap{position:relative;overflow:hidden;display:inline-block;width:100%}
 .file-upload-wrap input[type=file]{position:absolute;left:0;top:0;opacity:0;width:100%;height:100%;cursor:pointer}
@@ -244,20 +252,13 @@ body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);o
 .slot-card .slot-chairs .count.low{color:var(--warning)}
 .slot-card .slot-chairs .count.ok{color:var(--success)}
 
-.booking-status-badge{display:inline-block;padding:3px 9px;border-radius:10px;font-size:.65rem;font-weight:700;text-transform:uppercase;margin-left:6px}
-.booking-status-badge.pending{background:rgba(251,191,36,.2);color:var(--warning)}
-.booking-status-badge.confirmed{background:rgba(74,222,128,.2);color:var(--success)}
-.booking-status-badge.arrived{background:rgba(59,130,246,.2);color:var(--info)}
-.booking-status-badge.cancelled{background:rgba(255,71,87,.2);color:var(--danger)}
-
 footer{background:#020202;padding:50px 15px 25px;border-top:1px solid rgba(212,175,55,.1);text-align:center;position:relative}
-footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .footer-col h4{color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:12px;font-size:1.5rem}
 .footer-col p{color:var(--text-muted);font-size:.85rem;margin-bottom:6px}
 .footer-col i{color:var(--gold);width:22px}
 
 .float-wa{position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;text-decoration:none;box-shadow:0 8px 25px rgba(37,211,102,.4);z-index:999;transition:.3s}
-.float-wa:hover{transform:scale(1.1) translateY(-5px);box-shadow:0 12px 30px rgba(37,211,102,.6)}
+.float-wa:hover{transform:scale(1.1) translateY(-5px)}
 
 @media(min-width:768px){
   .sweets-grid,.gallery-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
@@ -348,82 +349,60 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
       <div class="booking-info-banner">
         <i class="fas fa-chair"></i>
         <div>
-          <strong>Real-Time Chair Availability</strong>
-          <small>1-hour slots • 20 chairs per slot • ₹100 per guest</small>
+          <strong>1 Hour Slot • 20 Chairs • ₹100 / Guest</strong>
+          <small>Booking fee aapke final bill me adjust hogi.</small>
         </div>
       </div>
+
+      <div class="form-error-banner" id="bookingErrors"></div>
 
       <div class="form-row">
-        <div class="form-group"><label>Full Name</label><input type="text" id="bName" placeholder="Your name"></div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" id="bPhone" placeholder="10-digit" maxlength="10"></div>
+        <div class="form-group"><label>Full Name *</label><input type="text" id="bName" placeholder="Aapka naam" autocomplete="name"></div>
+        <div class="form-group"><label>Mobile Number *</label><input type="tel" id="bPhone" placeholder="10 digit mobile" maxlength="10" autocomplete="tel"></div>
       </div>
       <div class="form-row">
+        <div class="form-group"><label>Booking Date *</label><input type="date" id="bDate" onchange="checkAvailability()"></div>
         <div class="form-group">
-          <label>Select Date</label>
-          <input type="date" id="bDate" onchange="checkAvailability()">
-        </div>
-        <div class="form-group">
-          <label>Select Time Slot (1 Hour)</label>
-          <select id="bTimeSlot" onchange="checkAvailability()">
-            <option value="">-- Choose Slot --</option>
-          </select>
+          <label>Time Slot (1 Hour) *</label>
+          <select id="bTimeSlot" onchange="checkAvailability()"><option value="">-- Select Slot --</option></select>
         </div>
       </div>
-
-      <div class="slot-suggestions" id="slotSuggestions">
-        <h4><i class="fas fa-lightbulb"></i> This slot is full! Try these available slots:</h4>
-        <ul id="suggestionsList"></ul>
-      </div>
-
       <div class="form-group">
-        <label>Number of Guests (Chairs)</label>
+        <label>Number of Guests *</label>
         <select id="bGuests" onchange="calculateFee()">
-          <option value="">-- Select Guests --</option>
-          <option value="1">1 Chair</option>
-          <option value="2">2 Chairs</option>
-          <option value="3">3 Chairs</option>
-          <option value="4">4 Chairs</option>
-          <option value="5">5 Chairs</option>
-          <option value="6">6 Chairs</option>
-          <option value="8">8 Chairs</option>
-          <option value="10">10 Chairs</option>
+          <option value="">-- Kitne log aayenge? --</option>
+          <option value="1">1 Guest</option><option value="2">2 Guests</option>
+          <option value="3">3 Guests</option><option value="4">4 Guests</option>
+          <option value="5">5 Guests</option><option value="6">6 Guests</option>
+          <option value="8">8 Guests</option><option value="10">10 Guests</option>
         </select>
       </div>
 
+      <div class="slot-warning" id="slotWarning"></div>
+      <div class="slot-suggestions" id="slotSuggestions">
+        <h4 id="suggestionTitle"></h4>
+        <div class="suggestion-list" id="suggestionsList"></div>
+      </div>
+
       <div class="fee-calculator" id="feeCalculator">
-        <div class="fee-row">
-          <span class="fee-label">Per Guest Fee</span>
-          <span class="fee-value">₹100</span>
-        </div>
-        <div class="fee-row">
-          <span class="fee-label">Number of Guests</span>
-          <span class="fee-value" id="guestCount">0</span>
-        </div>
-        <div class="fee-row">
-          <span class="fee-label">Total Booking Fee</span>
-          <span class="fee-total">₹<span id="totalFee">0</span></span>
-        </div>
+        <div class="fee-row"><span class="fee-label">Per Guest Fee</span><span class="fee-value">₹100</span></div>
+        <div class="fee-row"><span class="fee-label">Guests</span><span class="fee-value" id="guestCount">0</span></div>
+        <div class="fee-row"><span class="fee-label">Total (Bill me Adjust)</span><span class="fee-total">₹<span id="totalFee">0</span></span></div>
       </div>
 
       <div class="availability-indicator" id="availabilityIndicator">
         <div class="chairs-left">
-          <div>
-            <div class="label">Chairs Available</div>
-            <div class="count" id="chairsCount">20</div>
-          </div>
-          <div style="text-align:right">
-            <div class="label">Total Capacity</div>
-            <div style="color:var(--text-muted);font-size:.9rem">20</div>
-          </div>
+          <div><div class="label">Chairs Available</div><div class="count" id="chairsCount">20</div></div>
+          <div style="text-align:right"><div class="label">Slot Capacity</div><div style="color:var(--text-muted)">20</div></div>
         </div>
         <div class="progress-bar"><div class="fill" id="chairsFill" style="width:100%"></div></div>
       </div>
 
-      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:15px;padding:15px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff" id="bookBtn" onclick="openPaymentModal()">
-        <i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">0</span> & Confirm Booking
+      <button class="btn-primary" id="bookBtn" style="width:100%;margin-top:15px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff" onclick="openPaymentModal()">
+        <i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">0</span> & Confirm
       </button>
-      <p style="text-align:center;color:var(--text-muted);font-size:.72rem;margin-top:10px">
-        <i class="fas fa-info-circle"></i> Fee is adjustable in final bill. Payment required to confirm booking.
+      <p style="text-align:center;color:var(--text-muted);font-size:.7rem;margin-top:12px;line-height:1.7">
+        <i class="fas fa-info-circle"></i> Slot se 10 min pehle pahuchein. 30 min late = booking cancel.
       </p>
     </div>
   </section>
@@ -507,7 +486,12 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     </div>
 
     <div class="admin-panel active" id="panel-bookings">
-      <h4 style="color:var(--gold);margin-bottom:18px">Booking Management</h4>
+      <div class="admin-filter-row">
+        <input type="date" id="adminBookingDate">
+        <button class="btn-sm btn-edit" onclick="setAdminDate(document.getElementById('adminBookingDate').value)">View</button>
+        <button class="btn-sm" style="background:var(--dark-4);color:#fff" onclick="toggleAllBookings()" id="allBookingsBtn">All Dates</button>
+      </div>
+      <div class="live-strip" id="adminLiveStrip"></div>
       <div id="adminBookingsList"></div>
     </div>
 
@@ -520,7 +504,7 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
         </div>
       </div>
       <div style="background:var(--dark-3);padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,.05)">
-        <h4 style="color:var(--gold);margin-bottom:12px">Add Menu Item (With Image & Discount)</h4>
+        <h4 style="color:var(--gold);margin-bottom:12px">Add Menu Item</h4>
         <div class="form-group"><label>Name</label><input type="text" id="mName"></div>
         <div class="form-group"><label>Category</label><select id="mCatSelect" style="width:100%;padding:11px;background:var(--dark);border:1px solid #333;border-radius:8px;color:#fff"></select></div>
         <div class="form-group"><label>Description</label><input type="text" id="mDesc"></div>
@@ -529,12 +513,11 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
           <div class="form-group"><label>Discounted Price (₹)</label><input type="number" id="mDiscountPrice" placeholder="e.g., 150"></div>
         </div>
         <div class="form-group">
-          <label>Item Image (Upload from Gallery or Camera)</label>
+          <label>Item Image</label>
           <div class="file-upload-wrap">
             <div class="file-upload-btn"><i class="fas fa-camera"></i> Choose Photo or Take Picture</div>
             <input type="file" id="mImageFile" accept="image/*" capture="environment">
           </div>
-          <small style="color:var(--text-muted);font-size:.7rem;display:block;margin-top:5px">Max 2MB recommended.</small>
         </div>
         <button class="btn-primary" style="width:100%;justify-content:center;padding:12px" onclick="addMenuItem()">Add Item</button>
       </div>
@@ -551,7 +534,7 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
         <div class="form-group"><label>Description</label><input type="text" id="swDesc"></div>
         <button class="btn-primary" style="width:100%;justify-content:center;background:var(--sweet);padding:12px" onclick="addSweet()">Add Sweet</button>
       </div>
-      <h4 style="color:var(--text-muted);font-size:.85rem;margin-bottom:12px">Manage Featured (Max 5 shown on home)</h4>
+      <h4 style="color:var(--text-muted);font-size:.85rem;margin-bottom:12px">Manage Featured (Max 5)</h4>
       <div class="admin-list" id="adminSweetsList"></div>
     </div>
 
@@ -566,17 +549,13 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
             <option value="memory">Memories</option>
           </select>
         </div>
+        <div class="form-group"><label>Caption</label><input type="text" id="galCaption" placeholder="e.g., Special Paneer Tikka"></div>
         <div class="form-group">
-          <label>Caption</label>
-          <input type="text" id="galCaption" placeholder="e.g., Special Paneer Tikka">
-        </div>
-        <div class="form-group">
-          <label>Photo (Click to open Camera/Gallery)</label>
+          <label>Photo</label>
           <div class="file-upload-wrap">
             <div class="file-upload-btn"><i class="fas fa-camera"></i> Choose Photo or Take Picture</div>
             <input type="file" id="galFile" accept="image/*" capture="environment">
           </div>
-          <small style="color:var(--text-muted);font-size:.7rem;display:block;margin-top:5px">Max 2MB recommended for fast loading.</small>
         </div>
         <button class="btn-primary" style="width:100%;justify-content:center;padding:12px" onclick="uploadGalleryImage()">
           <i class="fas fa-cloud-upload-alt"></i> Upload & Publish
@@ -589,24 +568,15 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     <div class="admin-panel" id="panel-slots">
       <div style="background:var(--dark-3);padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,.05)">
         <h4 style="color:var(--gold);margin-bottom:12px"><i class="fas fa-calendar-day"></i> Manage Slots by Date</h4>
-        <div class="form-group">
-          <label>Select Date to View/Reset</label>
-          <input type="date" id="adminSlotDate" onchange="loadAdminSlots()">
-        </div>
+        <div class="form-group"><label>Select Date</label><input type="date" id="adminSlotDate" onchange="loadAdminSlots()"></div>
         <div id="adminSlotsList">
           <p style="color:var(--text-muted);text-align:center;padding:12px">Select a date to see all time slots.</p>
         </div>
       </div>
-      <div style="background:var(--dark-3);padding:12px;border-radius:10px;border:1px solid rgba(212,175,55,.1)">
-        <small style="color:var(--text-muted)">
-          <i class="fas fa-info-circle" style="color:var(--gold)"></i> 
-          <strong style="color:var(--gold)">Tip:</strong> Total capacity is 20 chairs per slot. Click "Reset" to restore any slot back to 20 chairs.
-        </small>
-      </div>
     </div>
 
     <div class="admin-panel" id="panel-site">
-      <div class="form-group"><label>Hero Title (Use &lt;br&gt; for new line)</label><input type="text" id="editHeroTitle"></div>
+      <div class="form-group"><label>Hero Title</label><input type="text" id="editHeroTitle"></div>
       <div class="form-group"><label>Hero Subtitle</label><input type="text" id="editHeroSub"></div>
       <div class="form-group"><label>Hero Background Image URL</label><input type="text" id="editHeroBg" placeholder="https://..."></div>
       <button class="btn-primary" style="width:100%;justify-content:center;padding:13px" onclick="saveSiteSettings()">Save Live</button>
@@ -614,576 +584,930 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
   </div>
 </div>
 
-<!-- CUSTOM ALERT MODAL -->
-<div class="custom-alert" id="customAlert">
-  <div class="custom-alert-box">
-    <div class="custom-alert-icon" id="alertIcon"><i class="fas fa-exclamation-circle"></i></div>
-    <h3 class="custom-alert-title" id="alertTitle">Alert</h3>
-    <p class="custom-alert-message" id="alertMessage"></p>
-    <button class="custom-alert-btn" onclick="closeCustomAlert()">OK</button>
-  </div>
-</div>
-
 <a href="https://wa.me/918853153098" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="app-toast" id="appToast"></div>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-  import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, setDoc, serverTimestamp, query, orderBy, updateDoc, getDoc, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, setDoc, serverTimestamp, query, orderBy, updateDoc, getDoc, getDocs, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyD9pqNuFK8OR0sAYLFSO-6Sb4tr0q2JUvM",
-    authDomain: "chauhanrestro.firebaseapp.com",
-    projectId: "chauhanrestro",
-    storageBucket: "chauhanrestro.firebasestorage.app",
-    messagingSenderId: "646659986184",
-    appId: "1:646659986184:web:a95b17abe5d40e9f8652bd"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyD9pqNuFK8OR0sAYLFSO-6Sb4tr0q2JUvM",
+  authDomain: "chauhanrestro.firebaseapp.com",
+  projectId: "chauhanrestro",
+  storageBucket: "chauhanrestro.firebasestorage.app",
+  messagingSenderId: "646659986184",
+  appId: "1:646659986184:web:a95b17abe5d40e9f8652bd"
+};
 
-  const TOTAL_CHAIRS = 20;
-  const PER_GUEST_FEE = 100;
-  
-  const TIME_SLOTS = [
-    "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00",
-    "16:00-17:00", "17:00-18:00", "18:00-19:00", "19:00-20:00",
-    "20:00-21:00", "21:00-22:00"
-  ];
+const TOTAL_CHAIRS=20, PER_GUEST_FEE=100, GRACE_MIN=20, SESSION_MIN=60;
+const TIME_SLOTS=["12:00-13:00","13:00-14:00","14:00-15:00","15:00-16:00","16:00-17:00",
+  "17:00-18:00","18:00-19:00","19:00-20:00","20:00-21:00","21:00-22:00"];
 
-  let db, auth, storage;
-  let isAdmin = false;
-  let allSweetsData = [];
-  let menuData = { categories: [], items: [] };
-  let galleryData = [];
-  let currentAvailableChairs = TOTAL_CHAIRS;
-  let currentBookingFee = 0;
+let db, auth, storage;
+let isAdmin=false;
+let allSweetsData=[], menuData={categories:[],items:[]}, galleryData=[];
+let currentAvailableChairs=TOTAL_CHAIRS, currentBookingFee=0;
+let slotMap=null, watchedDate='', unwatch=null;
+let bookings=[], waLink='', toastTimer;
+let adminDate=todayStr(), adminAll=false;
 
+const $=id=>document.getElementById(id);
+const key=s=>s.replace(':','-');
+const pad=n=>String(n).padStart(2,'0');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function istNow(){return new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kolkata'}));}
+function todayStr(){const d=istNow();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
+function startMs(date,s){return new Date(`${date}T${s.split('-')[0]}:00`).getTime();}
+function endMs(date,s){return new Date(`${date}T${s.split('-')[1]}:00`).getTime();}
+function isPast(date,s){return startMs(date,s)<=Date.now();}
+
+try {
+  const app = initializeApp(firebaseConfig);
+  auth = getAuth(app); db = getFirestore(app); storage = getStorage(app);
+  setPersistence(auth, browserLocalPersistence).catch(e=>console.error(e));
+  onAuthStateChanged(auth, (user) => { if(user) isAdmin = true; });
+} catch(e){ console.error("Firebase Init Error:", e); }
+
+/* ============ TOAST ============ */
+window.toastUI=(msg,type='success')=>{
+  const el=$('appToast'); if(!el) return;
+  const icon=type==='error'?'fa-circle-exclamation':type==='info'?'fa-info-circle':'fa-circle-check';
+  el.className=`app-toast show ${type}`;
+  el.innerHTML=`<i class="fas ${icon}"></i><span>${esc(msg)}</span>`;
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),3800);
+};
+
+/* ============ VALIDATION ============ */
+function clearFieldErrors(){
+  document.querySelectorAll('.booking-field-error').forEach(e=>e.remove());
+  document.querySelectorAll('.field-invalid').forEach(e=>e.classList.remove('field-invalid'));
+}
+function validateForm(){
+  const err=[];
+  const name=$('bName').value.trim(), phone=$('bPhone').value.trim();
+  const date=$('bDate').value, slot=$('bTimeSlot').value, guests=$('bGuests').value;
+  if(name.length<2) err.push(['bName','Apna naam likhiye (kam se kam 2 letters).']);
+  if(!/^[6-9]\d{9}$/.test(phone)) err.push(['bPhone','Sahi 10-digit mobile number daaliye (6-9 se shuru).']);
+  if(!date) err.push(['bDate','Booking ki date select kijiye.']);
+  else if(date<todayStr()) err.push(['bDate','Purani date select nahi kar sakte.']);
+  if(!slot) err.push(['bTimeSlot','1-hour ka time slot select kijiye.']);
+  else if(date && isPast(date,slot)) err.push(['bTimeSlot','Ye slot shuru ho chuka hai. Aage ka slot chuniye.']);
+  if(!guests) err.push(['bGuests','Batayiye kitne guests aayenge.']);
+  return err;
+}
+function paintErrors(err){
+  clearFieldErrors();
+  const box=$('bookingErrors');
+  if(!err.length){box.classList.remove('show');box.innerHTML='';return;}
+  box.innerHTML=`<div class="err-head"><i class="fas fa-circle-exclamation"></i>
+    ${err.length===1?'Ek detail complete kijiye':`${err.length} details complete kijiye`}</div>
+    <ul>${err.map(e=>`<li><i class="fas fa-circle"></i>${esc(e[1])}</li>`).join('')}</ul>`;
+  box.classList.add('show');
+  err.forEach(([id,msg])=>{
+    const el=$(id); if(!el) return;
+    el.classList.add('field-invalid');
+    const small=document.createElement('small');
+    small.className='booking-field-error'; small.textContent=msg;
+    el.after(small);
+  });
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+  setTimeout(()=>$(err[0][0]).focus({preventScroll:true}),350);
+}
+
+/* ============ VIEW MANAGEMENT ============ */
+window.showView = (viewName) => {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + viewName).classList.add('active');
+  window.scrollTo(0, 0);
+  closeMobileMenu();
+};
+window.closeModal = (id) => document.getElementById(id).classList.remove('show');
+window.openAdminLogin = () => document.getElementById('adminLoginModal').classList.add('show');
+window.switchAdminTab = (tab, btn) => {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+};
+
+/* ============ MOBILE MENU ============ */
+window.toggleMobileMenu = () => $('mobileMenu').classList.toggle('show');
+window.closeMobileMenu = () => $('mobileMenu').classList.remove('show');
+window.navigateTo = (section) => {
+  closeMobileMenu();
+  if(section==='menu') showView('menu');
+  else if(section==='about'){showView('home');setTimeout(()=>$('footer').scrollIntoView({behavior:'smooth'}),100);}
+  else {
+    showView('home');
+    const map={gallery:'gallery-section',sweets:'sweets-section',booking:'booking-section'};
+    setTimeout(()=>$('map'[section]||'').scrollIntoView({behavior:'smooth'}),100);
+  }
+};
+document.addEventListener('click', (e) => {
+  const menu=$('mobileMenu'), hb=document.querySelector('.hamburger');
+  if(!menu.contains(e.target) && !hb.contains(e.target)) closeMobileMenu();
+});
+
+/* ============ GALLERY FILTER ============ */
+window.filterGallery = (category, btn) => {
+  document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.classList.toggle('hidden', category!=='all' && item.dataset.category!==category);
+  });
+};
+
+/* ============ ADMIN LOGIN ============ */
+window.adminLogin = async () => {
+  const email = $('adminEmail').value.trim(), pass = $('adminPass').value;
   try {
-    const app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-    storage = getStorage(app);
-    
-    setPersistence(auth, browserLocalPersistence).then(() => {
-      console.log("✅ Auth persistence enabled");
-    }).catch((error) => {
-      console.error("Persistence error:", error);
-    });
-    
-    onAuthStateChanged(auth, (user) => {
-      if(user) {
-        isAdmin = true;
-        console.log("✅ Admin logged in:", user.email);
-      }
-    });
-  } catch(e){ console.error("Firebase Init Error:", e); }
+    await signInWithEmailAndPassword(auth, email, pass);
+    isAdmin = true;
+    closeModal('adminLoginModal');
+    $('adminDashboard').classList.add('show');
+    $('adminEmail').value = ''; $('adminPass').value = '';
+  } catch(e) { $('loginError').textContent = 'Invalid credentials.'; }
+};
 
-  // CUSTOM ALERT FUNCTIONS
-  window.showCustomAlert = (type, title, message) => {
-    const alert = document.getElementById('customAlert');
-    const icon = document.getElementById('alertIcon');
-    const titleEl = document.getElementById('alertTitle');
-    const messageEl = document.getElementById('alertMessage');
-    
-    icon.className = 'custom-alert-icon ' + type;
-    const icons = {
-      warning: 'fa-exclamation-triangle',
-      error: 'fa-times-circle',
-      success: 'fa-check-circle',
-      info: 'fa-info-circle'
+/* ============ SLOT CACHE ============ */
+async function loadSlots(date){
+  if(!date){slotMap=null;return;}
+  const snap=await getDocs(collection(db,'slots',date,'timeslots'));
+  slotMap={};
+  snap.forEach(d=>slotMap[d.id]=Number(d.data().available_chairs ?? TOTAL_CHAIRS));
+}
+function capacity(slot){return slotMap ? Number(slotMap[key(slot)] ?? TOTAL_CHAIRS) : TOTAL_CHAIRS;}
+
+function watchDate(date){
+  if(watchedDate===date) return;
+  watchedDate=date; slotMap=null; unwatch?.();
+  if(!date) return;
+  unwatch=onSnapshot(collection(db,'slots',date,'timeslots'),snap=>{
+    slotMap={}; snap.forEach(d=>slotMap[d.id]=Number(d.data().available_chairs ?? TOTAL_CHAIRS));
+    paintSlotOptions();
+    if(suggestionFor) paintSuggestions();
+    renderAdmin();
+  });
+}
+
+function paintSlotOptions(){
+  const sel=$('bTimeSlot'), prev=sel.value, date=$('bDate').value;
+  sel.innerHTML='<option value="">-- Select 1 Hour Slot --</option>';
+  TIME_SLOTS.forEach(s=>{
+    const o=document.createElement('option'); o.value=s;
+    const past=date&&isPast(date,s), av=capacity(s);
+    o.disabled=!!past||av===0;
+    o.textContent=`${s}  •  ${past?'Past':av===0?'FULL':av+' chairs'}`;
+    sel.appendChild(o);
+  });
+  if([...sel.options].some(o=>o.value===prev&&!o.disabled)) sel.value=prev;
+}
+
+/* ============ SUGGESTIONS ============ */
+let suggestionFor='';
+function paintSuggestions(){
+  const box=$('slotSuggestions'), list=$('suggestionsList');
+  const date=$('bDate').value, need=Number($('bGuests').value)||1;
+  if(!date||!suggestionFor){box.classList.remove('show');return;}
+  const opts=TIME_SLOTS.filter(s=>s!==suggestionFor&&!isPast(date,s)&&capacity(s)>=need);
+  list.innerHTML='';
+  if(opts.length){
+    $('suggestionTitle').innerHTML=`<i class="fas fa-lightbulb"></i> ${need} guests ke liye available slots`;
+    opts.forEach(s=>{
+      const b=document.createElement('button');
+      b.className='suggestion-chip';
+      b.innerHTML=`<i class="fas fa-clock"></i> ${s} <span>${capacity(s)} chairs</span>`;
+      b.onclick=()=>{
+        $('bTimeSlot').value=s; clearFieldErrors();
+        $('bookingErrors').classList.remove('show');
+        checkAvailability();
+        toastUI(`${s} slot select ho gaya.`,'info');
+      };
+      list.appendChild(b);
+    });
+  } else {
+    $('suggestionTitle').innerHTML='<i class="fas fa-calendar-xmark"></i> Is date me ab koi slot available nahi hai';
+    const d=new Date(`${date}T12:00:00`); d.setDate(d.getDate()+1);
+    const next=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    const b=document.createElement('button');
+    b.className='suggestion-chip next-day';
+    b.innerHTML=`<i class="fas fa-arrow-right"></i> Agla din dekhein (${next})`;
+    b.onclick=()=>{
+      $('bDate').value=next; $('bTimeSlot').value='';
+      slotMap=null; watchedDate=''; suggestionFor='';
+      checkAvailability();
     };
-    icon.innerHTML = `<i class="fas ${icons[type]}"></i>`;
-    titleEl.textContent = title;
-    messageEl.innerHTML = message;
-    alert.classList.add('show');
-  };
+    list.appendChild(b);
+  }
+  box.classList.add('show');
+}
 
-  window.closeCustomAlert = () => {
-    document.getElementById('customAlert').classList.remove('show');
-  };
+/* ============ AVAILABILITY ============ */
+const payHtml=()=>`<i class="fas fa-lock"></i> Pay ₹${currentBookingFee} & Confirm`;
 
-  window.showView = (viewName) => {
-    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-    document.getElementById('view-' + viewName).classList.add('active');
-    window.scrollTo(0, 0);
-    closeMobileMenu();
-  };
+window.checkAvailability=async()=>{
+  const date=$('bDate').value, slot=$('bTimeSlot').value, g=Number($('bGuests').value)||0;
+  watchDate(date); paintSlotOptions();
+  const ind=$('availabilityIndicator'), btn=$('bookBtn'), warn=$('slotWarning');
+  $('slotSuggestions').classList.remove('show'); suggestionFor='';
+  warn.classList.remove('show');
 
-  window.closeModal = (id) => document.getElementById(id).classList.remove('show');
-  window.openAdminLogin = () => document.getElementById('adminLoginModal').classList.add('show');
-  
-  window.switchAdminTab = (tab, btn) => {
-    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('panel-' + tab).classList.add('active');
-  };
+  if(!date||!slot){
+    ind.classList.remove('show'); btn.disabled=false; btn.innerHTML=payHtml(); return;
+  }
+  if(!slotMap) await loadSlots(date);
+  currentAvailableChairs=capacity(slot);
+  ind.classList.add('show');
+  const c=$('chairsCount'), f=$('chairsFill');
+  c.textContent=currentAvailableChairs;
+  c.className='count'+(currentAvailableChairs===0?' full':currentAvailableChairs<=5?' low':'');
+  f.style.width=(currentAvailableChairs/TOTAL_CHAIRS*100)+'%';
+  f.className='fill'+(currentAvailableChairs===0?' full':currentAvailableChairs<=5?' low':'');
 
-  window.toggleMobileMenu = () => {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('show');
-  };
+  const short = currentAvailableChairs===0 || (g>0 && currentAvailableChairs<g);
+  if(short){
+    btn.disabled=false;
+    btn.innerHTML=`<i class="fas fa-lightbulb"></i> Alternative Slots Dekhein`;
+    warn.innerHTML=currentAvailableChairs===0
+      ? `<i class="fas fa-triangle-exclamation"></i> <strong>Ye slot full ho chuka hai.</strong> Niche diye gaye slots me se choose karein.`
+      : `<i class="fas fa-triangle-exclamation"></i> Is slot me sirf <strong>${currentAvailableChairs} chairs</strong> bachi hain. Aap <strong>${g} guests</strong> ke liye book kar rahe hain. Guest kam karein ya dusra slot chunein.`;
+    warn.classList.add('show');
+    suggestionFor=slot; paintSuggestions();
+  } else {
+    btn.innerHTML=payHtml();
+  }
+};
 
-  window.closeMobileMenu = () => {
-    document.getElementById('mobileMenu').classList.remove('show');
-  };
+window.calculateFee=()=>{
+  const g=Number($('bGuests').value)||0;
+  currentBookingFee=g*PER_GUEST_FEE;
+  $('guestCount').textContent=g; $('totalFee').textContent=currentBookingFee; $('btnPayAmt').textContent=currentBookingFee;
+  $('feeCalculator').classList.toggle('show',g>0);
+  checkAvailability();
+};
 
-  window.navigateTo = (section) => {
-    closeMobileMenu();
-    if(section === 'menu') {
-      showView('menu');
-    } else if(section === 'gallery') {
-      showView('home');
-      setTimeout(() => {
-        document.getElementById('gallery-section').scrollIntoView({behavior:'smooth'});
-      }, 100);
-    } else if(section === 'sweets') {
-      showView('home');
-      setTimeout(() => {
-        document.getElementById('sweets-section').scrollIntoView({behavior:'smooth'});
-      }, 100);
-    } else if(section === 'booking') {
-      showView('home');
-      setTimeout(() => {
-        document.getElementById('booking-section').scrollIntoView({behavior:'smooth'});
-      }, 100);
-    } else if(section === 'about') {
-      showView('home');
-      setTimeout(() => {
-        document.querySelector('footer').scrollIntoView({behavior:'smooth'});
-      }, 100);
+/* ============ PAYMENT ============ */
+window.openPaymentModal=()=>{
+  const err=validateForm();
+  if(err.length){paintErrors(err);toastUI('Booking se pehle required details complete kijiye.','error');return;}
+  clearFieldErrors(); $('bookingErrors').classList.remove('show');
+
+  const date=$('bDate').value, slot=$('bTimeSlot').value, g=Number($('bGuests').value);
+  if(capacity(slot)<g){
+    suggestionFor=slot; paintSuggestions();
+    $('slotSuggestions').scrollIntoView({behavior:'smooth',block:'center'});
+    toastUI('Is slot me itni chairs nahi hain. Alternative chuniye.','error');
+    return;
+  }
+
+  currentBookingFee=g*PER_GUEST_FEE;
+  $('modalPayAmt').textContent=currentBookingFee;
+  const upi=`upi://pay?pa=akashji124421@ptyes&pn=Chauhan+Restaurant&am=${currentBookingFee}&cu=INR&tn=Table+Booking`;
+  $('upiQrImg').src=`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upi)}`;
+
+  const name=$('bName').value.trim(), phone=$('bPhone').value.trim();
+  waLink=`https://wa.me/918853153098?text=`+encodeURIComponent(
+`NAMASTE CHAUHAN'S! 🍽️
+
+Nayi Table Booking Request:
+-----------------------------
+Name: ${name}
+Phone: ${phone}
+Date: ${date}
+Time Slot: ${slot} (1 hour)
+Guests / Chairs: ${g}
+Booking Fee: Rs.${currentBookingFee}
+
+IMPORTANT:
+• Hum slot se 10 minute pehle pahuchenge.
+• 30 minute late hone par booking cancel hogi.
+• Payment screenshot bhej raha hu, please booking confirm karein.
+
+Thank you!`);
+
+  $('payStatus').className='payment-status';
+  $('payConfirmBtn').disabled=false;
+  $('payConfirmBtn').innerHTML='<i class="fas fa-check-circle"></i> I\'ve Made the Payment';
+  $('payConfirmBtn').onclick=window.verifyPayment;
+  $('paymentModal').classList.add('show');
+};
+
+window.copyUPI = () => { navigator.clipboard.writeText('akashji124421@ptyes'); toastUI('UPI ID Copied!','info'); };
+
+window.verifyPayment=async()=>{
+  const btn=$('payConfirmBtn'), st=$('payStatus');
+  btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Saving your booking...';
+  st.className='payment-status processing'; st.textContent='Booking request save ho rahi hai...';
+
+  try{
+    await addDoc(collection(db,'bookings'),{
+      name:$('bName').value.trim(), phone:$('bPhone').value.trim(),
+      date:$('bDate').value, timeSlot:$('bTimeSlot').value,
+      guests:Number($('bGuests').value), fee:currentBookingFee,
+      status:'Pending Approval', paymentStatus:'Screenshot Pending',
+      chairsDeducted:false, tableReleased:false,
+      timestamp:serverTimestamp()
+    });
+
+    st.className='payment-status success';
+    st.innerHTML='<i class="fas fa-check-circle"></i> Request save ho gayi! Ab WhatsApp par payment screenshot bhejiye.';
+    btn.disabled=false;
+    btn.innerHTML='<i class="fab fa-whatsapp"></i> Send Screenshot on WhatsApp';
+    btn.onclick=()=>window.open(waLink,'_blank');
+
+    ['bName','bPhone','bDate','bTimeSlot','bGuests'].forEach(id=>$(id).value='');
+    $('feeCalculator').classList.remove('show');
+    $('availabilityIndicator').classList.remove('show');
+    $('slotSuggestions').classList.remove('show');
+    $('slotWarning').classList.remove('show');
+    currentBookingFee=0; $('btnPayAmt').textContent='0';
+    toastUI('Booking request bhej di gayi hai ✅');
+  }catch(e){
+    console.error(e);
+    btn.disabled=false; btn.innerHTML='Retry — I\'ve Made the Payment';
+    st.className='payment-status processing'; st.textContent='Save nahi hua. Internet check karke dobara try karein.';
+  }
+};
+
+/* ============ ATOMIC CHAIR OPERATIONS ============ */
+async function deductChairs(b){
+  return await runTransaction(db,async tx=>{
+    const br=doc(db,'bookings',b.id), bs=await tx.get(br);
+    if(!bs.exists()) throw new Error('Booking nahi mili');
+    const d=bs.data();
+    if(d.chairsDeducted) return 'already';
+
+    const sr=doc(db,'slots',d.date,'timeslots',key(d.timeSlot));
+    const ss=await tx.get(sr);
+    const cur=ss.exists()?Number(ss.data().available_chairs ?? TOTAL_CHAIRS):TOTAL_CHAIRS;
+    if(cur<Number(d.guests)) throw new Error(`Sirf ${cur} chairs available hain.`);
+
+    tx.update(sr,{available_chairs:cur-Number(d.guests),last_updated:serverTimestamp()});
+    tx.update(br,{status:'Confirmed',chairsDeducted:true,approvedAt:serverTimestamp()});
+    return 'ok';
+  });
+}
+
+async function finalize(b,status,restore){
+  return await runTransaction(db,async tx=>{
+    const br=doc(db,'bookings',b.id), bs=await tx.get(br);
+    if(!bs.exists()) return false;
+    const d=bs.data();
+    if(d.tableReleased || d.status==='Completed' || String(d.status).startsWith('Cancelled')) return false;
+
+    tx.update(br,{status,tableReleased:true,releasedAt:serverTimestamp()});
+
+    if(restore && d.chairsDeducted){
+      const sr=doc(db,'slots',d.date,'timeslots',key(d.timeSlot));
+      const ss=await tx.get(sr);
+      const cur=ss.exists()?Number(ss.data().available_chairs ?? TOTAL_CHAIRS):TOTAL_CHAIRS;
+      tx.set(sr,{available_chairs:Math.min(TOTAL_CHAIRS,cur+Number(d.guests)),last_updated:serverTimestamp()},{merge:true});
     }
-  };
+    return true;
+  });
+}
 
-  document.addEventListener('click', (e) => {
-    const menu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger');
-    if(!menu.contains(e.target) && !hamburger.contains(e.target)) {
-      closeMobileMenu();
+/* ============ ADMIN ACTIONS ============ */
+window.approveBooking=async(id)=>{
+  const b=bookings.find(x=>x.id===id); if(!b) return;
+  if(!confirm(`${b.name} — ${b.guests} guests ki booking approve karein?\n\nWhatsApp screenshot verify kar chuke hain?`)) return;
+  try{
+    const result=await deductChairs(b);
+    if(result==='already'){toastUI('Ye booking pehle hi confirm ho chuki hai.','info');return;}
+
+    const msg=
+`🎉 BOOKING CONFIRMED — Chauhan's Sweets & Restaurant
+
+Namaste ${b.name} ji,
+
+Aapki table confirm ho gayi hai! 🙏
+
+📅 Date: ${b.date}
+🕐 Time Slot: ${b.timeSlot} (1 hour)
+🪑 Chairs: ${b.guests}
+💰 Fee Paid: Rs.${b.fee} (bill me adjust)
+
+IMPORTANT:
+• Slot se 10 minute pehle pahuchein.
+• 30 minute late = booking cancel.
+• Check-in ke baad table 1 hour ke liye reserved rahegi.
+
+📞 +91 88531 53098
+📍 Bullet Chauraha, Fatehpur, UP
+
+Thank you for choosing Chauhan's!`;
+
+    const phone=b.phone.replace(/\D/g,'');
+    window.open(`https://wa.me/${phone.startsWith('91')?phone:'91'+phone}?text=${encodeURIComponent(msg)}`,'_blank');
+    toastUI('Booking confirmed ✅ WhatsApp khul raha hai.');
+  }catch(e){toastUI(e.message || 'Approve nahi hua, dobara try karein.','error');}
+};
+
+window.markArrived=async(id)=>{
+  const b=bookings.find(x=>x.id===id); if(!b||b.status!=='Confirmed') return;
+  if(Date.now()<startMs(b.date,b.timeSlot)-15*60000){
+    toastUI('Check-in abhi open nahi hua. Slot time ke 15 min pehle se possible hai.','error');return;
+  }
+  try{
+    await updateDoc(doc(db,'bookings',id),{status:'Arrived',arrivedAt:serverTimestamp(),tableReleased:false});
+    toastUI(`${b.name} check-in ✅ 60 minute ka timer start.`);
+  }catch(e){toastUI('Check-in save nahi hua.','error');}
+};
+
+window.releaseNow=async(id)=>{
+  if(!confirm('Table abhi release karein? Chairs wapas available ho jayengi.')) return;
+  await finalize(bookings.find(x=>x.id===id),'Completed',true);
+  toastUI('Table released ✅ Chairs wapas available.');
+};
+
+window.noShowBooking=async(id)=>{
+  if(!confirm('Guest nahi aaye? Booking cancel karke chairs restore karein?')) return;
+  await finalize(bookings.find(x=>x.id===id),'Cancelled - No Show',true);
+  toastUI('No-Show marked ✅ Chairs restore ho gayi.');
+};
+
+window.deleteBookingUI=async(id)=>{
+  if(!confirm('Booking delete karein?\n\nNOTE: Agar chairs deduct hui thi to pehle No-Show/Release karein.')) return;
+  await deleteDoc(doc(db,'bookings',id));
+  toastUI('Booking delete ho gayi.');
+};
+
+/* ============ AUTO ENGINE ============ */
+let running=false;
+async function engine(){
+  if(running) return; running=true;
+  try{
+    const now=Date.now();
+    for(const b of bookings){
+      if(b.tableReleased) continue;
+      if(b.status==='Arrived' && b.arrivedAt?.toMillis){
+        if(now >= b.arrivedAt.toMillis()+SESSION_MIN*60000){
+          await finalize(b,'Completed',true);
+        }
+      } else if(b.status==='Confirmed'){
+        if(now > endMs(b.date,b.timeSlot)+GRACE_MIN*60000){
+          await finalize(b,'Cancelled - No Show',true);
+        }
+      }
+    }
+  }catch(e){console.error('Engine:',e);}
+  finally{running=false;}
+  paintTimers();
+}
+
+function paintTimers(){
+  document.querySelectorAll('[data-countdown]').forEach(el=>{
+    const b=bookings.find(x=>x.id===el.dataset.countdown); if(!b) return;
+    const end=b.arrivedAt?.toMillis ? b.arrivedAt.toMillis()+SESSION_MIN*60000 : 0;
+    const diff=Math.max(0,end-Date.now());
+    el.textContent=`${pad(Math.floor(diff/60000))}:${pad(Math.floor(diff%60000/1000))}`;
+    el.parentElement.classList.toggle('urgent',diff<5*60000);
+  });
+  document.querySelectorAll('[data-checkin]').forEach(el=>{
+    const b=bookings.find(x=>x.id===el.dataset.checkin); if(!b) return;
+    const open=Date.now()>=startMs(b.date,b.timeSlot)-15*60000;
+    el.disabled=!open;
+    el.title=open?'Guest pahuch gaye — click karein':'Slot time se 15 min pehle check-in open hoga';
+  });
+}
+
+/* ============ ADMIN UI ============ */
+window.setAdminDate=v=>{if(v){adminDate=v;adminAll=false;renderAdmin();}};
+window.toggleAllBookings=()=>{adminAll=!adminAll;renderAdmin();};
+
+function bookingRow(b){
+  const st=b.status||'Pending Approval';
+  const cls=st==='Confirmed'?'confirmed':st==='Arrived'?'arrived':st==='Pending Approval'?'pending':'cancelled';
+  let actions='';
+  if(st==='Pending Approval'){
+    actions+=`<button class="btn-sm btn-approve" onclick="approveBooking('${b.id}')"><i class="fas fa-check"></i> Approve</button>`;
+    actions+=`<button class="btn-sm btn-noshow" onclick="noShowBooking('${b.id}')">No-Show</button>`;
+  } else if(st==='Confirmed'){
+    actions+=`<button class="btn-sm btn-arrive" data-checkin="${b.id}" onclick="markArrived('${b.id}')"><i class="fas fa-user-check"></i> Arrived</button>`;
+    actions+=`<button class="btn-sm btn-noshow" onclick="noShowBooking('${b.id}')">No-Show</button>`;
+  } else if(st==='Arrived'){
+    actions+=`<div class="timer-pill"><i class="fas fa-hourglass-half"></i><span data-countdown="${b.id}">--:--</span></div>`;
+    actions+=`<button class="btn-sm btn-edit" onclick="releaseNow('${b.id}')">Release</button>`;
+  }
+  actions+=`<button class="btn-sm btn-delete" onclick="deleteBookingUI('${b.id}')"><i class="fas fa-trash"></i></button>`;
+
+  return `<div class="admin-item booking-row">
+    <div style="flex:1;min-width:140px">
+      <strong>${esc(b.name)}</strong> <small style="color:var(--text-muted)">${esc(b.phone)}</small>
+      <span class="booking-status-badge ${cls}">${esc(st)}</span>
+      <div style="margin-top:5px;color:var(--gold);font-size:.78rem">
+        🪑 ${b.guests} chairs &nbsp;•&nbsp; 💰 ₹${b.fee}
+      </div>
+      ${st==='Arrived'?`<div class="seated-tag"><i class="fas fa-circle" style="font-size:.45rem"></i> Seated • Table timer running</div>`:''}
+      <div style="color:var(--text-muted);font-size:.7rem;margin-top:3px">${esc(b.paymentStatus||'')}</div>
+    </div>
+    <div class="row-actions">${actions}</div>
+  </div>`;
+}
+
+function renderAdmin(){
+  const box=$('adminBookingsList'); if(!box) return;
+  const list=adminAll?bookings:bookings.filter(b=>b.date===adminDate);
+  const seated=bookings.filter(b=>b.status==='Arrived');
+  const pending=bookings.filter(b=>b.status==='Pending Approval');
+  const occupied=seated.reduce((s,b)=>s+Number(b.guests),0);
+
+  $('adminLiveStrip').innerHTML=`
+    <div class="live-stat"><b>${seated.length}</b><small>Seated Now</small></div>
+    <div class="live-stat"><b>${occupied}</b><small>Chairs In Use</small></div>
+    <div class="live-stat"><b style="color:var(--warning)">${pending.length}</b><small>Awaiting Approval</small></div>`;
+
+  $('allBookingsBtn').style.background=adminAll?'var(--gold)':'var(--dark-4)';
+  $('allBookingsBtn').style.color=adminAll?'#000':'#fff';
+
+  if(!list.length){
+    box.innerHTML='<p style="text-align:center;color:var(--text-muted);padding:25px;background:var(--dark-3);border-radius:12px">Is date ki koi booking nahi hai.</p>';
+    return;
+  }
+
+  const byDate={};
+  list.forEach(b=>{(byDate[b.date]??=[]).push(b);});
+  const dates=Object.keys(byDate).sort((a,b)=>a===todayStr()?-1:b===todayStr()?1:a.localeCompare(b));
+
+  let html='';
+  dates.forEach(date=>{
+    const items=byDate[date];
+    const booked=items.filter(b=>['Confirmed','Arrived'].includes(b.status)).reduce((s,b)=>s+Number(b.guests),0);
+    const wait=items.filter(b=>b.status==='Pending Approval').length;
+
+    html+=`<div class="booking-date-group">
+      <div class="booking-date-header">
+        <h4>${date===todayStr()?'📅 Aaj':'📅'} ${date}</h4>
+        <div class="date-stats">
+          <span class="stat booked">${booked} Booked</span>
+          ${wait?`<span class="stat" style="background:rgba(251,191,36,.15);color:var(--warning)">${wait} Pending</span>`:''}
+        </div>
+      </div>`;
+
+    [...new Set(items.map(b=>b.timeSlot))].sort().forEach(slot=>{
+      const group=items.filter(b=>b.timeSlot===slot);
+      const used=group.filter(b=>['Confirmed','Arrived'].includes(b.status)).reduce((s,b)=>s+Number(b.guests),0);
+      html+=`<div class="slot-group">
+        <div class="slot-group-header">
+          <h5><i class="fas fa-clock"></i> ${slot}</h5>
+          <span class="slot-capacity">${used}/20 occupied</span>
+        </div>`;
+      group.forEach(b=>html+=bookingRow(b));
+      html+='</div>';
+    });
+    html+='</div>';
+  });
+
+  box.innerHTML=html;
+  paintTimers();
+}
+
+/* ============ SWEETS ============ */
+function renderFeaturedSweets() {
+  const grid = $('featuredSweetsGrid');
+  const featured = allSweetsData.filter(s => s.featured).slice(0, 5);
+  if(featured.length === 0) {
+    grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:25px;background:rgba(15,15,15,0.85);border-radius:14px;border:1px dashed rgba(212,175,55,.2)">Admin: Please mark up to 5 sweets as "Featured".</p>';
+    return;
+  }
+  grid.innerHTML = featured.map(sw => `
+    <div class="sweet-card">
+      <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">${!sw.imageUrl ? (sw.icon || '🍬') : ''}</div>
+      <div class="body">
+        <h3>${sw.name}</h3>
+        <p>${sw.desc}</p>
+        <div class="footer">
+          <span class="price">₹${sw.price}/Kg</span>
+          <button class="btn-book" onclick="window.orderSweet('${sw.name}')">Pre-Book</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+window.openAllSweetsModal = () => { $('allSweetsModal').classList.add('show'); $('sweetSearch').value = ''; filterAllSweets(); };
+window.filterAllSweets = () => {
+  const search = $('sweetSearch').value.toLowerCase();
+  const grid = $('allSweetsGrid');
+  const filtered = allSweetsData.filter(s => s.name.toLowerCase().includes(search));
+  grid.innerHTML = filtered.map(sw => `
+    <div class="sweet-card">
+      <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">${!sw.imageUrl ? (sw.icon || '') : ''}</div>
+      <div class="body">
+        <h3>${sw.name}</h3>
+        <p>${sw.desc}</p>
+        <div class="footer">
+          <span class="price">₹${sw.price}/Kg</span>
+          <button class="btn-book" onclick="window.orderSweet('${sw.name}')">Pre-Book</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+};
+window.orderSweet = (name) => { window.open(`https://wa.me/918853153098?text=${encodeURIComponent(`Hi, I want to pre-book: ${name}`)}`, '_blank'); };
+
+/* ============ MENU ============ */
+function renderMenuPage() {
+  const scroll = $('menuCategoryScroll');
+  const list = $('menuListContainer');
+  scroll.innerHTML = menuData.categories.map((cat, i) => 
+    `<button class="cat-tab ${i===0?'active':''}" onclick="window.filterMenuCat('${cat}', this)">${cat}</button>`
+  ).join('');
+  if(menuData.categories.length > 0) window.filterMenuCat(menuData.categories[0], scroll.firstChild);
+  else list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:30px;background:var(--dark-2);border-radius:14px">Menu is empty.</p>';
+}
+window.filterMenuCat = (cat, btn) => {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const list = $('menuListContainer');
+  const items = menuData.items.filter(i => i.category === cat);
+  list.innerHTML = items.map(item => {
+    let priceDisplay = `<span class="price-discounted">₹${item.price}</span>`;
+    if(item.discountPrice && item.discountPrice < item.price) {
+      const discountPercent = Math.round(((item.price - item.discountPrice) / item.price) * 100);
+      priceDisplay = `<span class="price-original">₹${item.price}</span>
+        <span class="price-discounted">₹${item.discountPrice}</span>
+        <span class="discount-badge">${discountPercent}% OFF</span>`;
+    }
+    return `<div class="menu-item-card">
+      <div class="menu-item-img" style="background-image:url('${item.imageUrl || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&q=80'}')"></div>
+      <div class="menu-item-info">
+        <h4>${item.name}</h4>
+        <p>${item.desc}</p>
+        <div class="price-container">${priceDisplay}</div>
+      </div>
+    </div>`;
+  }).join('') || '<p style="text-align:center;color:var(--text-muted);padding:25px;background:var(--dark-2);border-radius:14px">No items in this category yet.</p>';
+};
+
+/* ============ ADMIN CRUD ============ */
+window.saveSiteSettings = async () => {
+  await setDoc(doc(db, 'settings', 'main'), {
+    heroTitle: $('editHeroTitle').value,
+    heroSub: $('editHeroSub').value,
+    heroBg: $('editHeroBg').value
+  });
+  toastUI('Site Settings Saved Live!');
+};
+window.addSweet = async () => {
+  await addDoc(collection(db, 'sweets'), {
+    name: $('swName').value, price: Number($('swPrice').value),
+    desc: $('swDesc').value, featured: false, icon: '🍬', imageUrl: ''
+  });
+  $('swName').value = ''; $('swPrice').value = ''; $('swDesc').value = '';
+  toastUI('Sweet added!');
+};
+window.toggleFeatured = async (id, currentStatus) => {
+  const featuredSweetsCount = allSweetsData.filter(s => s.featured).length;
+  if (!currentStatus && featuredSweetsCount >= 5) { toastUI('Maximum 5 sweets can be featured.','error'); return; }
+  await updateDoc(doc(db, 'sweets', id), { featured: !currentStatus });
+};
+window.deleteSweet = async (id) => {
+  if(confirm("⚠️ Delete this sweet?")) await deleteDoc(doc(db, 'sweets', id));
+};
+window.addCategory = async () => {
+  const name = $('newCatName').value.trim();
+  if(!name) return;
+  if(menuData.categories.includes(name)) { toastUI('Category already exists!','error'); return; }
+  await setDoc(doc(db, 'menu_config', 'main'), { categories: [...menuData.categories, name] });
+  $('newCatName').value = '';
+  toastUI('Category added!');
+};
+window.addMenuItem = async () => {
+  const file = $('mImageFile').files[0];
+  let imageUrl = '';
+  if(file) {
+    if(file.size > 2 * 1024 * 1024) { toastUI('Photo too large! Max 2MB.','error'); return; }
+    const btn = event.target;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading Image...';
+    btn.disabled = true;
+    try {
+      const storageRef = ref(storage, 'menu_items/' + Date.now() + '_' + file.name);
+      const snapshot = await uploadBytes(storageRef, file);
+      imageUrl = await getDownloadURL(snapshot.ref);
+    } catch(error) {
+      toastUI('Image upload failed.','error');
+      btn.innerHTML = originalText; btn.disabled = false; return;
+    }
+  }
+  await addDoc(collection(db, 'menu_items'), {
+    name: $('mName').value, category: $('mCatSelect').value,
+    desc: $('mDesc').value,
+    price: Number($('mPrice').value),
+    discountPrice: $('mDiscountPrice').value ? Number($('mDiscountPrice').value) : null,
+    imageUrl: imageUrl
+  });
+  ['mName','mDesc','mPrice','mDiscountPrice'].forEach(id=>$(id).value='');
+  $('mImageFile').value = '';
+  toastUI('Item added with image!');
+};
+window.deleteMenuItem = async (id) => {
+  if(confirm("⚠️ Delete this menu item?")) await deleteDoc(doc(db, 'menu_items', id));
+};
+window.uploadGalleryImage = async () => {
+  const file = $('galFile').files[0];
+  const category = $('galCategory').value;
+  const caption = $('galCaption').value;
+  if(!file) { toastUI('Please select a photo first!','error'); return; }
+  if(file.size > 2 * 1024 * 1024) { toastUI('Photo too large! Max 2MB.','error'); return; }
+  const btn = event.target;
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+  btn.disabled = true;
+  try {
+    const storageRef = ref(storage, 'gallery/' + Date.now() + '_' + file.name);
+    const snapshot = await uploadBytes(storageRef, file);
+    const downloadURL = await getDownloadURL(snapshot.ref);
+    await addDoc(collection(db, 'gallery'), {
+      category: category, caption: caption || 'Chauhan\'s Special',
+      imageUrl: downloadURL, timestamp: serverTimestamp()
+    });
+    toastUI('Photo Uploaded & Published Live!');
+    $('galFile').value = ''; $('galCaption').value = '';
+  } catch (error) {
+    toastUI('Upload failed. Make sure Firebase Storage is enabled.','error');
+  } finally {
+    btn.innerHTML = originalText; btn.disabled = false;
+  }
+};
+window.deleteGalleryItem = async (id) => {
+  if(confirm("⚠️ Delete this photo?")) await deleteDoc(doc(db, 'gallery', id));
+};
+
+window.loadAdminSlots = async () => {
+  const date = $('adminSlotDate').value;
+  const container = $('adminSlotsList');
+  if(!date) { container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:12px">Select a date.</p>'; return; }
+  container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:12px"><i class="fas fa-spinner fa-spin"></i> Loading slots...</p>';
+  let html = '';
+  for(const slot of TIME_SLOTS) {
+    try {
+      const slotRef = doc(db, 'slots', date, 'timeslots', slot.replace(':', '-'));
+      const slotSnap = await getDoc(slotRef);
+      const available = slotSnap.exists() ? (slotSnap.data().available_chairs ?? TOTAL_CHAIRS) : TOTAL_CHAIRS;
+      const booked = TOTAL_CHAIRS - available;
+      let statusClass = 'ok';
+      let statusText = 'Available';
+      if(available <= 0) { statusClass = 'full'; statusText = 'FULL'; }
+      else if(available <= 5) { statusClass = 'low'; statusText = 'Filling Fast'; }
+      html += `<div class="slot-card">
+        <div class="slot-info">
+          <div class="slot-time"><i class="fas fa-clock"></i> ${slot}</div>
+          <div class="slot-chairs">
+            <span class="count ${statusClass}">${available}</span> / ${TOTAL_CHAIRS} chairs left
+            <span style="color:var(--text-muted);font-size:.7rem;margin-left:6px">(${booked} booked)</span>
+          </div>
+          <small style="color:${statusClass === 'full' ? 'var(--danger)' : statusClass === 'low' ? 'var(--warning)' : 'var(--success)'}">${statusText}</small>
+        </div>
+        <button class="btn-sm btn-reset" onclick="window.resetSlot('${date}', '${slot}')"><i class="fas fa-redo"></i> Reset</button>
+      </div>`;
+    } catch(e) { console.error(e); }
+  }
+  container.innerHTML = html || '<p style="color:var(--text-muted);text-align:center;padding:12px">No slots found.</p>';
+};
+window.resetSlot = async (date, slot) => {
+  if(!confirm(`Reset slot "${slot}" on ${date} back to ${TOTAL_CHAIRS} chairs?`)) return;
+  try {
+    const slotRef = doc(db, 'slots', date, 'timeslots', slot.replace(':', '-'));
+    await setDoc(slotRef, { available_chairs: TOTAL_CHAIRS, last_updated: serverTimestamp() }, { merge: true });
+    toastUI(`Slot "${slot}" reset to ${TOTAL_CHAIRS} chairs!`);
+    loadAdminSlots();
+  } catch(e) { toastUI('Reset failed.','error'); }
+};
+
+/* ============ FIREBASE LISTENERS ============ */
+if(db) {
+  onSnapshot(doc(db, 'settings', 'main'), (s) => {
+    if(s.exists()) {
+      const d = s.data();
+      $('editHeroTitle').value = d.heroTitle || "";
+      $('editHeroSub').value = d.heroSub || "";
+      $('editHeroBg').value = d.heroBg || "";
+      if($('view-home').classList.contains('active')) {
+        $('heroTitle').innerHTML = d.heroTitle || "Welcome to <span>Chauhan's</span><br>Sweets & Restaurant";
+        $('heroSub').textContent = d.heroSub || "Experience authentic cuisine.";
+        if(d.heroBg) $('heroSection').style.backgroundImage = `url('${d.heroBg}')`;
+      }
     }
   });
 
-  window.filterGallery = (category, btn) => {
-    document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-    const items = document.querySelectorAll('.gallery-item');
-    items.forEach(item => {
-      if (category === 'all' || item.dataset.category === category) {
-        item.classList.remove('hidden');
-      } else {
-        item.classList.add('hidden');
-      }
-    });
-  };
-
-  window.adminLogin = async () => {
-    const email = document.getElementById('adminEmail').value.trim();
-    const pass = document.getElementById('adminPass').value;
-    try {
-      await signInWithEmailAndPassword(auth, email, pass);
-      isAdmin = true;
-      closeModal('adminLoginModal');
-      document.getElementById('adminDashboard').classList.add('show');
-      document.getElementById('adminEmail').value = '';
-      document.getElementById('adminPass').value = '';
-    } catch(e) {
-      document.getElementById('loginError').textContent = 'Invalid credentials.';
-    }
-  };
-
-  function populateTimeSlots() {
-    const select = document.getElementById('bTimeSlot');
-    select.innerHTML = '<option value="">-- Choose Slot --</option>';
-    
-    const now = new Date();
-    const selectedDate = document.getElementById('bDate').value;
-    const today = now.toISOString().split('T')[0];
-    
-    TIME_SLOTS.forEach(slot => {
-      const option = document.createElement('option');
-      option.value = slot;
-      
-      if(selectedDate === today) {
-        const [startHour] = slot.split('-')[0].split(':');
-        if(Number(startHour) <= now.getHours()) {
-          option.disabled = true;
-          option.textContent = `${slot} (Past)`;
-        } else {
-          option.textContent = slot;
-        }
-      } else {
-        option.textContent = slot;
-      }
-      
-      select.appendChild(option);
-    });
-  }
-
-  window.calculateFee = () => {
-    const guests = document.getElementById('bGuests').value;
-    const feeCalc = document.getElementById('feeCalculator');
-    
-    if(!guests) {
-      feeCalc.classList.remove('show');
-      currentBookingFee = 0;
-    } else {
-      const guestsNum = Number(guests);
-      currentBookingFee = guestsNum * PER_GUEST_FEE;
-      document.getElementById('guestCount').textContent = guestsNum;
-      document.getElementById('totalFee').textContent = currentBookingFee;
-      document.getElementById('btnPayAmt').textContent = currentBookingFee;
-      feeCalc.classList.add('show');
-    }
-    checkAvailability();
-  };
-
-  window.checkAvailability = async () => {
-    const date = document.getElementById('bDate').value;
-    const timeSlot = document.getElementById('bTimeSlot').value;
-    const guests = document.getElementById('bGuests').value;
-    const indicator = document.getElementById('availabilityIndicator');
-    const chairsCount = document.getElementById('chairsCount');
-    const chairsFill = document.getElementById('chairsFill');
-    const bookBtn = document.getElementById('bookBtn');
-    const suggestionsDiv = document.getElementById('slotSuggestions');
-
-    populateTimeSlots();
-
-    if(!date || !timeSlot) {
-      indicator.classList.remove('show');
-      suggestionsDiv.classList.remove('show');
-      return;
-    }
-
-    try {
-      const slotRef = doc(db, 'slots', date, 'timeslots', timeSlot.replace(':', '-'));
-      const slotSnap = await getDoc(slotRef);
-      currentAvailableChairs = slotSnap.exists() ? (slotSnap.data().available_chairs ?? TOTAL_CHAIRS) : TOTAL_CHAIRS;
-
-      indicator.classList.add('show');
-      chairsCount.textContent = currentAvailableChairs;
-      const percentage = (currentAvailableChairs / TOTAL_CHAIRS) * 100;
-      chairsFill.style.width = percentage + '%';
-
-      chairsCount.className = 'count';
-      chairsFill.className = 'fill';
-      
-      // FIXED: Show suggestions ONLY when slot is FULL
-      if(currentAvailableChairs <= 0) {
-        chairsCount.classList.add('full');
-        chairsFill.classList.add('full');
-        bookBtn.disabled = true;
-        bookBtn.innerHTML = '<i class="fas fa-times-circle"></i> Slot Fully Booked';
-        await showSlotSuggestions(date); // Show suggestions when FULL
-      } else if(currentAvailableChairs <= 5) {
-        chairsCount.classList.add('low');
-        chairsFill.classList.add('low');
-        bookBtn.disabled = false;
-        bookBtn.innerHTML = `<i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">${currentBookingFee}</span> & Confirm Booking`;
-        suggestionsDiv.classList.remove('show'); // Hide suggestions when available
-      } else {
-        bookBtn.disabled = false;
-        bookBtn.innerHTML = `<i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">${currentBookingFee}</span> & Confirm Booking`;
-        suggestionsDiv.classList.remove('show'); // Hide suggestions when available
-      }
-
-      if(guests && Number(guests) > currentAvailableChairs) {
-        showCustomAlert('warning', 'Not Enough Chairs', `Sorry! Only <strong>${currentAvailableChairs} chairs</strong> are available for this slot.<br><br>Please reduce the number of guests or choose another time slot.`);
-      }
-    } catch(e) {
-      console.error("Error checking availability:", e);
-      currentAvailableChairs = TOTAL_CHAIRS;
-    }
-  };
-
-  async function showSlotSuggestions(date) {
-    if(!date) return;
-    
-    const suggestionsDiv = document.getElementById('slotSuggestions');
-    const list = document.getElementById('suggestionsList');
-    list.innerHTML = '';
-    
-    const now = new Date();
-    const today = now.toISOString().split('T')[0];
-    
-    for(const slot of TIME_SLOTS) {
-      if(date === today) {
-        const [startHour] = slot.split('-')[0].split(':');
-        if(Number(startHour) <= now.getHours()) continue;
-      }
-      
-      try {
-        const slotRef = doc(db, 'slots', date, 'timeslots', slot.replace(':', '-'));
-        const slotSnap = await getDoc(slotRef);
-        const available = slotSnap.exists() ? (slotSnap.data().available_chairs ?? TOTAL_CHAIRS) : TOTAL_CHAIRS;
-        
-        if(available > 0) {
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <span><strong>${slot}</strong></span>
-            <span class="chairs-badge">${available} chairs</span>
-          `;
-          li.onclick = () => {
-            document.getElementById('bTimeSlot').value = slot;
-            checkAvailability();
-          };
-          list.appendChild(li);
-        }
-      } catch(e) {
-        console.error(e);
-      }
-    }
-    
-    if(list.children.length > 0) {
-      suggestionsDiv.classList.add('show');
-    } else {
-      suggestionsDiv.classList.remove('show');
-    }
-  }
-
-  window.openPaymentModal = () => {
-    const name = document.getElementById('bName').value.trim();
-    const phone = document.getElementById('bPhone').value.trim();
-    const date = document.getElementById('bDate').value;
-    const timeSlot = document.getElementById('bTimeSlot').value;
-    const guests = document.getElementById('bGuests').value;
-
-    // IMPROVED VALIDATION WITH CUSTOM ALERTS
-    if(!name) {
-      showCustomAlert('warning', 'Name Required', 'Please enter your full name to proceed with booking.');
-      return;
-    }
-    if(!phone) {
-      showCustomAlert('warning', 'Phone Number Required', 'Please enter your phone number so we can contact you.');
-      return;
-    }
-    if(phone.length !== 10 || isNaN(phone)) {
-      showCustomAlert('error', 'Invalid Phone Number', 'Please enter a valid 10-digit phone number.');
-      return;
-    }
-    if(!date) {
-      showCustomAlert('warning', 'Date Required', 'Please select a date for your booking.');
-      return;
-    }
-    if(!timeSlot) {
-      showCustomAlert('warning', 'Time Slot Required', 'Please select a time slot for your booking.');
-      return;
-    }
-    if(!guests) {
-      showCustomAlert('warning', 'Guests Required', 'Please select the number of guests (chairs).');
-      return;
-    }
-
-    const guestsNum = Number(guests);
-    if(guestsNum > currentAvailableChairs) {
-      showCustomAlert('error', 'Not Enough Chairs', `Sorry! Only <strong>${currentAvailableChairs} chairs</strong> are available in this slot.`);
-      return;
-    }
-
-    document.getElementById('modalPayAmt').textContent = currentBookingFee;
-    const upiUrl = `upi://pay?pa=akashji124421@ptyes&pn=Chauhan+Restaurant&am=${currentBookingFee}&cu=INR&tn=Table+Booking`;
-    document.getElementById('upiQrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiUrl)}`;
-    
-    document.getElementById('payStatus').style.display = 'none';
-    document.getElementById('payConfirmBtn').disabled = false;
-    document.getElementById('payConfirmBtn').innerHTML = '<i class="fas fa-check-circle"></i> I\'ve Made the Payment';
-    document.getElementById('paymentModal').classList.add('show');
-  };
-
-  window.copyUPI = () => { navigator.clipboard.writeText('akashji124421@ptyes'); alert('UPI ID Copied!'); };
-
-  window.verifyPayment = async () => {
-    const btn = document.getElementById('payConfirmBtn');
-    const status = document.getElementById('payStatus');
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
-    status.className = 'payment-status processing';
-    status.innerHTML = '<i class="fas fa-sync fa-spin"></i> Checking payment status...';
-    
-    setTimeout(async () => {
-      status.className = 'payment-status success';
-      status.innerHTML = '<i class="fas fa-check-circle"></i> Payment Verified! Redirecting to WhatsApp...';
-      btn.innerHTML = '<i class="fas fa-check"></i> Verified';
-
-      const name = document.getElementById('bName').value.trim();
-      const phone = document.getElementById('bPhone').value.trim();
-      const date = document.getElementById('bDate').value;
-      const timeSlot = document.getElementById('bTimeSlot').value;
-      const guests = Number(document.getElementById('bGuests').value);
-
-      try {
-        await addDoc(collection(db, 'bookings'), {
-          name: name,
-          phone: phone,
-          date: date,
-          timeSlot: timeSlot,
-          guests: guests,
-          fee: currentBookingFee,
-          paymentStatus: 'Paid',
-          status: 'Pending Approval',
-          timestamp: serverTimestamp()
-        });
-
-        const waMessage = `🍽️ *NEW TABLE BOOKING - Chauhan's*%0A%0A` +
-          `👤 *Name:* ${name}%0A` +
-          `📞 *Phone:* ${phone}%0A` +
-          `📅 *Date:* ${date}%0A` +
-          `🕐 *Time Slot:* ${timeSlot}%0A` +
-          `🪑 *Number of Chairs:* ${guests}%0A` +
-          `💰 *Booking Fee Paid:* ₹${currentBookingFee}%0A%0A` +
-          `⚠️ *IMPORTANT:*%0A` +
-          `• Please arrive 10 minutes before your booking time%0A` +
-          `• If you don't arrive within 30 minutes of your slot, booking will be cancelled%0A` +
-          `• Send payment screenshot here for confirmation%0A%0A` +
-          `Thank you for choosing Chauhan's! 🙏`;
-
-        const waURL = `https://wa.me/918853153098?text=${waMessage}`;
-
-        setTimeout(() => {
-          closeModal('paymentModal');
-          window.open(waURL, '_blank');
-          document.getElementById('bName').value = '';
-          document.getElementById('bPhone').value = '';
-          document.getElementById('bDate').value = '';
-          document.getElementById('bTimeSlot').value = '';
-          document.getElementById('bGuests').value = '';
-          document.getElementById('feeCalculator').classList.remove('show');
-          document.getElementById('availabilityIndicator').classList.remove('show');
-          document.getElementById('slotSuggestions').classList.remove('show');
-        }, 1500);
-
-      } catch(e) {
-        console.error("Booking error:", e);
-        showCustomAlert('error', 'Booking Failed', 'Something went wrong. Please try again.');
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-check-circle"></i> I\'ve Made the Payment';
-      }
-    }, 2500);
-  };
-
-  function renderFeaturedSweets() {
-    const grid = document.getElementById('featuredSweetsGrid');
-    const featured = allSweetsData.filter(s => s.featured).slice(0, 5);
-    if(featured.length === 0) {
-      grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:25px;background:rgba(15,15,15,0.85);border-radius:14px;border:1px dashed rgba(212,175,55,.2)">Admin: Please mark up to 5 sweets as "Featured" in the dashboard.</p>';
-      return;
-    }
-    grid.innerHTML = featured.map(sw => `
-      <div class="sweet-card">
-        <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">${!sw.imageUrl ? (sw.icon || '🍬') : ''}</div>
-        <div class="body">
-          <h3>${sw.name}</h3>
-          <p>${sw.desc}</p>
-          <div class="footer">
-            <span class="price">₹${sw.price}/Kg</span>
-            <button class="btn-book" onclick="window.orderSweet('${sw.name}')">Pre-Book</button>
+  onSnapshot(query(collection(db, 'sweets'), orderBy('name')), (s) => {
+    allSweetsData = [];
+    const adminList = $('adminSweetsList');
+    adminList.innerHTML = '';
+    s.forEach(d => {
+      const sw = { id: d.id, ...d.data() };
+      allSweetsData.push(sw);
+      adminList.innerHTML += `
+        <div class="admin-item">
+          <div>
+            <strong>${sw.name}</strong> - ₹${sw.price}<br>
+            <small style="color:${sw.featured ? 'var(--gold)' : 'var(--text-muted)'}">${sw.featured ? '⭐ Featured' : 'Not Featured'}</small>
           </div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  window.openAllSweetsModal = () => {
-    document.getElementById('allSweetsModal').classList.add('show');
-    document.getElementById('sweetSearch').value = '';
-    filterAllSweets();
-  };
-
-  window.filterAllSweets = () => {
-    const search = document.getElementById('sweetSearch').value.toLowerCase();
-    const grid = document.getElementById('allSweetsGrid');
-    const filtered = allSweetsData.filter(s => s.name.toLowerCase().includes(search));
-    grid.innerHTML = filtered.map(sw => `
-      <div class="sweet-card">
-        <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">${!sw.imageUrl ? (sw.icon || '') : ''}</div>
-        <div class="body">
-          <h3>${sw.name}</h3>
-          <p>${sw.desc}</p>
-          <div class="footer">
-            <span class="price">₹${sw.price}/Kg</span>
-            <button class="btn-book" onclick="window.orderSweet('${sw.name}')">Pre-Book</button>
+          <div>
+            <button class="btn-sm btn-featured ${sw.featured ? 'active' : ''}" onclick="window.toggleFeatured('${sw.id}', ${sw.featured})">${sw.featured ? '⭐ On' : '☆ Off'}</button>
+            <button class="btn-sm btn-delete" onclick="window.deleteSweet('${sw.id}')"><i class="fas fa-trash"></i></button>
           </div>
-        </div>
-      </div>
-    `).join('');
-  };
-
-  window.orderSweet = (name) => {
-    window.open(`https://wa.me/918853153098?text=${encodeURIComponent(`Hi, I want to pre-book: ${name}`)}`, '_blank');
-  };
-
-  function renderMenuPage() {
-    const scroll = document.getElementById('menuCategoryScroll');
-    const list = document.getElementById('menuListContainer');
-    scroll.innerHTML = menuData.categories.map((cat, i) => 
-      `<button class="cat-tab ${i===0?'active':''}" onclick="window.filterMenuCat('${cat}', this)">${cat}</button>`
-    ).join('');
-    if(menuData.categories.length > 0) {
-      window.filterMenuCat(menuData.categories[0], scroll.firstChild);
-    } else {
-      list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:30px;background:var(--dark-2);border-radius:14px">Menu is empty. Admin, please add categories and items.</p>';
-    }
-  }
-
-  window.filterMenuCat = (cat, btn) => {
-    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-    if(btn) btn.classList.add('active');
-    const list = document.getElementById('menuListContainer');
-    const items = menuData.items.filter(i => i.category === cat);
-    list.innerHTML = items.map(item => {
-      let priceDisplay = `<span class="price-discounted">₹${item.price}</span>`;
-      if(item.discountPrice && item.discountPrice < item.price) {
-        const discountPercent = Math.round(((item.price - item.discountPrice) / item.price) * 100);
-        priceDisplay = `
-          <span class="price-original">₹${item.price}</span>
-          <span class="price-discounted">₹${item.discountPrice}</span>
-          <span class="discount-badge">${discountPercent}% OFF</span>
-        `;
-      }
-      return `
-      <div class="menu-item-card">
-        <div class="menu-item-img" style="background-image:url('${item.imageUrl || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&q=80'}')"></div>
-        <div class="menu-item-info">
-          <h4>${item.name}</h4>
-          <p>${item.desc}</p>
-          <div class="price-container">${priceDisplay}</div>
-        </div>
-      </div>
-    `}).join('') || '<p style="text-align:center;color:var(--text-muted);padding:25px;background:var(--dark-2);border-radius:14px">No items in this category yet.</p>';
-  };
-
-  window.saveSiteSettings = async () => {
-    await setDoc(doc(db, 'settings', 'main'), {
-      heroTitle: document.getElementById('editHeroTitle').value,
-      heroSub: document.getElementById('editHeroSub').value,
-      heroBg: document.getElementById('editHeroBg').value
+        </div>`;
     });
-    showCustomAlert('success', 'Saved!', 'Site settings have been updated successfully.');
-  };
+    renderFeaturedSweets();
+  });
 
-  window.addSweet = async () => {
-    await addDoc(collection(db, 'sweets'), {
-      name: document.getElementById('swName').value,
-      price: Number(document.getElementById('swPrice').value),
-      desc: document.getElementById('swDesc').value,
-      featured: false,
-      icon: '🍬',
-      imageUrl: ''
+  onSnapshot(doc(db, 'menu_config', 'main'), (s) => {
+    if(s.exists()) menuData.categories = s.data().categories || [];
+    else menuData.categories = ["Breakfast", "Main Course", "Chinese", "South Indian", "Snacks"];
+    updateCatSelect();
+    renderMenuPage();
+  });
+
+  onSnapshot(query(collection(db, 'menu_items'), orderBy('category')), (s) => {
+    menuData.items = [];
+    const adminList = $('adminMenuList');
+    adminList.innerHTML = '';
+    s.forEach(d => {
+      const item = { id: d.id, ...d.data() };
+      menuData.items.push(item);
+      adminList.innerHTML += `
+        <div class="admin-item">
+          <div style="display:flex;align-items:center;gap:10px">
+            ${item.imageUrl ? `<img src="${item.imageUrl}" style="width:40px;height:40px;border-radius:6px;object-fit:cover">` : ''}
+            <div><strong>${item.name}</strong> (${item.category})<br><small>₹${item.discountPrice || item.price}</small></div>
+          </div>
+          <button class="btn-sm btn-delete" onclick="window.deleteMenuItem('${item.id}')"><i class="fas fa-trash"></i></button>
+        </div>`;
     });
-    document.getElementById('swName').value = '';
-    document.getElementById('swPrice').value = '';
-    document.getElementById('swDesc').value = '';
-    showCustomAlert('success', 'Sweet Added!', 'New sweet has been added successfully.');
-  };
+    renderMenuPage();
+  });
 
-  window.toggleFeatured = async (id, currentStatus) => {
-    const featuredSweetsCount = allSweetsData.filter(s => s.featured).length;
-    if (!currentStatus && featuredSweetsCount >= 5) {
-      showCustomAlert('warning', 'Limit Reached', 'Maximum 5 sweets can be featured. Un-feature another one first.');
-      return;
+  onSnapshot(query(collection(db, 'gallery'), orderBy('timestamp', 'desc')), (s) => {
+    galleryData = [];
+    const grid = $('galleryGrid');
+    const adminList = $('adminGalleryList');
+    grid.innerHTML = '';
+    adminList.innerHTML = '';
+    if(s.empty) {
+      grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:20px;">Gallery is empty.</p>';
     }
-    await updateDoc(doc(db, 'sweets', id), { featured: !currentStatus });
-  };
+    s.forEach(d => {
+      const img = { id: d.id, ...d.data() };
+      galleryData.push(img);
+      grid.innerHTML += `<div class="gallery-item" data-category="${img.category}">
+        <img src="${img.imageUrl}" alt="${img.caption}" loading="lazy">
+        <div class="overlay"><span>${img.caption}</span></div>
+      </div>`;
+      adminList.innerHTML += `<div class="admin-item">
+        <div style="display:flex;align-items:center;gap:10px">
+          <img src="${img.imageUrl}" style="width:38px;height:38px;border-radius:6px;object-fit:cover">
+          <div><strong>${img.caption}</strong><br><small style="color:var(--text-muted)">${img.category}</small></div>
+        </div>
+        <button class="btn-sm btn-delete" onclick="window.deleteGalleryItem('${img.id}')"><i class="fas fa-trash"></i></button>
+      </div>`;
+    });
+  });
 
-  window.deleteSweet = async (id) => {
-    showCustomAlert('warning', 'Delete Sweet?', 'Are you sure you want to delete this sweet?<br><br>This action cannot be undone.
+  onSnapshot(query(collection(db, 'bookings'), orderBy('timestamp', 'desc')), (s) => {
+    bookings = [];
+    s.forEach(d => bookings.push({ id: d.id, ...d.data() }));
+    renderAdmin();
+    engine();
+  });
+}
+
+function updateCatSelect() {
+  $('mCatSelect').innerHTML = menuData.categories.map(c => `<option value="${c}">${c}</option>`).join('');
+}
+
+/* ============ INIT ============ */
+$('bDate').min = todayStr();
+$('adminBookingDate').value = todayStr();
+$('adminBookingDate').onchange = e => window.setAdminDate(e.target.value);
+
+['bName','bPhone'].forEach(id=>$(id).addEventListener('input',()=>{
+  $(id).classList.remove('field-invalid');
+  const next=$(id).nextElementSibling;
+  if(next?.classList.contains('booking-field-error')) next.remove();
+}));
+['bDate','bTimeSlot','bGuests'].forEach(id=>$(id).addEventListener('change',()=>{
+  $(id).classList.remove('field-invalid');
+  const next=$(id).nextElementSibling;
+  if(next?.classList.contains('booking-field-error')) next.remove();
+  const box=$('bookingErrors');
+  if(box.classList.contains('show') && !validateForm().length) box.classList.remove('show');
+}));
+
+window.addEventListener('load', () => {
+  setTimeout(() => $('preloader').classList.add('hidden'), 800);
+  paintSlotOptions();
+});
+
+setInterval(paintTimers, 1000);
+setInterval(engine, 15000);
+setTimeout(engine, 2500);
+</script>
+</body>
+</html>
