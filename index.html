@@ -11,168 +11,226 @@
   --gold:#d4af37;--gold-light:#f4d03f;--gold-dim:rgba(212,175,55,0.15);
   --dark:#050505;--dark-2:#0f0f0f;--dark-3:#1a1a1a;--dark-4:#252525;
   --text:#f5f5f5;--text-muted:#a0a0a0;--success:#4ade80;--danger:#ff4757;--sweet:#ff6b9d;
+  --warning:#fbbf24;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden;line-height:1.6}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--dark)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
 
-/* Preloader */
 .preloader{position:fixed;inset:0;background:var(--dark);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .6s}
 .preloader.hidden{opacity:0;pointer-events:none}
-.loader-brand{font-family:'Great Vibes',cursive;font-size:4rem;color:var(--gold);animation:glow 1.5s infinite alternate}
+.loader-brand{font-family:'Great Vibes',cursive;font-size:3rem;color:var(--gold);animation:glow 1.5s infinite alternate}
 @keyframes glow{to{text-shadow:0 0 30px rgba(212,175,55,.8), 0 0 60px rgba(212,175,55,.4)}}
 
-/* Navbar */
-.navbar{position:fixed;top:0;width:100%;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:.4s;background:rgba(5,5,5,.85);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(212,175,55,.15)}
-.logo{font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--gold);text-decoration:none;transition:.3s}
+.navbar{position:fixed;top:0;width:100%;padding:12px 4%;display:flex;justify-content:space-between;align-items:center;z-index:1000;transition:.4s;background:rgba(5,5,5,.92);backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid rgba(212,175,55,.15)}
+.logo{font-family:'Great Vibes',cursive;font-size:1.8rem;color:var(--gold);text-decoration:none;transition:.3s}
 .logo:hover{text-shadow:0 0 15px rgba(212,175,55,.5)}
-.nav-links{display:flex;gap:15px}
-.nav-btn{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:8px 20px;border:none;border-radius:20px;font-weight:600;cursor:pointer;font-size:.85rem;text-decoration:none;transition:.3s}
+.nav-links{display:flex;gap:10px}
+.nav-btn{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:8px 16px;border:none;border-radius:20px;font-weight:600;cursor:pointer;font-size:.8rem;text-decoration:none;transition:.3s;min-height:36px}
 .nav-btn:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(212,175,55,.4)}
-.hamburger{background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;display:none}
+.hamburger{background:none;border:none;color:var(--gold);font-size:1.3rem;cursor:pointer;display:none}
 
-/* Views Management */
-.view{display:none;min-height:100vh;padding-top:70px}
+.view{display:none;min-height:100vh;padding-top:60px}
 .view.active{display:block;animation:fadeIn .5s ease-out}
 @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 
-/* Hero Section - UPGRADED WITH AESTHETIC BACKGROUND */
 .hero{
-  min-height:95vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
-  /* YAHAN APNI CHAUHAN SWEETS KI HERO PHOTO KA LINK DALEIN (abhi ek premium placeholder hai) */
-  background:linear-gradient(to bottom, rgba(5,5,5,0.7), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80') center/cover no-repeat fixed;
-  padding:40px 20px;
+  min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
+  background-size:cover !important;background-position:center !important;background-attachment:fixed !important;
+  padding:30px 15px;
 }
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%, rgba(212,175,55,.2), transparent 60%);pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:900px;padding:40px;background:rgba(15,15,15,0.6);backdrop-filter:blur(12px);border:1px solid rgba(212,175,55,.2);border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.hero-badge{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:8px 20px;border-radius:30px;font-size:.8rem;letter-spacing:3px;margin-bottom:25px;text-transform:uppercase}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,8vw,4rem);font-weight:700;line-height:1.1;margin-bottom:20px}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(5,5,5,0.65), rgba(5,5,5,0.92));pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:900px;padding:30px 20px;background:rgba(15,15,15,0.7);backdrop-filter:blur(12px);border:1px solid rgba(212,175,55,.2);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.hero-badge{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:6px 16px;border-radius:30px;font-size:.7rem;letter-spacing:2px;margin-bottom:20px;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,7vw,3.5rem);font-weight:700;line-height:1.15;margin-bottom:15px}
 .hero h1 span{font-family:'Great Vibes',cursive;color:var(--gold);font-size:1.2em}
-.hero p{font-size:1.05rem;color:var(--text-muted);margin-bottom:30px;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.8}
-.btn-primary{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:14px 32px;border-radius:30px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-size:1rem;display:inline-flex;align-items:center;gap:8px;transition:.3s;box-shadow:0 4px 15px rgba(212,175,55,.3)}
+.hero p{font-size:.95rem;color:var(--text-muted);margin-bottom:25px;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.7}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#b8860b);color:#000;padding:14px 28px;border-radius:30px;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;transition:.3s;box-shadow:0 4px 15px rgba(212,175,55,.3);min-height:48px;justify-content:center}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(212,175,55,.5)}
 .btn-primary:active{transform:scale(.96)}
-.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:30px;font-weight:600;text-decoration:none;border:1.5px solid rgba(212,175,55,.5);cursor:pointer;font-size:1rem;display:inline-flex;align-items:center;gap:8px;margin-left:10px;transition:.3s}
+.btn-primary:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.btn-outline{background:transparent;color:#fff;padding:14px 28px;border-radius:30px;font-weight:600;text-decoration:none;border:1.5px solid rgba(212,175,55,.5);cursor:pointer;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;margin-left:10px;transition:.3s;min-height:48px}
 .btn-outline:hover{background:rgba(212,175,55,.1);border-color:var(--gold)}
 
-/* Section Headers */
-.section-header{text-align:center;padding:60px 20px 30px}
-.section-header .tag{color:var(--gold);letter-spacing:4px;font-size:.75rem;text-transform:uppercase;display:block;margin-bottom:10px;font-weight:600}
-.section-header h2{font-family:'Playfair Display',serif;font-size:2.5rem}
+.section-header{text-align:center;padding:50px 15px 25px}
+.section-header .tag{color:var(--gold);letter-spacing:3px;font-size:.7rem;text-transform:uppercase;display:block;margin-bottom:8px;font-weight:600}
+.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,5vw,2.5rem)}
 .section-header h2 span{color:var(--gold);font-family:'Great Vibes',cursive;font-size:1.3em}
-.section-header .divider{width:60px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto;border-radius:2px}
+.section-header .divider{width:50px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:15px auto;border-radius:2px}
 
-/* Sweets Grid - UPGRADED CARDS */
-.sweets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;max-width:1200px;margin:0 auto;padding:0 20px 50px}
-.sweet-card{background:var(--dark-2);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.05);transition:.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
-.sweet-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.3);box-shadow:0 15px 30px rgba(0,0,0,.4)}
-.sweet-img{
-  height:160px;background:linear-gradient(135deg,rgba(255,107,157,.1),rgba(212,175,55,.1));
-  display:flex;align-items:center;justify-content:center;font-size:3rem;
-  background-size:cover;background-position:center;position:relative;
+/* SWEETS SECTION WITH BACKGROUND IMAGE */
+.sweets-section{
+  position:relative;
+  background:linear-gradient(rgba(5,5,5,0.88),rgba(5,5,5,0.92)), url('https://images.unsplash.com/photo-1605197584247-aa39c2b249e5?w=1920&q=80') center/cover fixed;
+  padding-bottom:40px;
 }
-.sweet-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, var(--dark-2), transparent)}
-.sweet-card .body{padding:16px;position:relative}
-.sweet-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:6px;color:var(--text)}
-.sweet-card p{color:var(--text-muted);font-size:.8rem;margin-bottom:12px;height:40px;overflow:hidden;line-height:1.5}
+.sweets-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%, rgba(255,107,157,.08), transparent 60%);pointer-events:none}
+.sweets-section .section-header{position:relative;z-index:2}
+.sweets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:15px;max-width:1200px;margin:0 auto;padding:0 15px 40px;position:relative;z-index:2}
+.sweet-card{background:rgba(15,15,15,0.85);backdrop-filter:blur(10px);border-radius:16px;overflow:hidden;border:1px solid rgba(255,107,157,.15);transition:.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
+.sweet-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.3);box-shadow:0 15px 30px rgba(0,0,0,.4)}
+.sweet-img{height:140px;background:var(--dark-3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;background-size:cover;background-position:center;position:relative}
+.sweet-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(15,15,15,0.85), transparent)}
+.sweet-card .body{padding:14px;position:relative}
+.sweet-card h3{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:5px;color:var(--text)}
+.sweet-card p{color:var(--text-muted);font-size:.75rem;margin-bottom:10px;height:36px;overflow:hidden;line-height:1.4}
 .sweet-card .footer{display:flex;justify-content:space-between;align-items:center}
-.sweet-card .price{color:var(--gold);font-weight:700;font-size:1rem}
-.sweet-card .btn-book{background:var(--sweet);color:#fff;border:none;padding:8px 16px;border-radius:20px;font-size:.8rem;font-weight:600;cursor:pointer;transition:.3s}
+.sweet-card .price{color:var(--gold);font-weight:700;font-size:.95rem}
+.sweet-card .btn-book{background:var(--sweet);color:#fff;border:none;padding:8px 14px;border-radius:18px;font-size:.75rem;font-weight:600;cursor:pointer;transition:.3s;min-height:36px}
 .sweet-card .btn-book:hover{background:#ff4785;transform:scale(1.05)}
-.view-all-btn{display:block;width:90%;max-width:400px;margin:0 auto 60px;padding:16px;background:linear-gradient(135deg,rgba(255,107,157,.1),rgba(212,175,55,.1));border:1px solid rgba(255,107,157,.3);color:var(--sweet);font-weight:600;border-radius:30px;cursor:pointer;font-size:1rem;text-align:center;transition:.3s}
+.view-all-btn{display:block;width:92%;max-width:400px;margin:0 auto 50px;padding:14px;background:linear-gradient(135deg,rgba(255,107,157,.1),rgba(212,175,55,.1));border:1px solid rgba(255,107,157,.3);color:var(--sweet);font-weight:600;border-radius:30px;cursor:pointer;font-size:.95rem;text-align:center;transition:.3s;min-height:48px}
 .view-all-btn:hover{background:rgba(255,107,157,.2);transform:translateY(-2px)}
 
-/* Booking Section - UPGRADED */
-.booking-section{
-  background:linear-gradient(rgba(5,5,5,0.85),rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=1920&q=80') center/cover fixed;
-  padding:80px 20px;position:relative;
-}
-.booking-container{max-width:550px;margin:0 auto;background:rgba(15,15,15,0.8);backdrop-filter:blur(20px);padding:35px;border-radius:24px;border:1px solid rgba(212,175,55,.2);box-shadow:0 25px 50px rgba(0,0,0,.5)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.form-group{margin-bottom:18px}
-.form-group label{display:block;color:var(--gold);font-size:.8rem;margin-bottom:8px;font-weight:500;letter-spacing:0.5px}
-.form-group input,.form-group select{width:100%;padding:14px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:10px;color:#fff;font-family:inherit;font-size:.95rem;transition:.3s}
+.gallery-section{background:var(--dark-2);padding-bottom:50px}
+.gallery-tabs{display:flex;justify-content:center;gap:10px;margin-bottom:25px;flex-wrap:wrap;padding:0 15px}
+.gallery-tab{padding:10px 20px;background:var(--dark-3);border:1px solid rgba(212,175,55,0.2);border-radius:25px;color:var(--text-muted);cursor:pointer;transition:.3s;font-weight:500;font-size:.85rem;min-height:40px}
+.gallery-tab:hover{border-color:var(--gold);color:var(--gold)}
+.gallery-tab.active{background:var(--gold);color:#000;border-color:var(--gold);box-shadow:0 4px 15px rgba(212,175,55,.3)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;max-width:1200px;margin:0 auto;padding:0 15px}
+.gallery-item{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1/1;border:1px solid rgba(255,255,255,.05);cursor:pointer;background:var(--dark-3)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
+.gallery-item:hover img{transform:scale(1.1)}
+.gallery-item .overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);opacity:0;transition:.4s;display:flex;align-items:flex-end;padding:15px}
+.gallery-item:hover .overlay{opacity:1}
+.gallery-item .overlay span{color:#fff;font-family:'Playfair Display',serif;font-size:1rem;transform:translateY(10px);transition:.4s}
+.gallery-item:hover .overlay span{transform:translateY(0)}
+.gallery-item.hidden{display:none}
+
+/* BOOKING SECTION - MOBILE OPTIMIZED */
+.booking-section{background:linear-gradient(rgba(5,5,5,0.88),rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=1920&q=80') center/cover fixed;padding:50px 15px;position:relative}
+.booking-container{max-width:600px;margin:0 auto;background:rgba(15,15,15,0.9);backdrop-filter:blur(20px);padding:25px 20px;border-radius:20px;border:1px solid rgba(212,175,55,.2);box-shadow:0 25px 50px rgba(0,0,0,.5)}
+.booking-info-banner{background:linear-gradient(135deg,rgba(212,175,55,.1),rgba(212,175,55,.05));border:1px solid rgba(212,175,55,.3);border-radius:12px;padding:12px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.booking-info-banner i{color:var(--gold);font-size:1.3rem}
+.booking-info-banner div{flex:1}
+.booking-info-banner strong{color:var(--gold);display:block;margin-bottom:2px;font-size:.85rem}
+.booking-info-banner small{color:var(--text-muted);font-size:.75rem}
+.form-row{display:grid;grid-template-columns:1fr;gap:12px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;color:var(--gold);font-size:.8rem;margin-bottom:6px;font-weight:500;letter-spacing:0.5px}
+.form-group input,.form-group select{width:100%;padding:13px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:10px;color:#fff;font-family:inherit;font-size:.9rem;transition:.3s;min-height:46px}
 .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 15px rgba(212,175,55,.15)}
 
-/* Menu Page */
-.menu-page-header{position:sticky;top:70px;background:rgba(5,5,5,0.95);backdrop-filter:blur(10px);z-index:50;padding:20px;border-bottom:1px solid var(--dark-3)}
-.category-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;-webkit-overflow-scrolling:touch}
-.category-scroll::-webkit-scrollbar{display:none}
-.cat-tab{padding:10px 22px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:25px;color:var(--text-muted);font-size:.85rem;white-space:nowrap;cursor:pointer;transition:.3s}
-.cat-tab.active{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600;box-shadow:0 4px 15px rgba(212,175,55,.3)}
-.menu-list{padding:25px;max-width:800px;margin:0 auto}
-.menu-item-card{display:flex;gap:18px;background:var(--dark-2);padding:18px;border-radius:16px;margin-bottom:15px;border:1px solid rgba(255,255,255,.05);transition:.3s}
-.menu-item-card:hover{border-color:rgba(212,175,55,.2);transform:translateX(5px)}
-.menu-item-img{width:85px;height:85px;border-radius:12px;background:var(--dark-3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;overflow:hidden;background-size:cover;background-position:center}
-.menu-item-info{flex:1}
-.menu-item-info h4{font-size:1.05rem;margin-bottom:6px;font-family:'Playfair Display',serif;color:var(--text)}
-.menu-item-info p{color:var(--text-muted);font-size:.85rem;margin-bottom:10px;line-height:1.5}
-.menu-item-info .price{color:var(--gold);font-weight:700;font-size:1.1rem}
+.fee-calculator{background:var(--dark-3);border-radius:10px;padding:14px;margin:15px 0;border:1px solid rgba(212,175,55,.2);display:none}
+.fee-calculator.show{display:block;animation:fadeIn .4s}
+.fee-calculator .fee-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.fee-calculator .fee-row:last-child{margin-bottom:0;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font-weight:700;font-size:1.05rem}
+.fee-calculator .fee-label{color:var(--text-muted);font-size:.85rem}
+.fee-calculator .fee-value{color:var(--gold);font-weight:600}
+.fee-calculator .fee-total{color:var(--gold);font-size:1.2rem;font-family:'Playfair Display',serif}
 
-/* Modals */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center;z-index:5000}
+.availability-indicator{background:var(--dark-3);border-radius:10px;padding:14px;margin:15px 0;border:1px solid rgba(255,255,255,.05);display:none}
+.availability-indicator.show{display:block;animation:fadeIn .4s}
+.availability-indicator .chairs-left{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.availability-indicator .chairs-left .count{font-size:1.6rem;font-weight:700;color:var(--success);font-family:'Playfair Display',serif}
+.availability-indicator .chairs-left .count.low{color:var(--warning)}
+.availability-indicator .chairs-left .count.full{color:var(--danger)}
+.availability-indicator .chairs-left .label{color:var(--text-muted);font-size:.8rem}
+.availability-indicator .progress-bar{height:6px;background:var(--dark-4);border-radius:3px;overflow:hidden}
+.availability-indicator .progress-bar .fill{height:100%;background:linear-gradient(90deg,var(--success),var(--gold));transition:width .6s;border-radius:3px}
+.availability-indicator .progress-bar .fill.low{background:linear-gradient(90deg,var(--warning),#f59e0b)}
+.availability-indicator .progress-bar .fill.full{background:var(--danger)}
+
+.menu-page-header{position:sticky;top:60px;background:rgba(5,5,5,0.95);backdrop-filter:blur(10px);z-index:50;padding:15px;border-bottom:1px solid var(--dark-3)}
+.category-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+.category-scroll::-webkit-scrollbar{display:none}
+.cat-tab{padding:9px 18px;background:var(--dark-3);border:1px solid rgba(212,175,55,.15);border-radius:25px;color:var(--text-muted);font-size:.8rem;white-space:nowrap;cursor:pointer;transition:.3s;min-height:38px}
+.cat-tab.active{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600;box-shadow:0 4px 15px rgba(212,175,55,.3)}
+.menu-list{padding:15px;max-width:800px;margin:0 auto}
+.menu-item-card{display:flex;gap:14px;background:var(--dark-2);padding:14px;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.05);transition:.3s}
+.menu-item-card:hover{border-color:rgba(212,175,55,.2);transform:translateX(5px)}
+.menu-item-img{width:70px;height:70px;border-radius:10px;background:var(--dark-3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;overflow:hidden;background-size:cover;background-position:center}
+.menu-item-info{flex:1}
+.menu-item-info h4{font-size:.95rem;margin-bottom:5px;font-family:'Playfair Display',serif;color:var(--text)}
+.menu-item-info p{color:var(--text-muted);font-size:.78rem;margin-bottom:8px;line-height:1.4}
+.price-container{display:flex;align-items:center;gap:8px;margin-top:5px;flex-wrap:wrap}
+.price-original{text-decoration:line-through;color:#666;font-size:.85em}
+.price-discounted{color:var(--gold);font-weight:700;font-size:1rem}
+.discount-badge{background:var(--danger);color:#fff;font-size:.65em;padding:2px 7px;border-radius:4px;font-weight:700}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center;z-index:5000}
 .modal.show{display:flex}
-.modal-box{background:var(--dark-2);border-radius:24px 24px 0 0;padding:30px;width:100%;max-width:600px;max-height:85vh;overflow-y:auto;position:relative;animation:slideUp .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);border-top:1px solid rgba(212,175,55,.2)}
+.modal-box{background:var(--dark-2);border-radius:20px 20px 0 0;padding:25px 20px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;position:relative;animation:slideUp .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);border-top:1px solid rgba(212,175,55,.2)}
 @keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
-.modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.05);border:none;color:#888;width:36px;height:36px;border-radius:50%;font-size:1.2rem;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center}
+.modal-close{position:absolute;top:15px;right:15px;background:rgba(255,255,255,.05);border:none;color:#888;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;z-index:10}
 .modal-close:hover{background:var(--danger);color:#fff}
-.search-box{width:100%;padding:14px 15px 14px 45px;background:var(--dark-3);border:1px solid rgba(255,107,157,.2);border-radius:30px;color:#fff;margin-bottom:25px;font-size:1rem;transition:.3s}
+.search-box{width:100%;padding:13px 15px 13px 42px;background:var(--dark-3);border:1px solid rgba(255,107,157,.2);border-radius:30px;color:#fff;margin-bottom:20px;font-size:.9rem;transition:.3s;min-height:46px}
 .search-box:focus{outline:none;border-color:var(--sweet);box-shadow:0 0 15px rgba(255,107,157,.15)}
 .search-wrap{position:relative}
-.search-wrap i{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--sweet);font-size:1.1rem}
+.search-wrap i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--sweet);font-size:1rem}
 
-/* Payment Modal */
 .payment-modal{text-align:center}
-.qr-box{background:#fff;padding:15px;border-radius:16px;display:inline-block;margin:20px 0;box-shadow:0 10px 30px rgba(0,0,0,.3)}
-.qr-box img{width:200px;height:200px;display:block}
-.upi-id-box{background:var(--dark-3);padding:12px 16px;border-radius:12px;display:inline-flex;align-items:center;gap:10px;font-family:monospace;color:var(--gold);margin:15px 0;font-size:.95rem;border:1px dashed rgba(212,175,55,.3)}
-.copy-btn{background:var(--gold);color:#000;border:none;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:700;transition:.3s}
+.qr-box{background:#fff;padding:12px;border-radius:14px;display:inline-block;margin:18px 0;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.qr-box img{width:180px;height:180px;display:block}
+.upi-id-box{background:var(--dark-3);padding:11px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:8px;font-family:monospace;color:var(--gold);margin:12px 0;font-size:.85rem;border:1px dashed rgba(212,175,55,.3)}
+.copy-btn{background:var(--gold);color:#000;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.75rem;font-weight:700;transition:.3s;min-height:32px}
 .copy-btn:hover{background:var(--gold-light)}
-.pay-amount{font-size:2.5rem;color:var(--gold);font-weight:700;font-family:'Playfair Display',serif;margin:15px 0}
-.payment-status{margin-top:20px;padding:15px;border-radius:12px;display:none;font-size:.95rem;font-weight:500}
+.pay-amount{font-size:2.2rem;color:var(--gold);font-weight:700;font-family:'Playfair Display',serif;margin:12px 0}
+.payment-status{margin-top:18px;padding:14px;border-radius:10px;display:none;font-size:.9rem;font-weight:500}
 .payment-status.processing{display:block;background:rgba(212,175,55,.1);border:1px solid var(--gold);color:var(--gold)}
 .payment-status.success{display:block;background:rgba(74,222,128,.1);border:1px solid var(--success);color:var(--success)}
 
-/* Admin */
-.admin-trigger{color:#444;font-size:.75rem;cursor:pointer;margin-top:20px;display:inline-block;padding:6px 12px;border:1px solid #333;border-radius:6px;transition:.3s}
+.admin-trigger{color:#444;font-size:.7rem;cursor:pointer;margin-top:18px;display:inline-block;padding:6px 10px;border:1px solid #333;border-radius:6px;transition:.3s}
 .admin-trigger:hover{color:var(--gold);border-color:var(--gold);background:rgba(212,175,55,.05)}
-.admin-tabs{display:flex;gap:10px;margin-bottom:25px;border-bottom:1px solid var(--dark-4);padding-bottom:10px;overflow-x:auto}
-.admin-tab{padding:10px 18px;background:transparent;border:none;color:var(--text-muted);cursor:pointer;white-space:nowrap;font-size:.9rem;border-radius:8px 8px 0 0;transition:.3s}
+.admin-tabs{display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--dark-4);padding-bottom:8px;overflow-x:auto}
+.admin-tab{padding:9px 14px;background:transparent;border:none;color:var(--text-muted);cursor:pointer;white-space:nowrap;font-size:.8rem;border-radius:8px 8px 0 0;transition:.3s;min-height:38px}
 .admin-tab.active{color:var(--gold);background:rgba(212,175,55,.1);font-weight:600}
 .admin-panel{display:none}.admin-panel.active{display:block;animation:fadeIn .3s}
-.btn-sm{padding:8px 14px;border:none;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;margin-right:8px;transition:.3s}
+.btn-sm{padding:8px 12px;border:none;border-radius:8px;cursor:pointer;font-size:.75rem;font-weight:600;margin-right:6px;transition:.3s;min-height:36px}
 .btn-sm:hover{transform:translateY(-2px)}
-.btn-edit{background:var(--gold);color:#000}.btn-delete{background:var(--danger);color:#fff}
+.btn-edit{background:var(--gold);color:#000}
+.btn-delete{background:var(--danger);color:#fff}
+.btn-approve{background:var(--success);color:#000}
+.btn-noshow{background:var(--warning);color:#000}
 .btn-featured{background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.3)}
 .btn-featured.active{background:var(--gold);color:#000;border-color:var(--gold)}
-.admin-list{max-height:400px;overflow-y:auto;margin-top:20px;padding-right:5px}
-.admin-item{display:flex;justify-content:space-between;align-items:center;padding:15px;background:var(--dark-3);border-radius:12px;margin-bottom:10px;font-size:.9rem;border:1px solid rgba(255,255,255,.03)}
+.btn-reset{background:var(--warning);color:#000}
+.admin-list{max-height:400px;overflow-y:auto;margin-top:18px;padding-right:5px}
+.admin-item{display:flex;justify-content:space-between;align-items:center;padding:13px;background:var(--dark-3);border-radius:10px;margin-bottom:8px;font-size:.85rem;border:1px solid rgba(255,255,255,.03);flex-wrap:wrap;gap:10px}
 
-/* Footer */
-footer{background:#020202;padding:60px 20px 30px;border-top:1px solid rgba(212,175,55,.1);text-align:center;position:relative}
+.file-upload-wrap{position:relative;overflow:hidden;display:inline-block;width:100%}
+.file-upload-wrap input[type=file]{position:absolute;left:0;top:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.file-upload-btn{width:100%;padding:12px;background:var(--dark-3);border:1px dashed var(--gold);border-radius:10px;color:var(--gold);text-align:center;cursor:pointer;transition:.3s;min-height:46px}
+.file-upload-btn:hover{background:rgba(212,175,55,.1)}
+
+.slot-card{background:var(--dark-3);border-radius:10px;padding:13px;margin-bottom:8px;border:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.slot-card .slot-info{flex:1;min-width:150px}
+.slot-card .slot-time{color:var(--gold);font-weight:600;font-size:.9rem;margin-bottom:3px}
+.slot-card .slot-chairs{font-size:.8rem}
+.slot-card .slot-chairs .count{font-weight:700;font-size:1rem}
+.slot-card .slot-chairs .count.full{color:var(--danger)}
+.slot-card .slot-chairs .count.low{color:var(--warning)}
+.slot-card .slot-chairs .count.ok{color:var(--success)}
+
+.booking-status-badge{display:inline-block;padding:3px 9px;border-radius:10px;font-size:.65rem;font-weight:700;text-transform:uppercase;margin-left:6px}
+.booking-status-badge.pending{background:rgba(251,191,36,.2);color:var(--warning)}
+.booking-status-badge.confirmed{background:rgba(74,222,128,.2);color:var(--success)}
+.booking-status-badge.cancelled{background:rgba(255,71,87,.2);color:var(--danger)}
+
+footer{background:#020202;padding:50px 15px 25px;border-top:1px solid rgba(212,175,55,.1);text-align:center;position:relative}
 footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.footer-col h4{color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:15px;font-size:1.8rem}
-.footer-col p{color:var(--text-muted);font-size:.9rem;margin-bottom:8px}
-.footer-col i{color:var(--gold);width:25px}
+.footer-col h4{color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:12px;font-size:1.5rem}
+.footer-col p{color:var(--text-muted);font-size:.85rem;margin-bottom:6px}
+.footer-col i{color:var(--gold);width:22px}
 
-.float-wa{position:fixed;bottom:25px;right:25px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;text-decoration:none;box-shadow:0 8px 25px rgba(37,211,102,.4);z-index:999;transition:.3s}
+.float-wa{position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;text-decoration:none;box-shadow:0 8px 25px rgba(37,211,102,.4);z-index:999;transition:.3s}
 .float-wa:hover{transform:scale(1.1) translateY(-5px);box-shadow:0 12px 30px rgba(37,211,102,.6)}
 
 @media(min-width:768px){
-  .sweets-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .sweets-grid,.gallery-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
   .modal{align-items:center}
-  .modal-box{border-radius:24px;max-height:90vh}
-  .hero h1{font-size:4.5rem}
+  .modal-box{border-radius:20px;max-height:90vh}
+  .hero h1{font-size:3.5rem}
   .hamburger{display:none}
+  .form-row{grid-template-columns:1fr 1fr}
 }
 @media(max-width:767px){
   .nav-links{display:none}
   .hamburger{display:block}
-  .form-row{grid-template-columns:1fr}
-  .hero-content{padding:25px}
-  .btn-outline{margin-left:0;margin-top:15px;width:100%;justify-content:center}
+  .hero-content{padding:20px 15px}
+  .btn-outline{margin-left:0;margin-top:12px;width:100%;justify-content:center}
   .btn-primary{width:100%;justify-content:center}
+  .booking-container{padding:20px 15px}
 }
 </style>
 </head>
@@ -189,21 +247,20 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
   <button class="hamburger" onclick="alert('Use the buttons below to navigate!')"><i class="fas fa-bars"></i></button>
 </nav>
 
-<!-- HOME VIEW -->
 <div class="view active" id="view-home">
-  <section class="hero">
+  <section class="hero" id="heroSection" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');">
     <div class="hero-content">
       <div class="hero-badge">★ Fatehpur's Finest Since Years ★</div>
-      <h1>Welcome to <span>Chauhan's</span><br>Sweets & Restaurant</h1>
-      <p>Experience authentic North Indian, Chinese, South Indian & Continental cuisine with fresh, handmade, pure desi ghee sweets.</p>
-      <div style="margin-top:25px;display:flex;flex-wrap:wrap;justify-content:center;gap:15px">
+      <h1 id="heroTitle">Welcome to <span>Chauhan's</span><br>Sweets & Restaurant</h1>
+      <p id="heroSub">Experience authentic North Indian, Chinese, South Indian & Continental cuisine with fresh, handmade, pure desi ghee sweets.</p>
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
         <button class="btn-primary" onclick="showView('menu')"><i class="fas fa-utensils"></i> Explore Menu</button>
         <button class="btn-outline" onclick="document.getElementById('booking-section').scrollIntoView({behavior:'smooth'})"><i class="fas fa-calendar-alt"></i> Book Table</button>
       </div>
     </div>
   </section>
 
-  <section id="sweets-section">
+  <section class="sweets-section" id="sweets-section">
     <div class="section-header">
       <span class="tag">Fresh & Pure Desi Ghee</span>
       <h2>Our Premium <span>Sweets</span></h2>
@@ -213,7 +270,23 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     <button class="view-all-btn" onclick="openAllSweetsModal()">View All Sweets & Search <i class="fas fa-arrow-down"></i></button>
   </section>
 
-  <!-- BOOKING SECTION -->
+  <section class="gallery-section" id="gallery-section">
+    <div class="section-header">
+      <span class="tag">Visual Treat</span>
+      <h2>Our <span>Gallery</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="gallery-tabs">
+      <button class="gallery-tab active" onclick="filterGallery('all', this)">All</button>
+      <button class="gallery-tab" onclick="filterGallery('food', this)">Food</button>
+      <button class="gallery-tab" onclick="filterGallery('sweets', this)">Sweets</button>
+      <button class="gallery-tab" onclick="filterGallery('memory', this)">Memories</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:20px;">Loading Gallery...</p>
+    </div>
+  </section>
+
   <section class="booking-section" id="booking-section">
     <div class="section-header">
       <span class="tag">Reserve Your Spot</span>
@@ -221,24 +294,86 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
       <div class="divider"></div>
     </div>
     <div class="booking-container">
+      
+      <div class="booking-info-banner">
+        <i class="fas fa-chair"></i>
+        <div>
+          <strong>Real-Time Chair Availability</strong>
+          <small>Total 20 chairs per time slot. ₹100 per guest (adjustable in bill).</small>
+        </div>
+      </div>
+
       <div class="form-row">
         <div class="form-group"><label>Full Name</label><input type="text" id="bName" placeholder="Your name"></div>
         <div class="form-group"><label>Phone Number</label><input type="tel" id="bPhone" placeholder="10-digit" maxlength="10"></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>Date & Time</label><input type="datetime-local" id="bDate"></div>
-        <div class="form-group"><label>Number of Guests</label><select id="bGuests"><option>2 People</option><option>4 People</option><option>6 People</option><option>8+ People</option></select></div>
+        <div class="form-group">
+          <label>Select Date</label>
+          <input type="date" id="bDate" onchange="checkAvailability()">
+        </div>
+        <div class="form-group">
+          <label>Select Time Slot</label>
+          <select id="bTimeSlot" onchange="checkAvailability()">
+            <option value="">-- Choose Slot --</option>
+            <option value="12:00-14:00">12:00 PM - 2:00 PM</option>
+            <option value="14:00-16:00">2:00 PM - 4:00 PM</option>
+            <option value="16:00-18:00">4:00 PM - 6:00 PM</option>
+            <option value="18:00-20:00">6:00 PM - 8:00 PM</option>
+            <option value="20:00-22:00">8:00 PM - 10:00 PM</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group"><label>Booking Fee (Adjustable in Final Bill)</label>
-        <select id="bFee" onchange="updatePayAmount()">
-          <option value="99">₹99 (Standard Seating)</option>
-          <option value="199" selected>₹199 (Preferred Seating)</option>
-          <option value="299">₹299 (Private Cabin/Family)</option>
+      <div class="form-group">
+        <label>Number of Guests (Chairs)</label>
+        <select id="bGuests" onchange="calculateFee()">
+          <option value="">-- Select Guests --</option>
+          <option value="1">1 Chair</option>
+          <option value="2">2 Chairs</option>
+          <option value="3">3 Chairs</option>
+          <option value="4">4 Chairs</option>
+          <option value="5">5 Chairs</option>
+          <option value="6">6 Chairs</option>
+          <option value="8">8 Chairs</option>
+          <option value="10">10 Chairs</option>
         </select>
       </div>
-      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:15px;padding:16px" onclick="openPaymentModal()">
-        <i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">199</span> & Confirm Booking
+
+      <div class="fee-calculator" id="feeCalculator">
+        <div class="fee-row">
+          <span class="fee-label">Per Guest Fee</span>
+          <span class="fee-value">₹100</span>
+        </div>
+        <div class="fee-row">
+          <span class="fee-label">Number of Guests</span>
+          <span class="fee-value" id="guestCount">0</span>
+        </div>
+        <div class="fee-row">
+          <span class="fee-label">Total Booking Fee</span>
+          <span class="fee-total">₹<span id="totalFee">0</span></span>
+        </div>
+      </div>
+
+      <div class="availability-indicator" id="availabilityIndicator">
+        <div class="chairs-left">
+          <div>
+            <div class="label">Chairs Available</div>
+            <div class="count" id="chairsCount">20</div>
+          </div>
+          <div style="text-align:right">
+            <div class="label">Total Capacity</div>
+            <div style="color:var(--text-muted);font-size:.9rem">20</div>
+          </div>
+        </div>
+        <div class="progress-bar"><div class="fill" id="chairsFill" style="width:100%"></div></div>
+      </div>
+
+      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:15px;padding:15px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff" id="bookBtn" onclick="openPaymentModal()">
+        <i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">0</span> & Confirm Booking
       </button>
+      <p style="text-align:center;color:var(--text-muted);font-size:.72rem;margin-top:10px">
+        <i class="fas fa-info-circle"></i> Fee is adjustable in final bill. Payment required to confirm booking.
+      </p>
     </div>
   </section>
 
@@ -246,23 +381,22 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     <div class="footer-col">
       <h4>Chauhan's</h4>
       <p>Fatehpur's most loved dining & sweets destination.</p>
-      <p style="margin-top:20px"><i class="fas fa-phone"></i> +91 88531 53098</p>
+      <p style="margin-top:18px"><i class="fas fa-phone"></i> +91 88531 53098</p>
       <p><i class="fas fa-map-marker-alt"></i> Bullet Chauraha / Baqar Ganj, Fatehpur, UP</p>
       <p><i class="fas fa-id-card"></i> FSSAI: 22726814000007</p>
-      <p style="margin-top:20px;color:var(--gold);font-weight:600"><i class="fas fa-clock"></i> Mon-Sun: 8:00 AM - 11:00 PM</p>
+      <p style="margin-top:18px;color:var(--gold);font-weight:600"><i class="fas fa-clock"></i> Mon-Sun: 8:00 AM - 11:00 PM</p>
     </div>
-    <div style="margin-top:40px;padding-top:25px;border-top:1px solid #1a1a1a;color:#555;font-size:.8rem;">
+    <div style="margin-top:35px;padding-top:20px;border-top:1px solid #1a1a1a;color:#555;font-size:.75rem;">
       &copy; 2026 Chauhan Sweets & Restaurant. All Rights Reserved.<br>
       <span class="admin-trigger" onclick="openAdminLogin()"><i class="fas fa-lock"></i> Admin Access</span>
     </div>
   </footer>
 </div>
 
-<!-- MENU VIEW -->
 <div class="view" id="view-menu">
   <div class="menu-page-header">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px">
-      <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.5rem">Our Menu</h3>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.3rem">Our Menu</h3>
       <button class="btn-sm" style="background:var(--dark-3);color:#fff;border:1px solid rgba(255,255,255,.1)" onclick="showView('home')"><i class="fas fa-arrow-left"></i> Back</button>
     </div>
     <div class="category-scroll" id="menuCategoryScroll"></div>
@@ -270,100 +404,152 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
   <div class="menu-list" id="menuListContainer"></div>
 </div>
 
-<!-- ALL SWEETS MODAL -->
 <div class="modal" id="allSweetsModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('allSweetsModal')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--sweet);font-family:'Playfair Display',serif;margin-bottom:20px;font-size:1.5rem">All Sweets</h3>
+    <h3 style="color:var(--sweet);font-family:'Playfair Display',serif;margin-bottom:18px;font-size:1.3rem">All Sweets</h3>
     <div class="search-wrap">
       <i class="fas fa-search"></i>
       <input type="text" class="search-box" id="sweetSearch" placeholder="Search your favorite mithai..." oninput="filterAllSweets()">
     </div>
-    <div class="sweets-grid" id="allSweetsGrid" style="padding:0;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))"></div>
+    <div class="sweets-grid" id="allSweetsGrid" style="padding:0;grid-template-columns:repeat(auto-fill,minmax(140px,1fr))"></div>
   </div>
 </div>
 
-<!-- PAYMENT MODAL -->
 <div class="modal" id="paymentModal">
   <div class="modal-box payment-modal">
     <button class="modal-close" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);font-family:'Playfair Display',serif;font-size:1.5rem">Complete Booking</h3>
-    <p style="color:var(--text-muted);font-size:.9rem;margin-top:5px">Scan QR or use UPI ID to pay</p>
-    <div class="pay-amount">₹<span id="modalPayAmt">199</span></div>
+    <h3 style="color:var(--gold);font-family:'Playfair Display',serif;font-size:1.3rem">Complete Booking Payment</h3>
+    <p style="color:var(--text-muted);font-size:.85rem;margin-top:5px">Scan QR or use UPI ID to pay</p>
+    <div class="pay-amount">₹<span id="modalPayAmt">0</span></div>
     <div class="qr-box"><img id="upiQrImg" src="" alt="UPI QR"></div>
     <div class="upi-id-box"><span>akashji124421@ptyes</span><button class="copy-btn" onclick="copyUPI()">COPY</button></div>
-    <button class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;padding:16px" id="payConfirmBtn" onclick="verifyPayment()">
+    <button class="btn-primary" style="width:100%;justify-content:center;margin-top:18px;padding:15px" id="payConfirmBtn" onclick="verifyPayment()">
       <i class="fas fa-check-circle"></i> I've Made the Payment
     </button>
     <div id="payStatus" class="payment-status"></div>
   </div>
 </div>
 
-<!-- ADMIN LOGIN -->
 <div class="modal" id="adminLoginModal">
   <div class="modal-box" style="max-width:400px">
     <button class="modal-close" onclick="closeModal('adminLoginModal')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);text-align:center;margin-bottom:25px;font-family:'Playfair Display',serif;font-size:1.5rem"><i class="fas fa-shield-halved"></i> Admin Login</h3>
+    <h3 style="color:var(--gold);text-align:center;margin-bottom:20px;font-family:'Playfair Display',serif;font-size:1.3rem"><i class="fas fa-shield-halved"></i> Admin Login</h3>
     <div class="form-group"><label>Email</label><input type="email" id="adminEmail" placeholder="Enter email"></div>
     <div class="form-group"><label>Password</label><input type="password" id="adminPass" placeholder="Enter password"></div>
-    <button class="btn-primary" style="width:100%;justify-content:center;padding:14px" onclick="adminLogin()">Login</button>
-    <p id="loginError" style="color:var(--danger);text-align:center;margin-top:15px;font-size:.85rem"></p>
+    <button class="btn-primary" style="width:100%;justify-content:center;padding:13px" onclick="adminLogin()">Login</button>
+    <p id="loginError" style="color:var(--danger);text-align:center;margin-top:12px;font-size:.8rem"></p>
   </div>
 </div>
 
-<!-- ADMIN DASHBOARD -->
 <div class="modal" id="adminDashboard">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('adminDashboard')"><i class="fas fa-times"></i></button>
-    <h3 style="color:var(--gold);margin-bottom:25px;font-family:'Playfair Display',serif;font-size:1.5rem"><i class="fas fa-crown"></i> Admin Dashboard</h3>
+    <h3 style="color:var(--gold);margin-bottom:20px;font-family:'Playfair Display',serif;font-size:1.3rem"><i class="fas fa-crown"></i> Admin Dashboard</h3>
     <div class="admin-tabs">
       <button class="admin-tab active" onclick="switchAdminTab('site',this)">Site</button>
       <button class="admin-tab" onclick="switchAdminTab('sweets',this)">Sweets</button>
       <button class="admin-tab" onclick="switchAdminTab('menu',this)">Menu</button>
+      <button class="admin-tab" onclick="switchAdminTab('gallery',this)">Gallery</button>
+      <button class="admin-tab" onclick="switchAdminTab('slots',this)">Slots</button>
       <button class="admin-tab" onclick="switchAdminTab('bookings',this)">Bookings</button>
     </div>
 
     <div class="admin-panel active" id="panel-site">
-      <div class="form-group"><label>Hero Title</label><input type="text" id="editHeroTitle"></div>
+      <div class="form-group"><label>Hero Title (Use &lt;br&gt; for new line)</label><input type="text" id="editHeroTitle"></div>
       <div class="form-group"><label>Hero Subtitle</label><input type="text" id="editHeroSub"></div>
-      <button class="btn-primary" style="width:100%;justify-content:center;padding:14px" onclick="saveSiteSettings()">Save Live</button>
+      <div class="form-group"><label>Hero Background Image URL</label><input type="text" id="editHeroBg" placeholder="https://..."></div>
+      <button class="btn-primary" style="width:100%;justify-content:center;padding:13px" onclick="saveSiteSettings()">Save Live</button>
     </div>
 
     <div class="admin-panel" id="panel-sweets">
-      <div style="background:var(--dark-3);padding:20px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(255,255,255,.05)">
-        <h4 style="color:var(--sweet);margin-bottom:15px">Add New Sweet</h4>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div style="background:var(--dark-3);padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,.05)">
+        <h4 style="color:var(--sweet);margin-bottom:12px">Add New Sweet</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
           <div class="form-group"><label>Name</label><input type="text" id="swName"></div>
           <div class="form-group"><label>Price/Kg</label><input type="number" id="swPrice"></div>
         </div>
         <div class="form-group"><label>Description</label><input type="text" id="swDesc"></div>
         <button class="btn-primary" style="width:100%;justify-content:center;background:var(--sweet);padding:12px" onclick="addSweet()">Add Sweet</button>
       </div>
-      <h4 style="color:var(--text-muted);font-size:.9rem;margin-bottom:15px">Manage Featured (Max 5 shown on home)</h4>
+      <h4 style="color:var(--text-muted);font-size:.85rem;margin-bottom:12px">Manage Featured (Max 5 shown on home)</h4>
       <div class="admin-list" id="adminSweetsList"></div>
     </div>
 
     <div class="admin-panel" id="panel-menu">
-      <div style="background:var(--dark-3);padding:20px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(255,255,255,.05)">
-        <h4 style="color:var(--gold);margin-bottom:15px">Add Category</h4>
-        <div style="display:flex;gap:10px">
-          <input type="text" id="newCatName" placeholder="Category Name" style="flex:1;padding:12px;background:var(--dark);border:1px solid #333;border-radius:8px;color:#fff">
+      <div style="background:var(--dark-3);padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,.05)">
+        <h4 style="color:var(--gold);margin-bottom:12px">Add Category</h4>
+        <div style="display:flex;gap:8px">
+          <input type="text" id="newCatName" placeholder="Category Name" style="flex:1;padding:11px;background:var(--dark);border:1px solid #333;border-radius:8px;color:#fff">
           <button class="btn-sm btn-edit" onclick="addCategory()">Add</button>
         </div>
       </div>
-      <div style="background:var(--dark-3);padding:20px;border-radius:16px;margin-bottom:20px;border:1px solid rgba(255,255,255,.05)">
-        <h4 style="color:var(--gold);margin-bottom:15px">Add Menu Item</h4>
+      <div style="background:var(--dark-3);padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,.05)">
+        <h4 style="color:var(--gold);margin-bottom:12px">Add Menu Item (With Discount)</h4>
         <div class="form-group"><label>Name</label><input type="text" id="mName"></div>
-        <div class="form-group"><label>Category</label><select id="mCatSelect" style="width:100%;padding:12px;background:var(--dark);border:1px solid #333;border-radius:8px;color:#fff"></select></div>
+        <div class="form-group"><label>Category</label><select id="mCatSelect" style="width:100%;padding:11px;background:var(--dark);border:1px solid #333;border-radius:8px;color:#fff"></select></div>
         <div class="form-group"><label>Description</label><input type="text" id="mDesc"></div>
-        <div class="form-group"><label>Price (₹)</label><input type="text" id="mPrice" placeholder="e.g., 150 or 100/200"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="form-group"><label>Original Price (₹)</label><input type="number" id="mPrice" placeholder="e.g., 200"></div>
+          <div class="form-group"><label>Discounted Price (₹)</label><input type="number" id="mDiscountPrice" placeholder="e.g., 150"></div>
+        </div>
         <button class="btn-primary" style="width:100%;justify-content:center;padding:12px" onclick="addMenuItem()">Add Item</button>
       </div>
       <div class="admin-list" id="adminMenuList"></div>
     </div>
 
+    <div class="admin-panel" id="panel-gallery">
+      <div style="background:var(--dark-3);padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,.05)">
+        <h4 style="color:var(--gold);margin-bottom:12px">Upload to Gallery</h4>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="galCategory" style="width:100%;padding:11px;background:var(--dark);border:1px solid #333;border-radius:8px;color:#fff">
+            <option value="food">Food</option>
+            <option value="sweets">Sweets</option>
+            <option value="memory">Memories</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Caption</label>
+          <input type="text" id="galCaption" placeholder="e.g., Special Paneer Tikka">
+        </div>
+        <div class="form-group">
+          <label>Photo (Click to open Camera/Gallery)</label>
+          <div class="file-upload-wrap">
+            <div class="file-upload-btn"><i class="fas fa-camera"></i> Choose Photo or Take Picture</div>
+            <input type="file" id="galFile" accept="image/*" capture="environment">
+          </div>
+          <small style="color:var(--text-muted);font-size:.7rem;display:block;margin-top:5px">Max 2MB recommended for fast loading.</small>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;padding:12px" onclick="uploadGalleryImage()">
+          <i class="fas fa-cloud-upload-alt"></i> Upload & Publish
+        </button>
+      </div>
+      <h4 style="color:var(--text-muted);font-size:.85rem;margin-bottom:12px">Manage Gallery Photos</h4>
+      <div class="admin-list" id="adminGalleryList"></div>
+    </div>
+
+    <div class="admin-panel" id="panel-slots">
+      <div style="background:var(--dark-3);padding:18px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,.05)">
+        <h4 style="color:var(--gold);margin-bottom:12px"><i class="fas fa-calendar-day"></i> Manage Slots by Date</h4>
+        <div class="form-group">
+          <label>Select Date to View/Reset</label>
+          <input type="date" id="adminSlotDate" onchange="loadAdminSlots()">
+        </div>
+        <div id="adminSlotsList">
+          <p style="color:var(--text-muted);text-align:center;padding:12px">Select a date to see all time slots.</p>
+        </div>
+      </div>
+      <div style="background:var(--dark-3);padding:12px;border-radius:10px;border:1px solid rgba(212,175,55,.1)">
+        <small style="color:var(--text-muted)">
+          <i class="fas fa-info-circle" style="color:var(--gold)"></i> 
+          <strong style="color:var(--gold)">Tip:</strong> Total capacity is 20 chairs per slot. Click "Reset" to restore any slot back to 20 chairs.
+        </small>
+      </div>
+    </div>
+
     <div class="admin-panel" id="panel-bookings">
-      <h4 style="color:var(--gold);margin-bottom:20px">Recent Bookings</h4>
+      <h4 style="color:var(--gold);margin-bottom:18px">Recent Bookings</h4>
       <div class="admin-list" id="adminBookingsList"></div>
     </div>
   </div>
@@ -374,7 +560,8 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-  import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, setDoc, serverTimestamp, query, orderBy, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, setDoc, serverTimestamp, query, orderBy, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyD9pqNuFK8OR0sAYLFSO-6Sb4tr0q2JUvM",
@@ -385,18 +572,24 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     appId: "1:646659986184:web:a95b17abe5d40e9f8652bd"
   };
 
-  let db, auth;
+  const TOTAL_CHAIRS = 20;
+  const PER_GUEST_FEE = 100;
+  let db, auth, storage;
   let isAdmin = false;
   let allSweetsData = [];
   let menuData = { categories: [], items: [] };
+  let galleryData = [];
+  let currentAvailableChairs = TOTAL_CHAIRS;
+  let currentBookingFee = 0;
 
   try {
     const app = initializeApp(firebaseConfig);
-    auth = getAuth(app); db = getFirestore(app);
+    auth = getAuth(app); 
+    db = getFirestore(app);
+    storage = getStorage(app);
     onAuthStateChanged(auth, (user) => { if(user) isAdmin = true; });
-  } catch(e){ console.error(e); }
+  } catch(e){ console.error("Firebase Init Error:", e); }
 
-  // ============ VIEW MANAGEMENT ============
   window.showView = (viewName) => {
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     document.getElementById('view-' + viewName).classList.add('active');
@@ -413,7 +606,19 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     document.getElementById('panel-' + tab).classList.add('active');
   };
 
-  // ============ ADMIN LOGIN ============
+  window.filterGallery = (category, btn) => {
+    document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    const items = document.querySelectorAll('.gallery-item');
+    items.forEach(item => {
+      if (category === 'all' || item.dataset.category === category) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  };
+
   window.adminLogin = async () => {
     const email = document.getElementById('adminEmail').value.trim();
     const pass = document.getElementById('adminPass').value;
@@ -429,21 +634,98 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     }
   };
 
-  // ============ PAYMENT & BOOKING LOGIC ============
-  let currentPayAmount = 199;
-  window.updatePayAmount = () => {
-    currentPayAmount = document.getElementById('bFee').value;
-    document.getElementById('btnPayAmt').textContent = currentPayAmount;
+  window.calculateFee = () => {
+    const guests = document.getElementById('bGuests').value;
+    const feeCalc = document.getElementById('feeCalculator');
+    
+    if(!guests) {
+      feeCalc.classList.remove('show');
+      currentBookingFee = 0;
+    } else {
+      const guestsNum = Number(guests);
+      currentBookingFee = guestsNum * PER_GUEST_FEE;
+      document.getElementById('guestCount').textContent = guestsNum;
+      document.getElementById('totalFee').textContent = currentBookingFee;
+      document.getElementById('btnPayAmt').textContent = currentBookingFee;
+      feeCalc.classList.add('show');
+    }
+    checkAvailability();
+  };
+
+  window.checkAvailability = async () => {
+    const date = document.getElementById('bDate').value;
+    const timeSlot = document.getElementById('bTimeSlot').value;
+    const guests = document.getElementById('bGuests').value;
+    const indicator = document.getElementById('availabilityIndicator');
+    const chairsCount = document.getElementById('chairsCount');
+    const chairsFill = document.getElementById('chairsFill');
+    const bookBtn = document.getElementById('bookBtn');
+
+    if(!date || !timeSlot) {
+      indicator.classList.remove('show');
+      return;
+    }
+
+    try {
+      const slotRef = doc(db, 'slots', date, 'timeslots', timeSlot.replace(':', '-'));
+      const slotSnap = await getDoc(slotRef);
+      currentAvailableChairs = slotSnap.exists() ? (slotSnap.data().available_chairs ?? TOTAL_CHAIRS) : TOTAL_CHAIRS;
+
+      indicator.classList.add('show');
+      chairsCount.textContent = currentAvailableChairs;
+      const percentage = (currentAvailableChairs / TOTAL_CHAIRS) * 100;
+      chairsFill.style.width = percentage + '%';
+
+      chairsCount.className = 'count';
+      chairsFill.className = 'fill';
+      if(currentAvailableChairs <= 0) {
+        chairsCount.classList.add('full');
+        chairsFill.classList.add('full');
+        bookBtn.disabled = true;
+        bookBtn.innerHTML = '<i class="fas fa-times-circle"></i> Slot Fully Booked';
+      } else if(currentAvailableChairs <= 5) {
+        chairsCount.classList.add('low');
+        chairsFill.classList.add('low');
+        bookBtn.disabled = false;
+        bookBtn.innerHTML = `<i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">${currentBookingFee}</span> & Confirm Booking`;
+      } else {
+        bookBtn.disabled = false;
+        bookBtn.innerHTML = `<i class="fas fa-lock"></i> Pay ₹<span id="btnPayAmt">${currentBookingFee}</span> & Confirm Booking`;
+      }
+
+      if(guests && Number(guests) > currentAvailableChairs) {
+        alert(`⚠️ Sorry! Only ${currentAvailableChairs} chairs are available for this slot.\nPlease reduce the number of guests or choose another time slot.`);
+      }
+    } catch(e) {
+      console.error("Error checking availability:", e);
+      currentAvailableChairs = TOTAL_CHAIRS;
+    }
   };
 
   window.openPaymentModal = () => {
     const name = document.getElementById('bName').value.trim();
     const phone = document.getElementById('bPhone').value.trim();
     const date = document.getElementById('bDate').value;
-    if(!name || !phone || !date) { alert("Please fill Name, Phone and Date first!"); return; }
-    
-    document.getElementById('modalPayAmt').textContent = currentPayAmount;
-    const upiUrl = `upi://pay?pa=akashji124421@ptyes&pn=Chauhan+Restaurant&am=${currentPayAmount}&cu=INR&tn=Table+Booking`;
+    const timeSlot = document.getElementById('bTimeSlot').value;
+    const guests = document.getElementById('bGuests').value;
+
+    if(!name || !phone || !date || !timeSlot || !guests) {
+      alert("⚠️ Please fill all fields (Name, Phone, Date, Time Slot, Guests)!");
+      return;
+    }
+    if(phone.length !== 10 || isNaN(phone)) {
+      alert("⚠️ Please enter a valid 10-digit phone number!");
+      return;
+    }
+
+    const guestsNum = Number(guests);
+    if(guestsNum > currentAvailableChairs) {
+      alert(`❌ Sorry! Only ${currentAvailableChairs} chairs are available in this slot.`);
+      return;
+    }
+
+    document.getElementById('modalPayAmt').textContent = currentBookingFee;
+    const upiUrl = `upi://pay?pa=akashji124421@ptyes&pn=Chauhan+Restaurant&am=${currentBookingFee}&cu=INR&tn=Table+Booking`;
     document.getElementById('upiQrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiUrl)}`;
     
     document.getElementById('payStatus').style.display = 'none';
@@ -460,50 +742,78 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     btn.disabled = true;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
     status.className = 'payment-status processing';
-    status.innerHTML = '<i class="fas fa-sync fa-spin"></i> Checking UPI status...';
+    status.innerHTML = '<i class="fas fa-sync fa-spin"></i> Checking payment status...';
     
     setTimeout(async () => {
       status.className = 'payment-status success';
-      status.innerHTML = '<i class="fas fa-check-circle"></i> Payment Request Sent!';
-      btn.innerHTML = '<i class="fas fa-check"></i> Sent';
-      
-      const bookingData = {
-        name: document.getElementById('bName').value,
-        phone: document.getElementById('bPhone').value,
-        date: document.getElementById('bDate').value,
-        guests: document.getElementById('bGuests').value,
-        fee: currentPayAmount,
-        paymentStatus: 'Pending Check',
-        timestamp: serverTimestamp()
-      };
-      
-      await addDoc(collection(db, 'bookings'), bookingData);
-      
-      setTimeout(() => {
-        closeModal('paymentModal');
-        alert("✅ Booking Sent! We will confirm via WhatsApp.");
-        document.getElementById('bName').value=''; 
-        document.getElementById('bPhone').value=''; 
-        document.getElementById('bDate').value='';
-      }, 1500);
+      status.innerHTML = '<i class="fas fa-check-circle"></i> Payment Verified! Redirecting to WhatsApp...';
+      btn.innerHTML = '<i class="fas fa-check"></i> Verified';
+
+      const name = document.getElementById('bName').value.trim();
+      const phone = document.getElementById('bPhone').value.trim();
+      const date = document.getElementById('bDate').value;
+      const timeSlot = document.getElementById('bTimeSlot').value;
+      const guests = Number(document.getElementById('bGuests').value);
+
+      try {
+        await addDoc(collection(db, 'bookings'), {
+          name: name,
+          phone: phone,
+          date: date,
+          timeSlot: timeSlot,
+          guests: guests,
+          fee: currentBookingFee,
+          paymentStatus: 'Paid',
+          status: 'Pending Approval',
+          timestamp: serverTimestamp()
+        });
+
+        const waMessage = `🍽️ *NEW TABLE BOOKING - Chauhan's*%0A%0A` +
+          `👤 *Name:* ${name}%0A` +
+          `📞 *Phone:* ${phone}%0A` +
+          `📅 *Date:* ${date}%0A` +
+          `🕐 *Time Slot:* ${timeSlot}%0A` +
+          `🪑 *Number of Chairs:* ${guests}%0A` +
+          `💰 *Booking Fee Paid:* ₹${currentBookingFee}%0A%0A` +
+          `⚠️ *IMPORTANT:*%0A` +
+          `• Please arrive 10 minutes before your booking time%0A` +
+          `• If you don't arrive within 30 minutes of your slot, booking will be cancelled%0A` +
+          `• Send payment screenshot here for confirmation%0A%0A` +
+          `Thank you for choosing Chauhan's! 🙏`;
+
+        const waURL = `https://wa.me/918853153098?text=${waMessage}`;
+
+        setTimeout(() => {
+          closeModal('paymentModal');
+          window.open(waURL, '_blank');
+          document.getElementById('bName').value = '';
+          document.getElementById('bPhone').value = '';
+          document.getElementById('bDate').value = '';
+          document.getElementById('bTimeSlot').value = '';
+          document.getElementById('bGuests').value = '';
+          document.getElementById('feeCalculator').classList.remove('show');
+          document.getElementById('availabilityIndicator').classList.remove('show');
+        }, 1500);
+
+      } catch(e) {
+        console.error("Booking error:", e);
+        alert("❌ Booking failed. Please try again.");
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-check-circle"></i> I\'ve Made the Payment';
+      }
     }, 2500);
   };
 
-  // ============ SWEETS LOGIC ============
   function renderFeaturedSweets() {
     const grid = document.getElementById('featuredSweetsGrid');
     const featured = allSweetsData.filter(s => s.featured).slice(0, 5);
-    
     if(featured.length === 0) {
-      grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:30px;background:var(--dark-2);border-radius:16px;border:1px dashed rgba(212,175,55,.2)">Admin: Please mark up to 5 sweets as "Featured" in the dashboard.</p>';
+      grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:25px;background:rgba(15,15,15,0.85);border-radius:14px;border:1px dashed rgba(212,175,55,.2)">Admin: Please mark up to 5 sweets as "Featured" in the dashboard.</p>';
       return;
     }
-
     grid.innerHTML = featured.map(sw => `
       <div class="sweet-card">
-        <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">
-          ${!sw.imageUrl ? (sw.icon || '🍬') : ''}
-        </div>
+        <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">${!sw.imageUrl ? (sw.icon || '🍬') : ''}</div>
         <div class="body">
           <h3>${sw.name}</h3>
           <p>${sw.desc}</p>
@@ -526,12 +836,9 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     const search = document.getElementById('sweetSearch').value.toLowerCase();
     const grid = document.getElementById('allSweetsGrid');
     const filtered = allSweetsData.filter(s => s.name.toLowerCase().includes(search));
-    
     grid.innerHTML = filtered.map(sw => `
       <div class="sweet-card">
-        <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">
-          ${!sw.imageUrl ? (sw.icon || '') : ''}
-        </div>
+        <div class="sweet-img" style="background-image:url('${sw.imageUrl || 'https://images.unsplash.com/photo-1599321955726-e04842d6f2e7?w=400&q=80'}')">${!sw.imageUrl ? (sw.icon || '') : ''}</div>
         <div class="body">
           <h3>${sw.name}</h3>
           <p>${sw.desc}</p>
@@ -548,48 +855,53 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     window.open(`https://wa.me/918853153098?text=${encodeURIComponent(`Hi, I want to pre-book: ${name}`)}`, '_blank');
   };
 
-  // ============ MENU LOGIC ============
   function renderMenuPage() {
     const scroll = document.getElementById('menuCategoryScroll');
     const list = document.getElementById('menuListContainer');
-    
     scroll.innerHTML = menuData.categories.map((cat, i) => 
       `<button class="cat-tab ${i===0?'active':''}" onclick="window.filterMenuCat('${cat}', this)">${cat}</button>`
     ).join('');
-
     if(menuData.categories.length > 0) {
       window.filterMenuCat(menuData.categories[0], scroll.firstChild);
     } else {
-      list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;background:var(--dark-2);border-radius:16px">Menu is empty. Admin, please add categories and items.</p>';
+      list.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:30px;background:var(--dark-2);border-radius:14px">Menu is empty. Admin, please add categories and items.</p>';
     }
   }
 
   window.filterMenuCat = (cat, btn) => {
     document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
     if(btn) btn.classList.add('active');
-    
     const list = document.getElementById('menuListContainer');
     const items = menuData.items.filter(i => i.category === cat);
-    
-    list.innerHTML = items.map(item => `
+    list.innerHTML = items.map(item => {
+      let priceDisplay = `<span class="price-discounted">₹${item.price}</span>`;
+      if(item.discountPrice && item.discountPrice < item.price) {
+        const discountPercent = Math.round(((item.price - item.discountPrice) / item.price) * 100);
+        priceDisplay = `
+          <span class="price-original">₹${item.price}</span>
+          <span class="price-discounted">₹${item.discountPrice}</span>
+          <span class="discount-badge">${discountPercent}% OFF</span>
+        `;
+      }
+      return `
       <div class="menu-item-card">
         <div class="menu-item-img" style="background-image:url('${item.imageUrl || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&q=80'}')"></div>
         <div class="menu-item-info">
           <h4>${item.name}</h4>
           <p>${item.desc}</p>
-          <div class="price">₹${item.price}</div>
+          <div class="price-container">${priceDisplay}</div>
         </div>
       </div>
-    `).join('') || '<p style="text-align:center;color:var(--text-muted);padding:30px;background:var(--dark-2);border-radius:16px">No items in this category yet.</p>';
+    `}).join('') || '<p style="text-align:center;color:var(--text-muted);padding:25px;background:var(--dark-2);border-radius:14px">No items in this category yet.</p>';
   };
 
-  // ============ ADMIN FUNCTIONS ============
   window.saveSiteSettings = async () => {
     await setDoc(doc(db, 'settings', 'main'), {
       heroTitle: document.getElementById('editHeroTitle').value,
-      heroSub: document.getElementById('editHeroSub').value
+      heroSub: document.getElementById('editHeroSub').value,
+      heroBg: document.getElementById('editHeroBg').value
     });
-    alert("✅ Saved!");
+    alert("✅ Site Settings Saved Live!");
   };
 
   window.addSweet = async () => {
@@ -599,7 +911,7 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
       desc: document.getElementById('swDesc').value,
       featured: false,
       icon: '🍬',
-      imageUrl: '' /* Admin can add image URL later */
+      imageUrl: ''
     });
     document.getElementById('swName').value = '';
     document.getElementById('swPrice').value = '';
@@ -631,16 +943,20 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
   };
 
   window.addMenuItem = async () => {
+    const price = Number(document.getElementById('mPrice').value);
+    const discountPrice = document.getElementById('mDiscountPrice').value ? Number(document.getElementById('mDiscountPrice').value) : null;
     await addDoc(collection(db, 'menu_items'), {
       name: document.getElementById('mName').value,
       category: document.getElementById('mCatSelect').value,
       desc: document.getElementById('mDesc').value,
-      price: document.getElementById('mPrice').value,
-      imageUrl: '' /* Admin can add image URL later */
+      price: price,
+      discountPrice: discountPrice,
+      imageUrl: ''
     });
     document.getElementById('mName').value = '';
     document.getElementById('mDesc').value = '';
     document.getElementById('mPrice').value = '';
+    document.getElementById('mDiscountPrice').value = '';
     alert("✅ Item added!");
   };
 
@@ -648,16 +964,199 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     if(confirm("Delete this item?")) await deleteDoc(doc(db, 'menu_items', id));
   };
 
-  // ============ FIREBASE LISTENERS ============
+  window.uploadGalleryImage = async () => {
+    const file = document.getElementById('galFile').files[0];
+    const category = document.getElementById('galCategory').value;
+    const caption = document.getElementById('galCaption').value;
+    if(!file) { alert("Please select a photo first!"); return; }
+    if(file.size > 2 * 1024 * 1024) { alert("Photo is too large! Please choose an image under 2MB."); return; }
+    const btn = event.target;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+    btn.disabled = true;
+    try {
+      const storageRef = ref(storage, 'gallery/' + Date.now() + '_' + file.name);
+      const snapshot = await uploadBytes(storageRef, file);
+      const downloadURL = await getDownloadURL(snapshot.ref);
+      await addDoc(collection(db, 'gallery'), {
+        category: category,
+        caption: caption || 'Chauhan\'s Special',
+        imageUrl: downloadURL,
+        timestamp: serverTimestamp()
+      });
+      alert("✅ Photo Uploaded & Published Live!");
+      document.getElementById('galFile').value = '';
+      document.getElementById('galCaption').value = '';
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("❌ Upload failed. Make sure Firebase Storage is enabled.");
+    } finally {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }
+  };
+
+  window.deleteGalleryItem = async (id) => {
+    if(confirm("Delete this photo?")) await deleteDoc(doc(db, 'gallery', id));
+  };
+
+  const TIME_SLOTS = ["12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "20:00-22:00"];
+
+  window.loadAdminSlots = async () => {
+    const date = document.getElementById('adminSlotDate').value;
+    const container = document.getElementById('adminSlotsList');
+    
+    if(!date) {
+      container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:12px">Select a date to see all time slots.</p>';
+      return;
+    }
+
+    container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:12px"><i class="fas fa-spinner fa-spin"></i> Loading slots...</p>';
+
+    let html = '';
+    for(const slot of TIME_SLOTS) {
+      try {
+        const slotRef = doc(db, 'slots', date, 'timeslots', slot.replace(':', '-'));
+        const slotSnap = await getDoc(slotRef);
+        const available = slotSnap.exists() ? (slotSnap.data().available_chairs ?? TOTAL_CHAIRS) : TOTAL_CHAIRS;
+        const booked = TOTAL_CHAIRS - available;
+        
+        let statusClass = 'ok';
+        let statusText = 'Available';
+        if(available <= 0) { statusClass = 'full'; statusText = 'FULL'; }
+        else if(available <= 5) { statusClass = 'low'; statusText = 'Filling Fast'; }
+
+        html += `
+          <div class="slot-card">
+            <div class="slot-info">
+              <div class="slot-time"><i class="fas fa-clock"></i> ${slot}</div>
+              <div class="slot-chairs">
+                <span class="count ${statusClass}">${available}</span> / ${TOTAL_CHAIRS} chairs left
+                <span style="color:var(--text-muted);font-size:.7rem;margin-left:6px">(${booked} booked)</span>
+              </div>
+              <small style="color:${statusClass === 'full' ? 'var(--danger)' : statusClass === 'low' ? 'var(--warning)' : 'var(--success)'}">${statusText}</small>
+            </div>
+            <button class="btn-sm btn-reset" onclick="window.resetSlot('${date}', '${slot}')">
+              <i class="fas fa-redo"></i> Reset
+            </button>
+          </div>
+        `;
+      } catch(e) {
+        console.error(e);
+      }
+    }
+    container.innerHTML = html || '<p style="color:var(--text-muted);text-align:center;padding:12px">No slots found.</p>';
+  };
+
+  window.resetSlot = async (date, slot) => {
+    if(!confirm(`Reset slot "${slot}" on ${date} back to ${TOTAL_CHAIRS} chairs?`)) return;
+    try {
+      const slotRef = doc(db, 'slots', date, 'timeslots', slot.replace(':', '-'));
+      await setDoc(slotRef, { 
+        available_chairs: TOTAL_CHAIRS,
+        last_updated: serverTimestamp()
+      }, { merge: true });
+      alert(`✅ Slot "${slot}" reset to ${TOTAL_CHAIRS} chairs!`);
+      loadAdminSlots();
+    } catch(e) {
+      console.error(e);
+      alert("❌ Reset failed.");
+    }
+  };
+
+  window.approveBooking = async (bookingId, date, timeSlot, guests, customerPhone, customerName) => {
+    if(!confirm(`✅ Approve booking for ${customerName} (${guests} guests)?\n\nAfter approval, you'll be redirected to their WhatsApp to send confirmation message.`)) return;
+    
+    try {
+      const slotRef = doc(db, 'slots', date, 'timeslots', timeSlot.replace(':', '-'));
+      const slotSnap = await getDoc(slotRef);
+      let available = slotSnap.exists() ? (slotSnap.data().available_chairs ?? TOTAL_CHAIRS) : TOTAL_CHAIRS;
+      
+      const newAvailable = Math.max(0, available - guests);
+      await setDoc(slotRef, { 
+        available_chairs: newAvailable,
+        last_updated: serverTimestamp()
+      }, { merge: true });
+
+      await updateDoc(doc(db, 'bookings', bookingId), {
+        status: 'Confirmed',
+        approvedAt: serverTimestamp()
+      });
+
+      const waMessage = 
+        `🎉 *BOOKING CONFIRMED - Chauhan's Sweets & Restaurant*%0A%0A` +
+        `Namaste *${customerName}* ji,%0A%0A` +
+        `Aapki table booking successfully confirm ho gayi hai! 🙏%0A%0A` +
+        `📋 *Booking Details:*%0A` +
+        `━━━━━━━━━━━━━━━━%0A` +
+        `📅 *Date:* ${date}%0A` +
+        `🕐 *Time Slot:* ${timeSlot}%0A` +
+        `🪑 *Number of Chairs:* ${guests}%0A` +
+        `💰 *Booking Fee Paid:* ₹${guests * 100}%0A` +
+        `━━━━━━━━━━━━━━━━%0A%0A` +
+        `⚠️ *IMPORTANT INSTRUCTIONS:*%0A` +
+        `• Please apne booking time se *10 minute pehle* zaroor pahunchiye%0A` +
+        `• Agar aap *30 minute* tak restaurant nahi pahunchte, toh booking automatically *CANCEL* ho jayegi%0A` +
+        `• Booking non-transferable hai%0A` +
+        `• Koi bhi change ke liye humein pehle call karein%0A%0A` +
+        `📞 *Contact:* +91 88531 53098%0A` +
+        `📍 *Address:* Bullet Chauraha / Baqar Ganj, Fatehpur, UP%0A%0A` +
+        `Hum aapka swagat karne ke liye utsuk hain! 🍽️✨%0A%0A` +
+        `*Thank you for choosing Chauhan's!* 🙏`;
+
+      const cleanPhone = customerPhone.replace(/\D/g, '');
+      const finalPhone = cleanPhone.startsWith('91') ? cleanPhone : '91' + cleanPhone;
+      const waURL = `https://wa.me/${finalPhone}?text=${waMessage}`;
+
+      alert(`✅ Booking Approved!\n\nAb aap ${customerName} ke WhatsApp par redirect honge confirmation message ke saath.`);
+      
+      setTimeout(() => {
+        window.open(waURL, '_blank');
+      }, 500);
+
+    } catch(e) {
+      console.error("Approval error:", e);
+      alert("❌ Approval failed. Please try again.");
+    }
+  };
+
+  window.noShowBooking = async (bookingId, date, timeSlot, guests) => {
+    if(!confirm(`Mark as No-Show? Chairs will be restored.`)) return;
+    
+    try {
+      const slotRef = doc(db, 'slots', date, 'timeslots', timeSlot.replace(':', '-'));
+      const slotSnap = await getDoc(slotRef);
+      let available = slotSnap.exists() ? (slotSnap.data().available_chairs ?? TOTAL_CHAIRS) : TOTAL_CHAIRS;
+      
+      const newAvailable = Math.min(TOTAL_CHAIRS, available + guests);
+      await setDoc(slotRef, { 
+        available_chairs: newAvailable,
+        last_updated: serverTimestamp()
+      }, { merge: true });
+
+      await updateDoc(doc(db, 'bookings', bookingId), {
+        status: 'Cancelled - No Show',
+        cancelledAt: serverTimestamp()
+      });
+
+      alert("✅ Booking Cancelled (No-Show). Chairs restored.");
+    } catch(e) {
+      console.error(e);
+      alert("❌ Cancellation failed.");
+    }
+  };
+
   if(db) {
     onSnapshot(doc(db, 'settings', 'main'), (s) => {
       if(s.exists()) {
         const d = s.data();
         document.getElementById('editHeroTitle').value = d.heroTitle || "";
         document.getElementById('editHeroSub').value = d.heroSub || "";
+        document.getElementById('editHeroBg').value = d.heroBg || "";
         if(document.getElementById('view-home').classList.contains('active')) {
-          document.querySelector('.hero h1').innerHTML = d.heroTitle || "Welcome to <span>Chauhan's</span><br>Sweets & Restaurant";
-          document.querySelector('.hero p').textContent = d.heroSub || "Experience authentic North Indian, Chinese, South Indian & Continental cuisine with fresh, handmade, pure desi ghee sweets.";
+          document.getElementById('heroTitle').innerHTML = d.heroTitle || "Welcome to <span>Chauhan's</span><br>Sweets & Restaurant";
+          document.getElementById('heroSub').textContent = d.heroSub || "Experience authentic cuisine.";
+          if(d.heroBg) document.getElementById('heroSection').style.backgroundImage = `url('${d.heroBg}')`;
         }
       }
     });
@@ -666,11 +1165,9 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
       allSweetsData = [];
       const adminList = document.getElementById('adminSweetsList');
       adminList.innerHTML = '';
-      
       s.forEach(d => {
         const sw = { id: d.id, ...d.data() };
         allSweetsData.push(sw);
-        
         adminList.innerHTML += `
           <div class="admin-item">
             <div>
@@ -678,9 +1175,7 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
               <small style="color:${sw.featured ? 'var(--gold)' : 'var(--text-muted)'}">${sw.featured ? '⭐ Featured' : 'Not Featured'}</small>
             </div>
             <div>
-              <button class="btn-sm btn-featured ${sw.featured ? 'active' : ''}" onclick="window.toggleFeatured('${sw.id}', ${sw.featured})">
-                ${sw.featured ? '⭐ On' : '☆ Off'}
-              </button>
+              <button class="btn-sm btn-featured ${sw.featured ? 'active' : ''}" onclick="window.toggleFeatured('${sw.id}', ${sw.featured})">${sw.featured ? '⭐ On' : '☆ Off'}</button>
               <button class="btn-sm btn-delete" onclick="window.deleteSweet('${sw.id}')"><i class="fas fa-trash"></i></button>
             </div>
           </div>`;
@@ -689,11 +1184,8 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     });
 
     onSnapshot(doc(db, 'menu_config', 'main'), (s) => {
-      if(s.exists()) {
-        menuData.categories = s.data().categories || [];
-      } else {
-        menuData.categories = ["Breakfast", "Main Course", "Chinese", "South Indian", "Snacks"];
-      }
+      if(s.exists()) menuData.categories = s.data().categories || [];
+      else menuData.categories = ["Breakfast", "Main Course", "Chinese", "South Indian", "Snacks"];
       updateCatSelect();
       renderMenuPage();
     });
@@ -702,28 +1194,79 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
       menuData.items = [];
       const adminList = document.getElementById('adminMenuList');
       adminList.innerHTML = '';
-      
       s.forEach(d => {
         const item = { id: d.id, ...d.data() };
         menuData.items.push(item);
         adminList.innerHTML += `
           <div class="admin-item">
-            <div><strong>${item.name}</strong> (${item.category})<br><small>₹${item.price}</small></div>
+            <div><strong>${item.name}</strong> (${item.category})<br><small>₹${item.discountPrice || item.price}</small></div>
             <button class="btn-sm btn-delete" onclick="window.deleteMenuItem('${item.id}')"><i class="fas fa-trash"></i></button>
           </div>`;
       });
       renderMenuPage();
     });
 
+    onSnapshot(query(collection(db, 'gallery'), orderBy('timestamp', 'desc')), (s) => {
+      galleryData = [];
+      const grid = document.getElementById('galleryGrid');
+      const adminList = document.getElementById('adminGalleryList');
+      grid.innerHTML = '';
+      adminList.innerHTML = '';
+      if(s.empty) {
+        grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:20px;">Gallery is empty. Admin, please upload photos!</p>';
+      }
+      s.forEach(d => {
+        const img = { id: d.id, ...d.data() };
+        galleryData.push(img);
+        grid.innerHTML += `
+          <div class="gallery-item" data-category="${img.category}">
+            <img src="${img.imageUrl}" alt="${img.caption}" loading="lazy">
+            <div class="overlay"><span>${img.caption}</span></div>
+          </div>
+        `;
+        adminList.innerHTML += `
+          <div class="admin-item">
+            <div style="display:flex;align-items:center;gap:10px">
+              <img src="${img.imageUrl}" style="width:38px;height:38px;border-radius:6px;object-fit:cover">
+              <div><strong>${img.caption}</strong><br><small style="color:var(--text-muted)">${img.category}</small></div>
+            </div>
+            <button class="btn-sm btn-delete" onclick="window.deleteGalleryItem('${img.id}')"><i class="fas fa-trash"></i></button>
+          </div>
+        `;
+      });
+    });
+
     onSnapshot(query(collection(db, 'bookings'), orderBy('timestamp', 'desc')), (s) => {
       const list = document.getElementById('adminBookingsList');
       list.innerHTML = '';
-      if(s.empty) {
-        list.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:20px">No bookings yet.</p>';
-      }
+      if(s.empty) list.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:20px">No bookings yet.</p>';
       s.forEach(d => {
         const b = d.data();
-        list.innerHTML += `<div class="admin-item"><div><strong>${b.name}</strong> (${b.phone})<br><small style="color:var(--gold)">${b.date} | ${b.guests} | ₹${b.fee||0} - ${b.paymentStatus||''}</small></div><button class="btn-sm btn-delete" onclick="window.deleteDoc('bookings','${d.id}')"><i class="fas fa-trash"></i></button></div>`;
+        const statusClass = b.status === 'Confirmed' ? 'confirmed' : b.status === 'Cancelled - No Show' ? 'cancelled' : 'pending';
+        list.innerHTML += `
+          <div class="admin-item">
+            <div style="flex:1;min-width:150px">
+              <strong>${b.name}</strong> (${b.phone})
+              <span class="booking-status-badge ${statusClass}">${b.status || 'Pending'}</span>
+              <br>
+              <small style="color:var(--gold)">
+                📅 ${b.date} | 🕐 ${b.timeSlot || '-'} | 🪑 ${b.guests || 0} chairs | 💰 ₹${b.fee || 0}
+              </small>
+              <br>
+              <small style="color:var(--text-muted)">Payment: ${b.paymentStatus || 'Pending'}</small>
+            </div>
+            <div style="display:flex;gap:5px;flex-wrap:wrap">
+              ${b.status !== 'Confirmed' && b.status !== 'Cancelled - No Show' ? `
+                <button class="btn-sm btn-approve" onclick="window.approveBooking('${d.id}', '${b.date}', '${b.timeSlot}', ${b.guests}, '${b.phone}', '${b.name}')">
+                  <i class="fas fa-check"></i> Approve
+                </button>
+                <button class="btn-sm btn-noshow" onclick="window.noShowBooking('${d.id}', '${b.date}', '${b.timeSlot}', ${b.guests})">
+                  <i class="fas fa-times"></i> No-Show
+                </button>
+              ` : ''}
+              <button class="btn-sm btn-delete" onclick="window.deleteDoc('bookings','${d.id}')"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>`;
       });
     });
   }
@@ -734,12 +1277,13 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
   }
 
   window.deleteDoc = async (col, id) => {
-    if(confirm("Delete?")) await deleteDoc(doc(db, col, id));
+    if(confirm("Delete this record?")) await deleteDoc(doc(db, col, id));
   };
 
-  // ============ INIT ============
   window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 800);
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('bDate').setAttribute('min', today);
   });
 </script>
 </body>
